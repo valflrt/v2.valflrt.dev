@@ -24,7 +24,7 @@ const Main = () => {
       >
           <code>1108087200</code>
         </CopyLink>{" "}
-        (Unix Epoch). I'm French and proud to be (oui oui baguette) and I like typescript. Sailing is nice too. Also, I think Window's root is ugly.
+        (Unix Epoch). I'm French and proud to be (oui oui baguette). Sailing is nice too. Also, I think Window's root is ugly.
       </p>
     </div>
   );
