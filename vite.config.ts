@@ -1,7 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
+let root = __dirname;
+
 export default defineConfig({
-  plugins: [react()]
-})
+  mode: process.env.MODE,
+  root: root,
+  plugins: [react()],
+  base: "",
+  build: {
+    outDir: "build",
+    sourcemap: true,
+    emptyOutDir: true,
+  },
+});
