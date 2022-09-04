@@ -5,24 +5,24 @@ import Link from "../common/Link";
 let projects = [
   {
     name: "Fencryption",
-    description: "A simple cli program to encrypt/decrypt a file/directory",
+    description: "A simple cli program to encrypt/decrypt a file/directory.",
     link: "https://github.com/valflrt/Fencryption",
+  },
+  {
+    name: "Fencryption (rust)",
+    description:
+      "A simple cli program to encrypt/decrypt a file/directory (Currently in development).",
+    link: "https://github.com/valflrt/fencryption-rust",
   },
   {
     name: "Le Jardinier",
     description:
-      "Simple utility discord bot made using typescript and discord.js",
+      "Simple utility discord bot made using typescript and discord.js.",
     link: "https://github.com/valflrt/lejardinier",
   },
   {
-    name: "react-template",
-    description:
-      "A simple react typescript template with webpack. Routing and css-modules implemented.",
-    link: "https://github.com/valflrt/react-template",
-  },
-  {
     name: "This website (valflrt.dev)",
-    description: "My website, made from my react-template.",
+    description: "My website, made with vitejs.",
     link: "https://github.com/valflrt/valflrt.dev",
   },
 ];
