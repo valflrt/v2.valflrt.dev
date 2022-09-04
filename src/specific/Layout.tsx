@@ -12,7 +12,7 @@ import { css } from "../utils";
 
 import "./Layout.scss";
 
-const Layout: React.FC = ({ children }) => (
+const Layout: React.FC<{ children: JSX.Element }> = ({ children }) => (
   <div
     className={css.j(
       "layout",
