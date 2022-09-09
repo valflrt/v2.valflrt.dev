@@ -12,19 +12,20 @@ const Main = () => {
   return (
     <div className={"main home"}>
       <img className={"logo"} src={logo} alt="valflrt's logo" />
-      <h1>Heya ! I'm valflrt !</h1>
+      <h1>Heya !</h1>
       <p className={"paragraph"}>
-        Hello ! I am Valentin Fleurit (aka valflrt), just a programming enthusiast born at{" "}
+        Hello ! I am Valentin Fleurit (aka valflrt), just a programming
+        enthusiast born at{" "}
         <CopyLink
-      title={`Alive for approximately ${(
-        elapsedDays / 365
-      ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`}
-      className={"link"}
-      textToCopy={"1108087200"}
-      >
+          title={`Alive for approximately ${(
+            elapsedDays / 365
+          ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`}
+          className={"link"}
+          textToCopy={"1108087200"}
+        >
           <code>1108087200</code>
         </CopyLink>
-        . I'm French and proud to be (oui oui baguette). Sailing is nice too. Also, I think Window's root is ugly.
+        . I'm French and proud to be (oui oui baguette). I also like sailing.
       </p>
     </div>
   );
