@@ -11,7 +11,7 @@ let projects = [
   {
     name: "Fencryption (rust)",
     description:
-      "A simple cli program to encrypt/decrypt a file/directory (Currently in development).",
+      "A remake of the original Fencryption but in Rust (Not finished).",
     link: "https://github.com/valflrt/fencryption-rust",
   },
   {
