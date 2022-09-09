@@ -14,18 +14,16 @@ const Main = () => {
       <img className={"logo"} src={logo} alt="valflrt's logo" />
       <h1>Heya !</h1>
       <p className={"paragraph"}>
-        Hello ! I am Valentin Fleurit (aka valflrt), just a programming
-        enthusiast born at{" "}
-        <CopyLink
-          title={`Alive for approximately ${(
+        I am Valentin Fleurit (aka valflrt), a programming enthusiast born at{" "}
+        <code
+          title={`Alive for approximately ${Math.floor(
             elapsedDays / 365
           ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`}
-          className={"link"}
-          textToCopy={"1108087200"}
         >
-          <code>1108087200</code>
-        </CopyLink>
-        . I'm French and proud to be (oui oui baguette). I also like sailing.
+          1108087200
+        </code>
+        . French and proud to be (oui oui baguette) and I also really like
+        sailing.
       </p>
     </div>
   );
