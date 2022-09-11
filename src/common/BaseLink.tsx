@@ -1,5 +1,3 @@
-import React from "react";
-
 export type BaseLinkProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   "onClick"
@@ -8,7 +6,7 @@ export type BaseLinkProps = Omit<
   toAwait?: (resolve: (value?: unknown) => void) => void;
 };
 
-const BaseLink: React.FC<BaseLinkProps> = (props) => {
+function BaseLink(props: BaseLinkProps) {
   let { toDo, toAwait, ...filteredProps } = props;
 
   let handleClick: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
@@ -18,6 +16,6 @@ const BaseLink: React.FC<BaseLinkProps> = (props) => {
   };
 
   return <button onClick={handleClick} {...filteredProps} />;
-};
+}
 
 export default BaseLink;

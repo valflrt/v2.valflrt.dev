@@ -11,6 +11,6 @@ export let css = {
    * Joins class names
    * @param cns class names to join
    */
-  j: (...cns: (string | null | undefined)[]) =>
+  join: (...cns: (string | null | undefined | false)[]) =>
     cns.filter((cn) => !!cn).join(" "),
 };

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, LinkProps, useMatch } from "react-router-dom";
 
 export type RouterLinkProps = Omit<LinkProps, "className" | "to"> & {
@@ -6,7 +5,7 @@ export type RouterLinkProps = Omit<LinkProps, "className" | "to"> & {
   className: (isFocused: boolean) => string;
 };
 
-const RouterLink: React.FC<RouterLinkProps> = (props) => {
+function RouterLink(props: RouterLinkProps) {
   let { className, ...filteredProps } = props;
   let isFocused = !!useMatch({ path: props.to, end: true });
 
@@ -16,6 +15,6 @@ const RouterLink: React.FC<RouterLinkProps> = (props) => {
       {...filteredProps}
     />
   );
-};
+}
 
 export default RouterLink;

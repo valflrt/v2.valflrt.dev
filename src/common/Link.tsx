@@ -1,13 +1,10 @@
-import React from "react";
-
 export type LinkProps = Omit<React.HTMLProps<HTMLAnchorElement>, "onClick"> & {
   to: string;
 };
 
-const Link: React.FC<LinkProps> = (props) => {
+function Link(props: LinkProps) {
   let { to, ...filteredProps } = props;
-
   return <a href={to} {...filteredProps}></a>;
-};
+}
 
 export default Link;

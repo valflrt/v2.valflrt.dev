@@ -12,7 +12,8 @@ let PageSwitchLink = TimedRouterLinkFactory({
     document
       .querySelector("#root > .layout > .main")
       ?.classList.remove("disappearing"),
-  className: (isFocused: boolean) => css.j("link", isFocused ? "focused" : ""),
+  className: (isFocused: boolean) =>
+    css.join("link", isFocused ? "focused" : ""),
 });
 
 export default PageSwitchLink;

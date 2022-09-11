@@ -1,149 +1,44 @@
-.menuWrapperWrapper {
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-
+.menuWrapper {
   position: fixed;
-
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  left: 0;
+  top: 0;
 
   pointer-events: none;
 
-  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  .menuWrapper {
-    height: 100%;
-    width: 100%;
+  .menu {
+    pointer-events: auto;
 
-    padding: 16px;
+    padding: 20px;
 
     display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    justify-content: flex-start;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
 
-    & > * {
-      pointer-events: all;
-    }
+    .link {
+      padding: 4px;
+      margin: 2px;
+      opacity: 0.5;
 
-    .desktop & {
-      padding: 22px;
-    }
-
-    div.buttons {
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: flex-start;
-      justify-content: start;
-
-      z-index: 20;
-
-      .button {
-        width: 36px;
-        height: 36px;
-
-        border-radius: 18px;
-        background-color: var(--primary-tone-2);
-
-        cursor: pointer;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        &:not(:last-child) {
-          margin-right: 6px;
-        }
-
-        .tactile & {
-          width: 40px;
-          height: 40px;
-          border-radius: 20px;
-        }
-
-        & > svg {
-          width: 24px;
-          height: 24px;
-
-          transform: rotate(45deg);
-
-          transition-duration: 200ms;
-          transition-property: transform;
-
-          .tactile & {
-            width: 28px;
-            height: 28px;
-          }
-        }
-
-        &.rotated > svg {
-          transform: rotate(-90deg);
-        }
-      }
-    }
-
-    .menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-
-      height: 100%;
-      width: 100%;
-
-      background-color: var(--primary-tone-4);
-      box-shadow: var(--default-box-shadow);
-
-      user-select: none;
+      transition: 200ms;
 
       display: flex;
-      flex-flow: column;
+      flex-flow: column nowrap;
       align-items: center;
       justify-content: center;
 
-      transform: scaleX(0);
-      transform-origin: left;
-      opacity: 0;
-      pointer-events: none;
-
-      transition-duration: 200ms;
-      transition-property: transform, opacity;
-
-      .desktop & {
-        height: 100%;
-        width: 400px;
+      .notTactile &:hover {
+        opacity: 0.75;
       }
 
-      &.visible {
-        transform: scale(1);
+      &.focused {
         opacity: 1;
-        pointer-events: all;
-      }
-
-      .links {
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        gap: 4px;
-
-        .link {
-          padding: 8px 16px;
-
-          border-radius: 8px;
-
-          color: var(--text-tone);
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-
-          &.focused {
-            background-color: var(--primary-tone-3);
-          }
-        }
+        transform: scale(1.05);
       }
     }
   }

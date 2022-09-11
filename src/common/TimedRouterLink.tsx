@@ -1,4 +1,3 @@
-import React from "react";
 import { useMatch, useNavigate } from "react-router-dom";
 
 import BaseLink, { BaseLinkProps } from "./BaseLink";
@@ -11,11 +10,11 @@ export type TimedRouterLinkProps = Omit<
   timeout?: number;
   onTimeoutStart?: () => any;
   onTimeoutEnd?: () => any;
-  className?: (isFocused: boolean) => string;
+  className?: string | ((isFocused: boolean) => string);
 };
 
 // Used to create a link that has a timeout before redirect
-const TimedRouterLink: React.FC<TimedRouterLinkProps> = (props) => {
+function TimedRouterLink(props: TimedRouterLinkProps) {
   let {
     to,
     timeout,
@@ -44,10 +43,16 @@ const TimedRouterLink: React.FC<TimedRouterLinkProps> = (props) => {
     <BaseLink
       toDo={handleClick}
       toAwait={toAwait}
-      className={className ? className(isFocused) : undefined}
+      className={
+        className
+          ? typeof className === "string"
+            ? className
+            : className(isFocused)
+          : undefined
+      }
       {...filteredProps}
     />
   );
-};
+}
 
 export default TimedRouterLink;

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from "react";
 
 export type LazyProps = {
   importPromise: () => Promise<{ default: (props: any) => JSX.Element }>;
@@ -6,12 +6,12 @@ export type LazyProps = {
   loadEnd?: () => unknown;
 };
 
-const Lazy: React.FC<LazyProps> = (props) => {
+function Lazy(props: LazyProps) {
   let { importPromise, loadStart, loadEnd } = props;
 
-  let [element, setElement] = React.useState<JSX.Element | null>(null);
+  let [element, setElement] = useState<JSX.Element | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setElement(null);
     if (loadStart) loadStart();
     importPromise().then((i) => {
@@ -21,6 +21,6 @@ const Lazy: React.FC<LazyProps> = (props) => {
   }, [importPromise]);
 
   return element;
-};
+}
 
 export default Lazy;

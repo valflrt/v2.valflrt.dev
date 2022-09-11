@@ -1,5 +1,3 @@
-import React from "react";
-
 import TimedRouterLink, {
   TimedRouterLinkProps,
 } from "../common/TimedRouterLink";
@@ -7,9 +5,9 @@ import TimedRouterLink, {
 const TimedRouterLinkFactory = <T extends Omit<TimedRouterLinkProps, "to">>(
   customProps: T
 ) => {
-  let CustomTimedRouterLink: React.FC<TimedRouterLinkProps> = (props) => {
+  function CustomTimedRouterLink(props: TimedRouterLinkProps) {
     return <TimedRouterLink {...customProps} {...props} />;
-  };
+  }
   return CustomTimedRouterLink;
 };
 

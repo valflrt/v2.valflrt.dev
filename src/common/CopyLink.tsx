@@ -1,4 +1,3 @@
-import React from "react";
 import toast from "react-hot-toast";
 
 import BaseLink, { BaseLinkProps } from "./BaseLink";
@@ -9,7 +8,7 @@ export type CopyLinkProps = Omit<BaseLinkProps, "onClick" | "toDo"> & {
 };
 
 // Used to create a link that copies some text to clipboard
-const CopyLink: React.FC<CopyLinkProps> = (props) => {
+function CopyLink(props: CopyLinkProps) {
   let { textToCopy, notificationTimeout, ...filteredProps } = props;
 
   let toDo = () => {
@@ -19,6 +18,6 @@ const CopyLink: React.FC<CopyLinkProps> = (props) => {
   };
 
   return <BaseLink toDo={toDo} {...filteredProps} />;
-};
+}
 
 export default CopyLink;

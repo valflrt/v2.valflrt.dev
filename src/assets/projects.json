@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Fencryption",
+    "description": "A simple cli program to encrypt/decrypt a file/directory.",
+    "link": "https://github.com/valflrt/Fencryption"
+  },
+  {
+    "name": "Fencryption (rust)",
+    "description": "A remake of the original Fencryption but in Rust (Not finished).",
+    "link": "https://github.com/valflrt/fencryption-rust"
+  },
+  {
+    "name": "Le Jardinier",
+    "description": "Simple utility discord bot made using typescript and discord.js.",
+    "link": "https://github.com/valflrt/lejardinier"
+  },
+  {
+    "name": "This website (valflrt.dev)",
+    "description": "My website, made using react and vitejs.",
+    "link": "https://github.com/valflrt/valflrt.dev"
+  }
+]

@@ -4,16 +4,16 @@ import LazyFactory from "../factories/LazyFactory";
 
 import useSpinner from "../hooks/useSpinner";
 
-import "./Routes.scss";
+import "./Common.scss";
 
 let routes = [
   { path: "/", source: () => import("./Main") },
   { path: "/projects", source: () => import("./Projects") },
-  { path: "/external-links", source: () => import("./ExternalLinks") },
+  { path: "/contact", source: () => import("./Contact") },
   { path: "*", source: () => import("./NotFound") },
 ];
 
-const Routes = () => {
+function Routes() {
   let setSpinnerState = useSpinner();
 
   let Lazy = LazyFactory({
@@ -32,6 +32,6 @@ const Routes = () => {
       ))}
     </RouteGroup>
   );
-};
+}
 
 export default Routes;

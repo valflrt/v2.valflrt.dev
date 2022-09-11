@@ -1,5 +1,3 @@
-import React from "react";
-
 import useWindowEvent from "./useWindowEvent";
 
 let useClickOutsideEffect = <refElementType extends HTMLElement>(
