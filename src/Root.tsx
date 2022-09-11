@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { useLocation, useMatch } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import useIsMobile from "./hooks/useIsMobile";
 import useIsTactile from "./hooks/useIsTactile";
