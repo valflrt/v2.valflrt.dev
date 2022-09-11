@@ -6,7 +6,7 @@ import "./Menu.scss";
 function Menu() {
   return (
     <div className={"menuWrapper"}>
-      <div className="menu">
+      <div className={"menu"}>
         <PageSwitchLink
           to={"/"}
           className={(f) => css.join("link", f && "focused")}
