@@ -1,5 +1,5 @@
 export type BaseLinkProps = Omit<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  React.ButtonHTMLAttributes<HTMLDivElement>,
   "onClick"
 > & {
   toDo: () => any;
@@ -9,13 +9,13 @@ export type BaseLinkProps = Omit<
 function BaseLink(props: BaseLinkProps) {
   let { toDo, toAwait, ...filteredProps } = props;
 
-  let handleClick: React.MouseEventHandler<HTMLButtonElement> = async (e) => {
+  let handleClick: React.MouseEventHandler<HTMLDivElement> = async (e) => {
     e.preventDefault();
     if (props.toAwait) await new Promise(props.toAwait);
     toDo();
   };
 
-  return <button onClick={handleClick} {...filteredProps} />;
+  return <div onClick={handleClick} {...filteredProps} />;
 }
 
 export default BaseLink;

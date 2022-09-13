@@ -1,8 +1,9 @@
 import { ArrowRight } from "react-feather";
 
 import Link from "../common/Link";
+import PageSwitchLink from "../common/PageSwitchLink";
 
-import projects from "../assets/projects.json";
+import projects from "../assets/projects";
 
 import "./Projects.scss";
 
@@ -11,15 +12,22 @@ function Projects() {
 
   return (
     <div className={"main projects"}>
-      <h1>Some of my Projects</h1>
+      <h1 className={"mainTitle"}>Some of my Projects</h1>
       <div className={"list"}>
         {projects.map((p, i) => (
-          <Link className={"link item"} to={p.link} target={"_blank"} key={i}>
+          <PageSwitchLink
+            className={"link item"}
+            to={`/project/${p.id}`}
+            key={i}
+          >
             <div className={"card"}>
               <div className={"underlined"}>{p.name}</div>
-              <div className={"description"}>{p.description}</div>
+              <div className={"description"}>
+                <div className={"text"}>{p.description} </div>
+                <div className={"underlined"}>Read More</div>
+              </div>
             </div>
-          </Link>
+          </PageSwitchLink>
         ))}
         <Link
           to={"https://github.com/valflrt?tab=repositories"}

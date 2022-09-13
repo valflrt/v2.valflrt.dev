@@ -1,6 +1,10 @@
 .main.projects {
   max-width: 800px;
 
+  .mobile & {
+    padding: 2px;
+  }
+
   .list {
     padding: 16px;
 
@@ -12,6 +16,11 @@
     justify-content: center;
     gap: 8px;
 
+    .mobile & {
+      padding: 4px;
+      max-width: 350px;
+    }
+
     .item {
       max-width: 350px;
       min-width: 300px;
@@ -20,7 +29,7 @@
       flex: 1 1 160px;
 
       .mobile & {
-        min-width: 200px;
+        min-width: 180px;
       }
 
       .card {
@@ -35,8 +44,23 @@
         transition-property: box-shadow, transform;
 
         .description {
-          padding: 8px 4px 0px 4px;
-          font-size: 14px;
+          padding: 8px 4px 0 4px;
+
+          font-size: 15px;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          * {
+            white-space: nowrap;
+          }
+
+          .text {
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
         }
 
         .notTactile &:hover {

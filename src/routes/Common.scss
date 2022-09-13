@@ -17,7 +17,7 @@
     word-break: break-word;
   }
 
-  h1 {
+  h1.mainTitle {
     text-align: center;
     font-size: 2.6rem;
     font-family: "Lobster";
@@ -83,27 +83,27 @@
     align-items: stretch;
     justify-content: center;
     gap: 8px;
+  }
 
-    .link {
-      padding: 12px 16px;
+  .link.button {
+    padding: 12px 16px;
 
-      flex-grow: 1 1 160px;
+    flex-grow: 1 1 160px;
 
-      background-color: var(--primary-tone-2);
-      border-radius: 8px;
+    background-color: var(--primary-tone-2);
+    border-radius: 8px;
 
-      transition-duration: 200ms;
-      transition-property: box-shadow, transform;
+    transition-duration: 200ms;
+    transition-property: box-shadow, transform;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
 
-      .notTactile &:hover {
-        box-shadow: var(--default-box-shadow);
-        transform: scale(102%);
-      }
+    .notTactile &:hover {
+      box-shadow: var(--default-box-shadow);
+      transform: scale(102%);
     }
   }
 }

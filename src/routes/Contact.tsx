@@ -12,26 +12,26 @@ function Contact() {
 
   return (
     <div className={"main contact"}>
-      <h1>Contact</h1>
+      <h1 className={"mainTitle"}>Contact</h1>
       <div className={"links"}>
         <Link
-          className={"link"}
           to={"https://gh.valflrt.dev"}
           target={"_blank"}
+          className={"link button"}
         >
           <GitHub /> Github
         </Link>
         <CopyLink
           textToCopy={"valflrt#8436"}
           title={"discord"}
-          className={"link"}
+          className={"link button"}
         >
           <DiscordLogo /> valflrt#8436
         </CopyLink>
         <CopyLink
           textToCopy={"val@valflrt.dev"}
           title={"email"}
-          className={"link"}
+          className={"link button"}
         >
           <AtSign /> val@valflrt.dev
         </CopyLink>

@@ -14,7 +14,7 @@ function Main() {
         src={"/assets/logo-128.png"}
         alt={"valflrt's logo"}
       />
-      <h1>Heya !</h1>
+      <h1 className={"mainTitle"}>Heya !</h1>
       <p className={"paragraph"}>
         I am Valentin Fleurit (aka valflrt), a programming enthusiast born at{" "}
         <code
@@ -28,10 +28,10 @@ function Main() {
         sailing.
       </p>
       <div className={"links"}>
-        <PageSwitchLink to={"/projects"} className={"link"}>
+        <PageSwitchLink to={"/projects"} className={"link button"}>
           My Projects
         </PageSwitchLink>
-        <PageSwitchLink to={"/contact"} className={"link"}>
+        <PageSwitchLink to={"/contact"} className={"link button"}>
           Contact
         </PageSwitchLink>
       </div>

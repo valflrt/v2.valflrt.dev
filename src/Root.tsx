@@ -12,7 +12,7 @@ import Routes from "./routes";
 import Menu from "./specific/Menu";
 import Spinner from "./specific/Spinner";
 
-import routes from "./assets/routes.json";
+import routes from "./assets/routes";
 
 import { css } from "./utils";
 

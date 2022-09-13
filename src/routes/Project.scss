@@ -1,0 +1,30 @@
+.main.project {
+  .card {
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+
+    background-color: var(--primary-tone-2);
+    border-radius: 8px;
+
+    transition-duration: 200ms;
+    transition-property: box-shadow, transform;
+
+    .description {
+      padding: 8px 4px 0 4px;
+    }
+
+    .links {
+      padding: 16px 4px 0 4px;
+
+      .link.button {
+        background-color: var(--primary-tone-1);
+      }
+    }
+
+    .notTactile &:hover {
+      box-shadow: var(--default-box-shadow);
+      transform: scale(102%);
+    }
+  }
+}

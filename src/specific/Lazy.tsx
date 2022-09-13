@@ -6,6 +6,10 @@ export type LazyProps = {
   loadEnd?: () => unknown;
 };
 
+/**
+ * Similar to React.lazy but if there are hooks included in
+ * the component you want to render, it will throw an error.
+ */
 function Lazy(props: LazyProps) {
   let { importPromise, loadStart, loadEnd } = props;
 
