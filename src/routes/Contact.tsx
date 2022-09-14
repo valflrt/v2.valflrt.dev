@@ -14,11 +14,7 @@ function Contact() {
     <div className={"main contact"}>
       <h1 className={"mainTitle"}>Contact</h1>
       <div className={"links"}>
-        <Link
-          to={"https://gh.valflrt.dev"}
-          target={"_blank"}
-          className={"link button"}
-        >
+        <Link to={"https://github.com/valflrt"} className={"link button"}>
           <GitHub /> Github
         </Link>
         <CopyLink

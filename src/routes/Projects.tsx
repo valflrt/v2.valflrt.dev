@@ -31,7 +31,6 @@ function Projects() {
         ))}
         <Link
           to={"https://github.com/valflrt?tab=repositories"}
-          target={"_blank"}
           className={"link item"}
         >
           <div className={"more underlined"}>
