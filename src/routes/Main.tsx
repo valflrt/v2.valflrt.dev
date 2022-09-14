@@ -29,7 +29,7 @@ function Main() {
       </p>
       <div className={"links"}>
         <PageSwitchLink to={"/projects"} className={"link button"}>
-          My Projects
+          Projects
         </PageSwitchLink>
         <PageSwitchLink to={"/contact"} className={"link button"}>
           Contact
