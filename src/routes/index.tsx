@@ -8,11 +8,11 @@ import useSpinner from "../hooks/useSpinner";
 import "./Common.scss";
 
 let elements = [
-  { path: "/", element: React.lazy(() => import("./Main")) },
-  { path: "/projects", element: React.lazy(() => import("./Projects")) },
-  { path: "/contact", element: React.lazy(() => import("./Contact")) },
-  { path: "/project/:id", element: React.lazy(() => import("./Project")) },
-  { path: "*", element: React.lazy(() => import("./NotFound")) },
+  { path: "/", element: () => import("./Main") },
+  { path: "/projects", element: () => import("./Projects") },
+  { path: "/contact", element: () => import("./Contact") },
+  { path: "/project/:id", element: () => import("./Project") },
+  { path: "*", element: () => import("./NotFound") },
 ];
 
 function Routes() {
@@ -26,7 +26,11 @@ function Routes() {
   return (
     <RouteGroup>
       {elements.map((r, i) => (
-        <Route path={r.path} key={i} element={<r.element />} />
+        <Route
+          path={r.path}
+          key={i}
+          element={<Lazy importPromise={r.element} />}
+        />
       ))}
     </RouteGroup>
   );
