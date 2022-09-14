@@ -38,6 +38,11 @@ const projects: ProjectObject[] = [
         name: "github",
         icon: "GitHub",
       },
+      {
+        url: "https://lejardinier.valflrt.dev/card",
+        name: "Discord Invite",
+        icon: "Link2",
+      },
     ],
   },
   {

@@ -19,27 +19,23 @@ function Project() {
     <div className={"main project"}>
       {id && project ? (
         <>
-          <div className={"card"}>
-            <div className={"underlined"}>{project.name}</div>
-            <div className={"description"}>{project.description}</div>
-            {project.links ? (
-              <div className={"links"}>
-                {project.links.map((l, i) => {
-                  let Icon = l.icon ? icons[l.icon] : () => null;
-                  return (
-                    <Link to={l.url} className={"link button"} key={"i"}>
-                      <Icon /> {l.name}
-                    </Link>
-                  );
-                })}
-              </div>
-            ) : null}
-          </div>
-          <div className={"links"}>
-            <PageSwitchLink to={"/projects"} className={"link button"}>
-              Back to projects
-            </PageSwitchLink>
-          </div>
+          <h1 className={"mainTitle"}>{project.name}</h1>
+          <div className={"description"}>{project.description}</div>
+          {project.links ? (
+            <div className={"links"}>
+              {project.links.map((l, i) => {
+                let Icon = l.icon ? icons[l.icon] : () => null;
+                return (
+                  <Link to={l.url} className={"link button"} key={i}>
+                    <Icon /> {l.name}
+                  </Link>
+                );
+              })}
+              <PageSwitchLink to={"/projects"} className={"link button"}>
+                <icons.ArrowLeft /> Back to projects
+              </PageSwitchLink>
+            </div>
+          ) : null}
         </>
       ) : (
         <NotFound />
