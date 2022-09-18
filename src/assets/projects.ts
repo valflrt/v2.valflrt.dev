@@ -5,7 +5,7 @@ const projects: ProjectObject[] = [
     name: "Fencryption (rust)",
     id: "fencryption-rust",
     description:
-      "A remake of the original Fencryption but in Rust (because typescript was not the right language at all for this kind of project).",
+      "A remake of the original Fencryption but in Rust because typescript was not appropriate for this kind of project that requires working with io and crypto. Note that this remake is not yet working properly",
     links: [
       {
         url: "https://github.com/valflrt/fencryption-rust",
@@ -29,7 +29,7 @@ const projects: ProjectObject[] = [
   },
   {
     name: "Le Jardinier",
-    id: "lejardinier",
+    id: "le-jardinier",
     description:
       "Simple utility/test discord bot made using typescript and discord.js (with command system).",
     links: [
@@ -47,7 +47,7 @@ const projects: ProjectObject[] = [
   },
   {
     name: "valflrt.dev (v2)",
-    id: "valflrt.dev",
+    id: "valflrt.dev-v2",
     description:
       "My website, made using react and vitejs (some useful and cool react hooks are included).",
     links: [
