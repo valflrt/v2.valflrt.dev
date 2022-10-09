@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 import useIsMobile from "./hooks/useIsMobile";
 import useIsTactile from "./hooks/useIsTactile";
 import useTimedNavigate from "./hooks/useTimedNavigate";
-import useTouchMove from "./hooks/useTouchDirection";
 import useWheelStep from "./hooks/useWheelStep";
 
 import Routes from "./routes";
@@ -36,24 +35,15 @@ function Root() {
   let currentIndex = () =>
     routes.findIndex((r) => location.pathname === r.path);
 
-  if (!useIsTactile())
-    useWheelStep(
-      (e) => {
-        if (e.y === -1 && currentIndex() !== 0)
-          navigate(routes[currentIndex() - 1].path);
-        else if (e.y === 1 && currentIndex() !== routes.length - 1)
-          navigate(routes[currentIndex() + 1].path);
-      },
-      { delay: 510 }
-    );
-  else
-    useTouchMove((e) => {
-      if (Math.abs(e.dx) < Math.abs(e.dy))
-        if (e.dy > 20 && currentIndex() !== 0)
-          navigate(routes[currentIndex() - 1].path);
-        else if (e.dy < -20 && currentIndex() !== routes.length - 1)
-          navigate(routes[currentIndex() + 1].path);
-    });
+  useWheelStep(
+    (e) => {
+      if (e.y === -1 && currentIndex() !== 0)
+        navigate(routes[currentIndex() - 1].path);
+      else if (e.y === 1 && currentIndex() !== routes.length - 1)
+        navigate(routes[currentIndex() + 1].path);
+    },
+    { delay: 510 }
+  );
 
   return (
     <div
