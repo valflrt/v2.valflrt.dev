@@ -5,7 +5,7 @@ const projects: ProjectObject[] = [
     name: "Fencryption (rust)",
     id: "fencryption-rust",
     description:
-      "A remake of the original Fencryption but in Rust because typescript was not appropriate for this kind of project that requires working with io and crypto. Note that this remake is not yet working properly",
+      "A remake of the original Fencryption but in Rust because typescript was not appropriate for this kind of project that requires working with io and crypto.",
     links: [
       {
         url: "https://github.com/valflrt/fencryption-rust",
