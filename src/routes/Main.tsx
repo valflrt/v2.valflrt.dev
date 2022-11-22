@@ -1,4 +1,4 @@
-import PageSwitchLink from "../common/PageSwitchLink";
+import PageSwitchLink from "../particles/PageSwitchLink";
 
 import "./Main.scss";
 
@@ -18,14 +18,14 @@ function Main() {
       <p className={"paragraph"}>
         I am Valentin Fleurit (aka valflrt), a programming enthusiast born at{" "}
         <code
-          title={`Alive for approximately ${Math.floor(
+          title={`Alive for approximately ${Math.trunc(
             elapsedDays / 365
           ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`}
         >
           1108087200
         </code>
-        . French and proud to be (oui oui baguette) and I also really like
-        sailing.
+        . French and proud to be (oui oui baguette). I also really like sailing
+        and swimming.
       </p>
       <div className={"links"}>
         <PageSwitchLink to={"/projects"} className={"link button"}>

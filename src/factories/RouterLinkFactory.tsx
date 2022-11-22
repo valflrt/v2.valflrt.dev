@@ -1,4 +1,4 @@
-import RouterLink, { RouterLinkProps } from "../common/RouterLink";
+import RouterLink, { RouterLinkProps } from "../particles/RouterLink";
 
 const RouterLinkFactory = <T extends Omit<RouterLinkProps, "to">>(
   customProps: T

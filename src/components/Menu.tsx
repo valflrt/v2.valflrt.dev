@@ -1,4 +1,4 @@
-import PageSwitchLink from "../common/PageSwitchLink";
+import PageSwitchLink from "../particles/PageSwitchLink";
 import { css } from "../utils";
 
 import "./Menu.scss";

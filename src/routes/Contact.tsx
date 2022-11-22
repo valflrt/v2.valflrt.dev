@@ -1,5 +1,5 @@
-import Link from "../common/Link";
-import CopyLink from "../common/CopyLink";
+import Link from "../particles/Link";
+import CopyLink from "../particles/CopyLink";
 
 import { AtSign, GitHub } from "react-feather";
 

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import * as icons from "react-feather";
 
-import Link from "../common/Link";
-import PageSwitchLink from "../common/PageSwitchLink";
+import Link from "../particles/Link";
+import PageSwitchLink from "../particles/PageSwitchLink";
 
 import projects from "../assets/projects";
 

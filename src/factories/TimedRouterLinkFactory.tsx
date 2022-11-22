@@ -1,6 +1,6 @@
 import TimedRouterLink, {
   TimedRouterLinkProps,
-} from "../common/TimedRouterLink";
+} from "../particles/TimedRouterLink";
 
 const TimedRouterLinkFactory = <T extends Omit<TimedRouterLinkProps, "to">>(
   customProps: T

@@ -8,8 +8,8 @@ import useWheelStep from "./hooks/useWheelStep";
 
 import Routes from "./routes";
 
-import Menu from "./specific/Menu";
-import Spinner from "./specific/Spinner";
+import Menu from "./components/Menu";
+import Spinner from "./components/Spinner";
 
 import routes from "./assets/routes";
 

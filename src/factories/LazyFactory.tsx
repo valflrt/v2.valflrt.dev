@@ -1,4 +1,4 @@
-import Lazy, { LazyProps } from "../specific/Lazy";
+import Lazy, { LazyProps } from "../components/Lazy";
 
 const LazyFactory = <T extends Partial<LazyProps>>(customProps: T) => {
   function CustomLazy(props: Omit<LazyProps, keyof T>) {

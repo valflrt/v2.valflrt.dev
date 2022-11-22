@@ -1,3 +1,3 @@
 # valflrt.dev
 
-My website
+My website :)
