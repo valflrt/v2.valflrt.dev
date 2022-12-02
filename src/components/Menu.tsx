@@ -3,7 +3,7 @@ import { css } from "../utils";
 
 import "./Menu.scss";
 
-function Menu() {
+export default function Menu() {
   return (
     <div className={"menuWrapper"}>
       <div className={"menu"}>
@@ -29,5 +29,3 @@ function Menu() {
     </div>
   );
 }
-
-export default Menu;

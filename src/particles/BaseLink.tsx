@@ -6,7 +6,7 @@ export type BaseLinkProps = Omit<
   toAwait?: (resolve: (value?: unknown) => void) => void;
 };
 
-function BaseLink(props: BaseLinkProps) {
+export default function BaseLink(props: BaseLinkProps) {
   let { toDo, toAwait, ...filteredProps } = props;
 
   let handleClick: React.MouseEventHandler<HTMLDivElement> = async (e) => {
@@ -17,5 +17,3 @@ function BaseLink(props: BaseLinkProps) {
 
   return <div onClick={handleClick} {...filteredProps} />;
 }
-
-export default BaseLink;

@@ -1,4 +1,4 @@
-function DiscordLogo() {
+export default function DiscordLogo() {
   return (
     <svg
       width="24"
@@ -21,5 +21,3 @@ function DiscordLogo() {
     </svg>
   );
 }
-
-export default DiscordLogo;

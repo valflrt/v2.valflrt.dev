@@ -1,6 +1,6 @@
 import "./Spinner.scss";
 
-function Spinner() {
+export default function Spinner() {
   return (
     <div className={"spinner"}>
       <svg viewBox="25 25 50 50">
@@ -18,5 +18,3 @@ function Spinner() {
     </div>
   );
 }
-
-export default Spinner;

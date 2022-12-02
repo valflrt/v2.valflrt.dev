@@ -2,7 +2,7 @@ import PageSwitchLink from "../particles/PageSwitchLink";
 
 import "./Main.scss";
 
-function Main() {
+export default function Main() {
   document.title = "Home – valflrt.dev";
 
   let elapsedDays = (Date.now() / 1000 - 1108087200) / 60 / 60 / 24;
@@ -18,6 +18,7 @@ function Main() {
       <p className={"paragraph"}>
         I am Valentin Fleurit (aka valflrt), a programming enthusiast born at{" "}
         <code
+          className={"birthDate"}
           title={`Alive for approximately ${Math.trunc(
             elapsedDays / 365
           ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`}
@@ -38,5 +39,3 @@ function Main() {
     </div>
   );
 }
-
-export default Main;

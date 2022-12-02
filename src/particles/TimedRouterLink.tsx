@@ -14,7 +14,7 @@ export type TimedRouterLinkProps = Omit<
 };
 
 // Used to create a link that has a timeout before redirect
-function TimedRouterLink(props: TimedRouterLinkProps) {
+export default function TimedRouterLink(props: TimedRouterLinkProps) {
   let {
     to,
     timeout,
@@ -54,5 +54,3 @@ function TimedRouterLink(props: TimedRouterLinkProps) {
     />
   );
 }
-
-export default TimedRouterLink;

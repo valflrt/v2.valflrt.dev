@@ -15,7 +15,7 @@ let elements = [
   { path: "*", element: () => import("./NotFound") },
 ];
 
-function Routes() {
+export default function Routes() {
   let setSpinnerState = useSpinner();
 
   let Lazy = LazyFactory({
@@ -35,5 +35,3 @@ function Routes() {
     </RouteGroup>
   );
 }
-
-export default Routes;

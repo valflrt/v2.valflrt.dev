@@ -7,7 +7,7 @@ import projects from "../assets/projects";
 
 import "./Projects.scss";
 
-function Projects() {
+export default function Projects() {
   document.title = "Projects – valflrt.dev";
 
   return (
@@ -42,5 +42,3 @@ function Projects() {
     </div>
   );
 }
-
-export default Projects;

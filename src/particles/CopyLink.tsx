@@ -8,7 +8,7 @@ export type CopyLinkProps = Omit<BaseLinkProps, "onClick" | "toDo"> & {
 };
 
 // Used to create a link that copies some text to clipboard
-function CopyLink(props: CopyLinkProps) {
+export default function CopyLink(props: CopyLinkProps) {
   let { textToCopy, notificationTimeout, ...filteredProps } = props;
 
   let toDo = () => {
@@ -19,5 +19,3 @@ function CopyLink(props: CopyLinkProps) {
 
   return <BaseLink toDo={toDo} {...filteredProps} />;
 }
-
-export default CopyLink;

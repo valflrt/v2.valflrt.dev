@@ -2,7 +2,7 @@ import PageSwitchLink from "../particles/PageSwitchLink";
 
 import "./NotFound.scss";
 
-function NotFound() {
+export default function NotFound() {
   document.title = "404 – valflrt.dev";
 
   return (
@@ -15,5 +15,3 @@ function NotFound() {
     </div>
   );
 }
-
-export default NotFound;

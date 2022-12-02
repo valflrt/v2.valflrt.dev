@@ -7,7 +7,7 @@ import DiscordLogo from "../assets/discord_logo";
 
 import "./Contact.scss";
 
-function Contact() {
+export default function Contact() {
   document.title = "Contact – valflrt.dev";
 
   return (
@@ -35,5 +35,3 @@ function Contact() {
     </div>
   );
 }
-
-export default Contact;

@@ -17,7 +17,7 @@ import { css } from "./utils";
 
 import "./Root.scss";
 
-function Root() {
+export default function Root() {
   let navigate = useTimedNavigate({
     onTimeoutStart: () =>
       document
@@ -66,5 +66,3 @@ function Root() {
     </div>
   );
 }
-
-export default Root;

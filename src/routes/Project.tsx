@@ -11,7 +11,7 @@ import NotFound from "./NotFound";
 
 import "./Project.scss";
 
-function Project() {
+export default function Project() {
   let { id } = useParams();
   let [project] = useState(projects.find((p) => p.id === id));
 
@@ -43,5 +43,3 @@ function Project() {
     </div>
   );
 }
-
-export default Project;
