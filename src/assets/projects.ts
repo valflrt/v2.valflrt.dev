@@ -28,6 +28,19 @@ const projects: ProjectObject[] = [
   //   ],
   // },
   {
+    name: "valflrt.dev (v2)",
+    id: "valflrt.dev-v2",
+    description:
+      "My website, made using react and vitejs (some useful and cool react hooks are included).",
+    links: [
+      {
+        url: "https://github.com/valflrt/valflrt.dev",
+        name: "github",
+        // icon: "GitHub",
+      },
+    ],
+  },
+  {
     name: "Le Jardinier",
     id: "le-jardinier",
     description:
@@ -42,19 +55,6 @@ const projects: ProjectObject[] = [
         url: "https://lejardinier.valflrt.dev/card",
         name: "Discord Invite",
         // icon: "Link2",
-      },
-    ],
-  },
-  {
-    name: "valflrt.dev (v2)",
-    id: "valflrt.dev-v2",
-    description:
-      "My website, made using react and vitejs (some useful and cool react hooks are included).",
-    links: [
-      {
-        url: "https://github.com/valflrt/valflrt.dev",
-        name: "github",
-        // icon: "GitHub",
       },
     ],
   },
