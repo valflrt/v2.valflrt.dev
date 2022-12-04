@@ -95,7 +95,7 @@ code {
 
 .toast {
   height: 48px !important;
-  padding: 0 16px;
+  padding: 0 16px !important;
   color: inherit !important;
   background-color: rgba(200, 200, 200, 0.1) !important;
   box-shadow: none !important;
@@ -105,7 +105,7 @@ code {
 
   .mobile & {
     height: 40px !important;
-    padding: 0 10px;
+    padding: 0 10px !important;
     border-radius: 20px !important;
   }
 }
