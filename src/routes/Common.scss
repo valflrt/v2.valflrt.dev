@@ -83,6 +83,10 @@
     align-items: stretch;
     justify-content: center;
     gap: 8px;
+
+    .mobile & {
+      gap: 12px;
+    }
   }
 
   .link.button {
