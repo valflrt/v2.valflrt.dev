@@ -1,0 +1,2 @@
+import{j as n,a as e,P as t}from"./index.f0933a65.js";function o(){return document.title="404 \u2013 valflrt.dev",n("div",{className:"main notFound",children:[e("h1",{className:"mainTitle fortyHundredAndFour",children:"404"}),e("p",{children:"There's nothing here !"}),e(t,{to:"/",className:"link underlined",children:"Back home"})]})}export{o as default};
+//# sourceMappingURL=NotFound.0452ca4d.js.map
