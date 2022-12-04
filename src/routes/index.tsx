@@ -1,4 +1,3 @@
-import React from "react";
 import { Route, Routes as RouteGroup } from "react-router-dom";
 
 import LazyFactory from "../factories/LazyFactory";
