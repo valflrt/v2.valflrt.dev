@@ -17,7 +17,7 @@ const projects: ProjectObject[] = [
     name: "valflrt.dev (v2)",
     id: "valflrt.dev-v2",
     description:
-      "My website, made using react and vitejs, it has some cool react hooks.",
+      "This website, made using react and vitejs, it has some cool react hooks too.",
     links: [
       {
         url: "https://github.com/valflrt/v2.valflrt.dev",
