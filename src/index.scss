@@ -12,7 +12,7 @@ body {
 }
 
 *:focus-visible {
-  outline-color: var(--primary-tone-1);
+  outline-color: var(--primary-tone-300);
 }
 
 ::selection {
@@ -25,11 +25,11 @@ body {
 }
 
 :root {
-  --primary-tone-1: #53478f;
-  --primary-tone-2: #5f52a3;
-  --primary-tone-3: #6b5cb8;
-  --primary-tone-4: #8575d1;
-  --primary-tone-5: #9285d6;
+  --primary-tone-300: #53478f;
+  --primary-tone-400: #5f52a3;
+  --primary-tone-500: #6b5cb8;
+  --primary-tone-600: #8575d1;
+  --primary-tone-700: #9285d6;
 
   --text-tone: #f1f0fa;
 
@@ -48,7 +48,7 @@ html {
   height: 100%;
 
   color: var(--text-tone);
-  background-color: var(--primary-tone-3);
+  background-color: var(--primary-tone-500);
 
   font-family: "Nunito", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
@@ -71,13 +71,12 @@ a {
 code {
   padding: 2px 4px;
   border-radius: 4px;
-  background-color: var(--primary-tone-2);
+  background-color: var(--primary-tone-400);
   font-family: "Roboto Mono";
   font-size: 13.5px;
 }
 
 .link {
-  color: var(--primary-tone-090);
   text-decoration: inherit;
   cursor: pointer;
 
@@ -96,7 +95,7 @@ code {
 
 .toast {
   color: inherit !important;
-  background-color: var(--primary-tone-4) !important;
+  background-color: var(--primary-tone-600) !important;
   box-shadow: var(--default-box-shadow) !important;
   border-radius: 8px;
   font: inherit;
@@ -110,4 +109,9 @@ button {
   font: inherit;
   background: inherit;
   border: inherit;
+}
+
+.mobile .icon {
+  width: 20px;
+  height: 20px;
 }

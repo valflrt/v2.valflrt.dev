@@ -1,4 +1,4 @@
-import { ArrowRight } from "react-feather";
+import { ExternalLink } from "react-feather";
 
 import Link from "../particles/Link";
 import PageSwitchLink from "../particles/PageSwitchLink";
@@ -29,16 +29,14 @@ export default function Projects() {
             </div>
           </PageSwitchLink>
         ))}
-        <Link
-          to={"https://github.com/valflrt?tab=repositories"}
-          className={"link item"}
-        >
-          <div className={"more underlined"}>
-            See more on github
-            <ArrowRight />
-          </div>
-        </Link>
       </div>
+      <Link
+        to={"https://github.com/valflrt?tab=repositories"}
+        className={"link button"}
+      >
+        See more on github
+        <ExternalLink className={"icon"} />
+      </Link>
     </div>
   );
 }

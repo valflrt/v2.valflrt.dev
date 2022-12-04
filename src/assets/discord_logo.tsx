@@ -1,4 +1,8 @@
-export default function DiscordLogo() {
+import { HTMLProps } from "react";
+
+export type DiscordLogoProps = HTMLProps<HTMLOrSVGElement>;
+
+export default function DiscordLogo(props: DiscordLogoProps) {
   return (
     <svg
       width="24"

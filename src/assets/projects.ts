@@ -10,23 +10,23 @@ const projects: ProjectObject[] = [
       {
         url: "https://github.com/valflrt/fencryption-rust",
         name: "github",
-        icon: "GitHub",
+        // icon: "GitHub",
       },
     ],
   },
-  {
-    name: "Fencryption",
-    id: "fencryption-typescript",
-    description:
-      'A simple cli program to encrypt/decrypt a file/directory made in typescript and "compiled" with vercel/pkg.',
-    links: [
-      {
-        url: "https://github.com/valflrt/Fencryption",
-        name: "github",
-        icon: "GitHub",
-      },
-    ],
-  },
+  // {
+  //   name: "Fencryption",
+  //   id: "fencryption-typescript",
+  //   description:
+  //     'A simple cli program to encrypt/decrypt a file/directory made in typescript and "compiled" with vercel/pkg.',
+  //   links: [
+  //     {
+  //       url: "https://github.com/valflrt/Fencryption",
+  //       name: "github",
+  //       icon: "GitHub",
+  //     },
+  //   ],
+  // },
   {
     name: "Le Jardinier",
     id: "le-jardinier",
@@ -36,12 +36,12 @@ const projects: ProjectObject[] = [
       {
         url: "https://github.com/valflrt/lejardinier",
         name: "github",
-        icon: "GitHub",
+        // icon: "GitHub",
       },
       {
         url: "https://lejardinier.valflrt.dev/card",
         name: "Discord Invite",
-        icon: "Link2",
+        // icon: "Link2",
       },
     ],
   },
@@ -54,7 +54,7 @@ const projects: ProjectObject[] = [
       {
         url: "https://github.com/valflrt/valflrt.dev",
         name: "github",
-        icon: "GitHub",
+        // icon: "GitHub",
       },
     ],
   },

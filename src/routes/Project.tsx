@@ -24,15 +24,15 @@ export default function Project() {
           {project.links ? (
             <div className={"links"}>
               {project.links.map((l, i) => {
-                let Icon = l.icon ? icons[l.icon] : () => null;
+                let Icon = l.icon ? icons[l.icon] : icons.ExternalLink;
                 return (
                   <Link to={l.url} className={"link button"} key={i}>
-                    <Icon /> {l.name}
+                    {l.name} <Icon className={"icon"} />
                   </Link>
                 );
               })}
               <PageSwitchLink to={"/projects"} className={"link button"}>
-                <icons.ArrowLeft /> Back to projects
+                Back to projects <icons.List className={"icon"} />
               </PageSwitchLink>
             </div>
           ) : null}

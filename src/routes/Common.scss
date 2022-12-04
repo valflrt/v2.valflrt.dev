@@ -22,7 +22,7 @@
     font-size: 2.6rem;
     font-family: "Lobster";
     letter-spacing: 1px;
-    text-shadow: 0.025em 0.1em 0 var(--primary-tone-1);
+    text-shadow: 0.025em 0.1em 0 var(--primary-tone-300);
 
     .mobile & {
       font-size: 2rem;
@@ -86,11 +86,40 @@
   }
 
   .link.button {
+    height: 48px;
+    padding: 0 24px;
+
+    flex-grow: 1 1 160px;
+
+    background-color: rgba(200, 200, 200, 0.05);
+    border-radius: 24px;
+
+    transition: 200ms;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    .mobile & {
+      height: 40px;
+      padding: 0 20px;
+      border-radius: 20px;
+    }
+
+    .notTactile &:hover {
+      background-color: rgba(200, 200, 200, 0.1);
+      padding: 12px 28px;
+    }
+  }
+
+  /* former style
+  .link.button {
     padding: 12px 16px;
 
     flex-grow: 1 1 160px;
 
-    background-color: var(--primary-tone-2);
+    background-color: var(--primary-tone-300);
     border-radius: 8px;
 
     transition-duration: 200ms;
@@ -105,5 +134,5 @@
       box-shadow: var(--default-box-shadow);
       transform: scale(102%);
     }
-  }
+  } */
 }

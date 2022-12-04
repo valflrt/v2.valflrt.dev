@@ -19,11 +19,17 @@
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    gap: 8px;
+
+    .mobile & {
+      gap: 4px;
+    }
 
     .link {
-      padding: 4px;
-      margin: 2px;
-      opacity: 0.5;
+      height: 32px;
+      padding: 0 16px;
+
+      border-radius: 16px;
 
       transition: 200ms;
 
@@ -32,13 +38,23 @@
       align-items: center;
       justify-content: center;
 
+      .mobile & {
+        height: 28px;
+        padding: 0 14px;
+        border-radius: 14px;
+      }
+
       .notTactile &:hover {
-        opacity: 0.75;
+        background-color: rgba(200, 200, 200, 0.05);
       }
 
       &.focused {
-        opacity: 1;
-        transform: scale(1.05);
+        padding: 0 28px;
+        background-color: rgba(200, 200, 200, 0.1);
+
+        .mobile & {
+          padding: 0 18px;
+        }
       }
     }
   }

@@ -15,21 +15,21 @@ export default function Contact() {
       <h1 className={"mainTitle"}>Contact</h1>
       <div className={"links"}>
         <Link to={"https://github.com/valflrt"} className={"link button"}>
-          <GitHub /> Github
+          <GitHub className={"icon"} /> Github
         </Link>
         <CopyLink
           textToCopy={"valflrt#8436"}
           title={"discord"}
           className={"link button"}
         >
-          <DiscordLogo /> valflrt#8436
+          <DiscordLogo className={"icon"} /> valflrt#8436
         </CopyLink>
         <CopyLink
           textToCopy={"val@valflrt.dev"}
           title={"email"}
           className={"link button"}
         >
-          <AtSign /> val@valflrt.dev
+          <AtSign className={"icon"} /> val@valflrt.dev
         </CopyLink>
       </div>
     </div>
