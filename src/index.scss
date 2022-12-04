@@ -99,14 +99,14 @@ code {
   color: inherit !important;
   background-color: rgba(200, 200, 200, 0.1) !important;
   box-shadow: none !important;
-  border-radius: 24px;
+  border-radius: 24px !important;
   font: inherit !important;
   cursor: default;
 
   .mobile & {
     height: 40px !important;
     padding: 0 10px;
-    border-radius: 20px;
+    border-radius: 20px !important;
   }
 }
 
