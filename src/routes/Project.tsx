@@ -15,6 +15,10 @@ export default function Project() {
   let { id } = useParams();
   let [project] = useState(projects.find((p) => p.id === id));
 
+  if (project) {
+    document.title = `${project.name} – valflrt.dev`;
+  }
+
   return (
     <div className={"main project"}>
       {id && project ? (
