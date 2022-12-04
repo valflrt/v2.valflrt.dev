@@ -13,7 +13,7 @@ export default function CopyLink(props: CopyLinkProps) {
 
   let toDo = () => {
     navigator.clipboard.writeText(props.textToCopy).then(() => {
-      toast("Copied !", { duration: notificationTimeout ?? 2e3 });
+      toast.success("Copied !", { duration: notificationTimeout ?? 2e3 });
     });
   };
 

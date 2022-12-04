@@ -1,9 +1,7 @@
 import Link from "../particles/Link";
 import CopyLink from "../particles/CopyLink";
 
-import { AtSign, GitHub } from "react-feather";
-
-import DiscordLogo from "../assets/discord_logo";
+import { Copy, ExternalLink } from "react-feather";
 
 import "./Contact.scss";
 
@@ -15,21 +13,21 @@ export default function Contact() {
       <h1 className={"mainTitle"}>Contact</h1>
       <div className={"links"}>
         <Link to={"https://github.com/valflrt"} className={"link button"}>
-          <GitHub className={"icon"} /> Github
+          Github <ExternalLink className={"icon"} />
         </Link>
         <CopyLink
           textToCopy={"valflrt#8436"}
           title={"discord"}
           className={"link button"}
         >
-          <DiscordLogo className={"icon"} /> valflrt#8436
+          Discord <Copy className={"icon"} />
         </CopyLink>
         <CopyLink
           textToCopy={"val@valflrt.dev"}
           title={"email"}
           className={"link button"}
         >
-          <AtSign className={"icon"} /> val@valflrt.dev
+          Email <Copy className={"icon"} />
         </CopyLink>
       </div>
     </div>

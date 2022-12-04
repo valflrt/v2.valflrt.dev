@@ -1,4 +1,4 @@
-import { Toaster } from "react-hot-toast";
+import { ToastBar, Toaster } from "react-hot-toast";
 import { useLocation } from "react-router-dom";
 
 import useIsMobile from "./hooks/useIsMobile";
@@ -53,7 +53,19 @@ export default function Root() {
         useIsTactile() ? "tactile" : "notTactile"
       )}
     >
-      <Toaster position={"top-right"} toastOptions={{ className: "toast" }} />
+      <Toaster
+        position={"bottom-right"}
+        toastOptions={{
+          className: "toast",
+          success: {
+            iconTheme: {
+              primary: "var(--primary-tone-700)",
+              secondary: "var(--text-tone)",
+            },
+          },
+        }}
+        gutter={4}
+      />
       <Spinner />
 
       <Routes />
