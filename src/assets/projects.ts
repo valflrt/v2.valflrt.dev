@@ -9,8 +9,35 @@ const projects: ProjectObject[] = [
     links: [
       {
         url: "https://github.com/valflrt/fencryption-rust",
-        name: "github",
-        // icon: "GitHub",
+        name: "Github",
+      },
+    ],
+  },
+  {
+    name: "valflrt.dev (v2)",
+    id: "valflrt.dev-v2",
+    description:
+      "My website, made using react and vitejs, it has some cool react hooks.",
+    links: [
+      {
+        url: "https://github.com/valflrt/v2.valflrt.dev",
+        name: "Github",
+      },
+    ],
+  },
+  {
+    name: "Le Jardinier",
+    id: "le-jardinier",
+    description:
+      "Simple utility/test discord bot made using typescript and discord.js.",
+    links: [
+      {
+        url: "https://github.com/valflrt/lejardinier",
+        name: "Github",
+      },
+      {
+        url: "https://lejardinier.valflrt.dev/card",
+        name: "Discord Invite",
       },
     ],
   },
@@ -23,41 +50,9 @@ const projects: ProjectObject[] = [
   //     {
   //       url: "https://github.com/valflrt/Fencryption",
   //       name: "github",
-  //       icon: "GitHub",
   //     },
   //   ],
   // },
-  {
-    name: "valflrt.dev (v2)",
-    id: "valflrt.dev-v2",
-    description:
-      "My website, made using react and vitejs (some useful and cool react hooks are included).",
-    links: [
-      {
-        url: "https://github.com/valflrt/valflrt.dev",
-        name: "github",
-        // icon: "GitHub",
-      },
-    ],
-  },
-  {
-    name: "Le Jardinier",
-    id: "le-jardinier",
-    description:
-      "Simple utility/test discord bot made using typescript and discord.js (with command system).",
-    links: [
-      {
-        url: "https://github.com/valflrt/lejardinier",
-        name: "github",
-        // icon: "GitHub",
-      },
-      {
-        url: "https://lejardinier.valflrt.dev/card",
-        name: "Discord Invite",
-        // icon: "Link2",
-      },
-    ],
-  },
 ];
 
 export default projects;
