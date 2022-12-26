@@ -59,7 +59,7 @@ export default function Root() {
           className: "toast",
           success: {
             iconTheme: {
-              primary: "var(--primary-600)",
+              primary: "var(--primary-550)",
               secondary: "var(--text-color)",
             },
           },
