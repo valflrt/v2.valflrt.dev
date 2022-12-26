@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 import useIsMobile from "./hooks/useIsMobile";
 import useIsTactile from "./hooks/useIsTactile";
-import useTimedNavigate from "./hooks/useTimedNavigate";
+import useDelayedNavigate from "./hooks/useDelayedNavigate";
 import useWheelStep from "./hooks/useWheelStep";
 
 import Routes from "./routes";
@@ -18,7 +18,7 @@ import { css } from "./utils";
 import "./Root.scss";
 
 export default function Root() {
-  let navigate = useTimedNavigate({
+  let navigate = useDelayedNavigate({
     onTimeoutStart: () =>
       document
         .querySelector("#root > .layout > .main")
@@ -53,6 +53,9 @@ export default function Root() {
         useIsTactile() ? "tactile" : "notTactile"
       )}
     >
+      <Menu />
+      <Routes />
+
       <Toaster
         position={"bottom-right"}
         toastOptions={{
@@ -67,10 +70,6 @@ export default function Root() {
         gutter={4}
       />
       <Spinner />
-
-      <Menu />
-
-      <Routes />
 
       <div className={"copyright"}>
         <p>© 2021-present valflrt - Valentin Fleurit</p>

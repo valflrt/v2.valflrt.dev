@@ -1,7 +1,7 @@
 .main {
   max-width: 400px;
   max-height: 100%;
-  padding: 50px 16px;
+  padding: 0 20px;
   margin: auto;
 
   cursor: default;
@@ -12,11 +12,7 @@
   justify-content: center;
   gap: 16px;
 
-  animation: pageSpawn 500ms 1;
-
-  * {
-    word-break: break-word;
-  }
+  animation: pageSpawn 500ms 1 cubic-bezier(0, 0, 0.25, 1.5);
 
   h1.mainTitle {
     text-align: center;
@@ -54,10 +50,6 @@
     }
   }
 
-  .mobile & {
-    padding: 58px 12px;
-  }
-
   @keyframes pageSpawn {
     0% {
       transform: scale(0.8);
@@ -70,7 +62,7 @@
   }
 
   &.disappearing {
-    animation: pageDisappear 500ms 1;
+    animation: pageDisappear 500ms 1 ease-out;
 
     @keyframes pageDisappear {
       0% {

@@ -1,6 +1,6 @@
 import { Route, Routes as RouteGroup } from "react-router-dom";
 
-import LazyFactory from "../factories/LazyFactory";
+import lazyFactory from "../factories/lazyFactory";
 
 import useSpinner from "../hooks/useSpinner";
 
@@ -17,7 +17,7 @@ let elements = [
 export default function Routes() {
   let setSpinnerState = useSpinner();
 
-  let Lazy = LazyFactory({
+  let Lazy = lazyFactory({
     loadStart: () => setSpinnerState("visible"),
     loadEnd: () => setSpinnerState("hidden"),
   });

@@ -1,6 +1,6 @@
 import RouterLink, { RouterLinkProps } from "../particles/RouterLink";
 
-const RouterLinkFactory = <T extends Omit<RouterLinkProps, "to">>(
+const routerLinkFactory = <T extends Omit<RouterLinkProps, "to">>(
   customProps: T
 ) => {
   function CustomRouterLink(props: RouterLinkProps) {
@@ -9,4 +9,4 @@ const RouterLinkFactory = <T extends Omit<RouterLinkProps, "to">>(
   return CustomRouterLink;
 };
 
-export default RouterLinkFactory;
+export default routerLinkFactory;

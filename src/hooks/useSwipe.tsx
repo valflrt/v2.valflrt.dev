@@ -5,13 +5,12 @@ export interface TouchDirectionEvent {
   dy: number;
 }
 
-function useTouchDirection(listener: (event: TouchDirectionEvent) => unknown) {
+function useSwipe(listener: (event: TouchDirectionEvent) => unknown) {
   useWindowEvent("touchstart", (start) => {
     let startCoord = {
       x: start.changedTouches[0].clientX,
       y: start.changedTouches[0].clientY,
     };
-
     let endListener: ["touchend", (e: WindowEventMap["touchend"]) => unknown] =
       [
         "touchend",
@@ -33,4 +32,4 @@ function useTouchDirection(listener: (event: TouchDirectionEvent) => unknown) {
   });
 }
 
-export default useTouchDirection;
+export default useSwipe;

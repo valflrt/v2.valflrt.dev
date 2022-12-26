@@ -6,8 +6,6 @@
   }
 
   .list {
-    padding: 4px;
-
     width: 100%;
 
     display: flex;
@@ -17,14 +15,13 @@
     gap: 8px;
 
     .mobile & {
-      padding: 4px;
       max-width: 350px;
     }
 
-    .item {
+    .card {
       max-width: 350px;
       min-width: 300px;
-      padding: 0;
+      padding: 16px;
 
       flex: 1 1 160px;
 
@@ -32,40 +29,34 @@
         min-width: 180px;
       }
 
-      .card {
-        width: 100%;
-        height: 100%;
-        padding: 16px;
+      background-color: var(--primary-450);
+      border-radius: 16px;
 
-        background-color: var(--primary-450);
-        border-radius: 16px;
+      transition: 200ms;
 
-        transition: 200ms;
+      .description {
+        padding: 8px 4px 0 4px;
 
-        .description {
-          padding: 8px 4px 0 4px;
+        font-size: 15px;
 
-          font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 4px;
-
-          * {
-            white-space: nowrap;
-          }
-
-          .text {
-            flex-grow: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
+        * {
+          white-space: nowrap;
         }
 
-        .notTactile &:hover {
-          background-color: var(--primary-400);
+        .text {
+          flex-grow: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
+      }
+
+      .notTactile &:hover {
+        background-color: var(--primary-400);
       }
     }
   }

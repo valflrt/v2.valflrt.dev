@@ -49,6 +49,32 @@
         .mobile & {
           padding: 0 18px;
         }
+
+        &::after {
+          $radius: 2px;
+          $width: 16px;
+          $height: 4px;
+
+          content: "";
+          position: absolute;
+          width: $width;
+          height: $height;
+          top: calc(100% + 4px);
+          left: 50%;
+          margin-left: -($width / 2);
+
+          background-color: var(--primary-100);
+          border-radius: 3px;
+
+          animation: activeNavLinkDot 200ms;
+
+          @keyframes activeNavLinkDot {
+            from {
+              transform: scaleX(0);
+              background-color: transparent;
+            }
+          }
+        }
       }
     }
   }

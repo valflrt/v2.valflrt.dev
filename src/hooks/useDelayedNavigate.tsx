@@ -1,6 +1,6 @@
 import { To, useNavigate, NavigateOptions } from "react-router-dom";
 
-const useTimedNavigate = (hookOptions: {
+const useDelayedNavigate = (hookOptions: {
   timeout?: number;
   onTimeoutStart?: () => unknown;
   onTimeoutEnd?: () => unknown;
@@ -16,4 +16,4 @@ const useTimedNavigate = (hookOptions: {
   };
 };
 
-export default useTimedNavigate;
+export default useDelayedNavigate;

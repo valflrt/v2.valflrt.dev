@@ -16,13 +16,15 @@ export default function Projects() {
       <p className="description">Here are some of my projects !</p>
       <div className={"list"}>
         {projects.map((p, i) => (
-          <PageSwitchLink className={"item"} to={`/project/${p.id}`} key={i}>
-            <div className={"card"}>
-              <div className={"underlined"}>{p.name}</div>
-              <div className={"description"}>
-                <div className={"text"}>{p.description} </div>
-                <div className={"underlined"}>Read More</div>
-              </div>
+          <PageSwitchLink
+            className={"item card"}
+            to={`/project/${p.id}`}
+            key={i}
+          >
+            <div className={"underlined"}>{p.name}</div>
+            <div className={"description"}>
+              <div className={"text"}>{p.description} </div>
+              <div className={"underlined"}>Read More</div>
             </div>
           </PageSwitchLink>
         ))}
