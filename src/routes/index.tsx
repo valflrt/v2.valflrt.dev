@@ -4,7 +4,7 @@ import LazyFactory from "../factories/LazyFactory";
 
 import useSpinner from "../hooks/useSpinner";
 
-import "./Common.scss";
+import "./common.scss";
 
 let elements = [
   { path: "/", element: () => import("./Main") },

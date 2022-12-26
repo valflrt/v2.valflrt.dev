@@ -13,6 +13,7 @@ export default function Projects() {
   return (
     <div className={"main projects"}>
       <h1 className={"mainTitle"}>Some of my Projects</h1>
+      <p className="description">Here are some of my projects !</p>
       <div className={"list"}>
         {projects.map((p, i) => (
           <PageSwitchLink
@@ -32,7 +33,7 @@ export default function Projects() {
       </div>
       <Link
         to={"https://github.com/valflrt?tab=repositories"}
-        className={"link button"}
+        className={"button clickable"}
       >
         See more on github
         <ExternalLink className={"icon"} />

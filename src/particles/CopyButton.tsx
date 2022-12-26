@@ -1,8 +1,8 @@
 import toast from "react-hot-toast";
 
-import BaseLink, { BaseLinkProps } from "./BaseLink";
+import BaseButton, { BaseButtonProps } from "./BaseButton";
 
-export type CopyLinkProps = Omit<BaseLinkProps, "onClick" | "toDo"> & {
+export type CopyLinkProps = Omit<BaseButtonProps, "onClick" | "toDo"> & {
   textToCopy: string;
   notificationTimeout?: number;
 };
@@ -17,5 +17,5 @@ export default function CopyLink(props: CopyLinkProps) {
     });
   };
 
-  return <BaseLink toDo={toDo} {...filteredProps} />;
+  return <BaseButton toDo={toDo} {...filteredProps} />;
 }

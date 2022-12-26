@@ -41,6 +41,17 @@ const projects: ProjectObject[] = [
       },
     ],
   },
+  {
+    name: "Neural Network",
+    id: "neural-network",
+    description: "A 2-layered neural network, inspired by several sources.",
+    links: [
+      {
+        url: "https://github.com/valflrt/neural-network",
+        name: "Github",
+      },
+    ],
+  },
   // {
   //   name: "Fencryption",
   //   id: "fencryption-typescript",

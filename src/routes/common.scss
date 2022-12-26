@@ -10,8 +10,9 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
+  gap: 16px;
 
-  animation: spawn 500ms 1;
+  animation: pageSpawn 500ms 1;
 
   * {
     word-break: break-word;
@@ -22,11 +23,19 @@
     font-size: 2.6rem;
     font-family: "Lobster";
     letter-spacing: 1px;
-    text-shadow: 0.025em 0.1em 0 var(--primary-tone-300);
+    text-shadow: 0.025em 0.1em 0 var(--primary-350);
+
+    margin: 0;
 
     .mobile & {
       font-size: 2rem;
     }
+  }
+
+  p.description {
+    text-align: center;
+    line-height: 24px;
+    margin: 0;
   }
 
   ul {
@@ -47,7 +56,7 @@
     padding: 58px 12px;
   }
 
-  @keyframes spawn {
+  @keyframes pageSpawn {
     0% {
       transform: scale(0.8);
       opacity: 0;
@@ -59,9 +68,9 @@
   }
 
   &.disappearing {
-    animation: disappear 500ms 1;
+    animation: pageDisappear 500ms 1;
 
-    @keyframes disappear {
+    @keyframes pageDisappear {
       0% {
         transform: scale(1);
         opacity: 1;
@@ -88,55 +97,4 @@
       gap: 12px;
     }
   }
-
-  .link.button {
-    height: 48px;
-    padding: 0 24px;
-
-    flex-grow: 1 1 160px;
-
-    background-color: rgba(200, 200, 200, 0.05);
-    border-radius: 24px;
-
-    transition: 200ms;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-
-    .mobile & {
-      height: 40px;
-      padding: 0 20px;
-      border-radius: 20px;
-    }
-
-    .notTactile &:hover {
-      background-color: rgba(200, 200, 200, 0.1);
-      padding: 12px 28px;
-    }
-  }
-
-  /* former style
-  .link.button {
-    padding: 12px 16px;
-
-    flex-grow: 1 1 160px;
-
-    background-color: var(--primary-tone-300);
-    border-radius: 8px;
-
-    transition-duration: 200ms;
-    transition-property: box-shadow, transform;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-
-    .notTactile &:hover {
-      box-shadow: var(--default-box-shadow);
-      transform: scale(102%);
-    }
-  } */
 }

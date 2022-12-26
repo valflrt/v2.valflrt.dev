@@ -4,27 +4,24 @@ import { css } from "../utils";
 import "./Menu.scss";
 
 export default function Menu() {
+  let links = [
+    { name: "Home", url: "/" },
+    { name: "Projects", url: "/projects" },
+    { name: "Contact", url: "/contact" },
+  ];
+
   return (
     <div className={"menuWrapper"}>
       <div className={"menu"}>
-        <PageSwitchLink
-          to={"/"}
-          className={(f) => css.join("link", f && "focused")}
-        >
-          Home
-        </PageSwitchLink>
-        <PageSwitchLink
-          to={"/projects"}
-          className={(f) => css.join("link", f && "focused")}
-        >
-          Projects
-        </PageSwitchLink>
-        <PageSwitchLink
-          to={"/contact"}
-          className={(f) => css.join("link", f && "focused")}
-        >
-          Contact
-        </PageSwitchLink>
+        {links.map((link, i) => (
+          <PageSwitchLink
+            to={link.url}
+            className={(f) => css.join("clickable", f && "focused")}
+            key={i}
+          >
+            {link.name}
+          </PageSwitchLink>
+        ))}
       </div>
     </div>
   );

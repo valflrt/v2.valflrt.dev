@@ -59,8 +59,8 @@ export default function Root() {
           className: "toast",
           success: {
             iconTheme: {
-              primary: "var(--primary-tone-700)",
-              secondary: "var(--text-tone)",
+              primary: "var(--primary-600)",
+              secondary: "var(--text-color)",
             },
           },
         }}
@@ -68,12 +68,12 @@ export default function Root() {
       />
       <Spinner />
 
-      <Routes />
-
       <Menu />
 
+      <Routes />
+
       <div className={"copyright"}>
-        <p>© 2021-present Valentin Fleurit</p>
+        <p>© 2021-present valflrt - Valentin Fleurit</p>
       </div>
     </div>
   );

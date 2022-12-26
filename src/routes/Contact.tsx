@@ -1,5 +1,5 @@
 import Link from "../particles/Link";
-import CopyLink from "../particles/CopyLink";
+import CopyButton from "../particles/CopyButton";
 
 import { Copy, ExternalLink } from "react-feather";
 
@@ -11,24 +11,27 @@ export default function Contact() {
   return (
     <div className={"main contact"}>
       <h1 className={"mainTitle"}>Contact</h1>
-      <div className={"links"}>
-        <Link to={"https://github.com/valflrt"} className={"link button"}>
+      <p className="description">
+        Feel free to contact me if you have a question !
+      </p>
+      <div className={"container row wrap centerStretch"}>
+        <Link to={"https://github.com/valflrt"} className={"button clickable"}>
           Github <ExternalLink className={"icon"} />
         </Link>
-        <CopyLink
+        <CopyButton
           textToCopy={"valflrt#8436"}
           title={"discord"}
-          className={"link button"}
+          className={"button clickable"}
         >
           Discord <Copy className={"icon"} />
-        </CopyLink>
-        <CopyLink
+        </CopyButton>
+        <CopyButton
           textToCopy={"val@valflrt.dev"}
           title={"email"}
-          className={"link button"}
+          className={"button clickable"}
         >
           Email <Copy className={"icon"} />
-        </CopyLink>
+        </CopyButton>
       </div>
     </div>
   );

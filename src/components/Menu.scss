@@ -25,18 +25,11 @@
       gap: 4px;
     }
 
-    .link {
+    .clickable {
       height: 32px;
       padding: 0 16px;
 
       border-radius: 16px;
-
-      transition: 200ms;
-
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-      justify-content: center;
 
       .mobile & {
         height: 28px;
@@ -45,12 +38,11 @@
       }
 
       .notTactile &:hover {
-        background-color: rgba(200, 200, 200, 0.05);
+        background-color: var(--primary-400);
       }
 
       &.focused {
         padding: 0 28px;
-        background-color: rgba(200, 200, 200, 0.1);
 
         .mobile & {
           padding: 0 18px;

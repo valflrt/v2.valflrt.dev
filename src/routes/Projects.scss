@@ -6,7 +6,7 @@
   }
 
   .list {
-    padding: 16px;
+    padding: 4px;
 
     width: 100%;
 
@@ -17,7 +17,7 @@
     gap: 8px;
 
     .mobile & {
-      padding: 4px 4px 16px;
+      padding: 4px;
       max-width: 350px;
     }
 
@@ -37,7 +37,7 @@
         height: 100%;
         padding: 16px;
 
-        background-color: rgba(200, 200, 200, 0.05);
+        background-color: var(--primary-450);
         border-radius: 8px;
 
         transition: 200ms;
@@ -64,7 +64,7 @@
         }
 
         .notTactile &:hover {
-          background-color: rgba(200, 200, 200, 0.1);
+          background-color: var(--primary-400);
         }
       }
     }

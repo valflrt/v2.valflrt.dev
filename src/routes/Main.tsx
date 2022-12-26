@@ -1,3 +1,5 @@
+import { List, User } from "react-feather";
+
 import PageSwitchLink from "../particles/PageSwitchLink";
 
 import "./Main.scss";
@@ -15,10 +17,10 @@ export default function Main() {
         alt={"valflrt's logo"}
       />
       <h1 className={"mainTitle"}>Heya !</h1>
-      <p className={"paragraph"}>
+      <p className={"description"}>
         I am Valentin Fleurit (aka valflrt), a programming enthusiast born at{" "}
         <code
-          className={"birthDate"}
+          className={"birthDate code"}
           title={`Alive for approximately ${Math.trunc(
             elapsedDays / 365
           ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`}
@@ -28,12 +30,12 @@ export default function Main() {
         . French and proud to be (oui oui baguette). I also really like sailing
         and swimming.
       </p>
-      <div className={"links"}>
-        <PageSwitchLink to={"/projects"} className={"link button"}>
-          Projects
+      <div className={"container row wrap centerStretch"}>
+        <PageSwitchLink to={"/projects"} className={"button clickable"}>
+          <List className={"icon"} /> Projects
         </PageSwitchLink>
-        <PageSwitchLink to={"/contact"} className={"link button"}>
-          Contact
+        <PageSwitchLink to={"/contact"} className={"button clickable"}>
+          <User className={"icon"} /> Contact
         </PageSwitchLink>
       </div>
     </div>

@@ -24,18 +24,18 @@ export default function Project() {
       {id && project ? (
         <>
           <h1 className={"mainTitle"}>{project.name}</h1>
-          <div className={"description"}>{project.description}</div>
+          <p className={"description"}>{project.description}</p>
           {project.links ? (
-            <div className={"links"}>
+            <div className={"container row wrap centerStretch"}>
               {project.links.map((l, i) => {
                 let Icon = l.icon ? icons[l.icon] : icons.ExternalLink;
                 return (
-                  <Link to={l.url} className={"link button"} key={i}>
+                  <Link to={l.url} className={"button clickable"} key={i}>
                     {l.name} <Icon className={"icon"} />
                   </Link>
                 );
               })}
-              <PageSwitchLink to={"/projects"} className={"link button"}>
+              <PageSwitchLink to={"/projects"} className={"button clickable"}>
                 Back to projects <icons.List className={"icon"} />
               </PageSwitchLink>
             </div>

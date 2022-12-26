@@ -1,10 +1,8 @@
-import { useMatch, useNavigate } from "react-router-dom";
+import { Link, LinkProps, useMatch, useNavigate } from "react-router-dom";
 
-import BaseLink, { BaseLinkProps } from "./BaseLink";
-
-export type TimedRouterLinkProps = Omit<
-  BaseLinkProps,
-  "onClick" | "to" | "className" | "toDo"
+export type DelayedRouterLinkProps = Omit<
+  LinkProps,
+  "onClick" | "to" | "className"
 > & {
   to: string;
   timeout?: number;
@@ -14,7 +12,7 @@ export type TimedRouterLinkProps = Omit<
 };
 
 // Used to create a link that has a timeout before redirect
-export default function TimedRouterLink(props: TimedRouterLinkProps) {
+export default function DelayedRouterLink(props: DelayedRouterLinkProps) {
   let {
     to,
     timeout,
@@ -27,22 +25,20 @@ export default function TimedRouterLink(props: TimedRouterLinkProps) {
   let navigate = useNavigate();
   let isFocused = !!useMatch({ path: to, end: true });
 
-  let toAwait = (r: () => void) => {
+  let handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
     if (isFocused) return;
     if (onTimeoutStart) onTimeoutStart();
-    setTimeout(r, timeout ?? 1e3); // waits for custom timeout if specified or for 1s
-  };
-
-  let handleClick = () => {
-    if (isFocused) return;
-    if (onTimeoutEnd) onTimeoutEnd();
-    navigate(to);
+    setTimeout(() => {
+      if (onTimeoutEnd) onTimeoutEnd();
+      navigate(to);
+    }, timeout ?? 1e3);
   };
 
   return (
-    <BaseLink
-      toDo={handleClick}
-      toAwait={toAwait}
+    <Link
+      to={to}
+      onClick={handleClick}
       className={
         className
           ? typeof className === "string"

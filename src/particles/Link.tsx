@@ -1,4 +1,4 @@
-export type LinkProps = Omit<React.HTMLProps<HTMLAnchorElement>, "onClick"> & {
+export type LinkProps = Omit<React.HTMLProps<HTMLAnchorElement>, "href"> & {
   to: string;
 };
 

@@ -1,8 +1,8 @@
-import TimedRouterLinkFactory from "../factories/TimedRouterLinkFactory";
+import DelayedRouterLinkFactory from "../factories/DelayedRouterLinkFactory";
 
 import { css } from "../utils";
 
-let PageSwitchLink = TimedRouterLinkFactory({
+let PageSwitchLink = DelayedRouterLinkFactory({
   timeout: 450,
   onTimeoutStart: () =>
     document
