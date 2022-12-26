@@ -2,13 +2,12 @@
   flex-grow: 1 1 160px;
 
   background-color: var(--primary-450);
-  border-radius: 24px;
 
   transition: 200ms;
 
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: baseline;
   gap: 16px;
 
   cursor: pointer;
@@ -18,10 +17,12 @@
   height: 48px;
   padding: 0 24px;
 
+  border-radius: 16px;
+
   .mobile & {
-    height: 40px;
-    padding: 0 20px;
-    border-radius: 20px;
+    height: 42px;
+    padding: 0 21px;
+    border-radius: 14px;
   }
 
   .notTactile &:hover {

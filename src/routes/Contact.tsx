@@ -12,7 +12,7 @@ export default function Contact() {
     <div className={"main contact"}>
       <h1 className={"mainTitle"}>Contact</h1>
       <p className="description">
-        Feel free to contact me if you have a question !
+        Feel free to send me a message, I would appreciate it !
       </p>
       <div className={"container row wrap centerStretch"}>
         <Link to={"https://github.com/valflrt"} className={"button clickable"}>
