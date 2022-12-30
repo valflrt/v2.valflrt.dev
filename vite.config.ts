@@ -5,12 +5,10 @@ let root = __dirname;
 
 export default defineConfig({
   mode: process.env.MODE,
-  root: root,
+  root,
   plugins: [react()],
-  base: "",
   build: {
     outDir: "build",
-    sourcemap: true,
     emptyOutDir: true,
   },
 });
