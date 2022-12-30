@@ -3,6 +3,7 @@ import { List, User } from "react-feather";
 import PageSwitchLink from "../particles/PageSwitchLink";
 
 import "./Main.scss";
+import logo from "../assets/logo.png";
 
 export default function Main() {
   document.title = "Home – valflrt.dev";
@@ -11,11 +12,7 @@ export default function Main() {
 
   return (
     <div className={"main home"}>
-      <img
-        className={"logo"}
-        src={"/assets/logo-128.png"}
-        alt={"valflrt's logo"}
-      />
+      <img className={"logo"} src={logo} alt={"valflrt's profile picture"} />
       <h1 className={"mainTitle"}>Heya !</h1>
       <p className={"description"}>
         I am Valentin Fleurit (aka valflrt), a programming enthusiast born at{" "}

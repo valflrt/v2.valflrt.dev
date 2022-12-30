@@ -8,7 +8,7 @@ body {
 
 * {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: #3d327340;
+  -webkit-tap-highlight-color: var(--selection-color);
 }
 
 *:focus-visible {
@@ -45,6 +45,7 @@ body {
   --primary-900: #29224e;
   --primary-950: #221c40;
 
+  --selection-color: #40357960;
   --text-color: #ffffff;
 }
 
@@ -99,7 +100,7 @@ a {
   height: 48px !important;
   padding: 0 16px !important;
   color: inherit !important;
-  background-color: var(--primary-400) !important;
+  background-color: var(--primary-450) !important;
   box-shadow: none !important;
   border-radius: 16px !important;
   font: inherit !important;
