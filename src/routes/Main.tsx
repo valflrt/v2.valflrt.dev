@@ -3,7 +3,6 @@ import { List, User } from "react-feather";
 import PageSwitchLink from "../particles/PageSwitchLink";
 
 import "./Main.scss";
-import logo from "../assets/logo.png";
 
 export default function Main() {
   document.title = "Home – valflrt.dev";
@@ -14,7 +13,7 @@ export default function Main() {
     <main className={"home"}>
       <img
         className={"logo"}
-        src={logo}
+        src={"/assets/logo-256.png"}
         alt={"valflrt's profile picture"}
         width={128}
         height={128}
