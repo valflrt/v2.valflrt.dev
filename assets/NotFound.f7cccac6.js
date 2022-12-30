@@ -1,0 +1,1 @@
+import{j as n,a as e,P as t}from"./index.d83e7135.js";function o(){return document.title="404 \u2013 valflrt.dev",n("div",{className:"main notFound",children:[e("h1",{className:"mainTitle fortyHundredAndFour",children:"404"}),e("p",{className:"description",children:"There's nothing here !"}),e(t,{to:"/",className:"clickable button",children:"Back home"})]})}export{o as default};
