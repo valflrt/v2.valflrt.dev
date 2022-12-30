@@ -8,8 +8,8 @@ export default function NotFound() {
   return (
     <div className={"main notFound"}>
       <h1 className={"mainTitle fortyHundredAndFour"}>404</h1>
-      <p>There's nothing here !</p>
-      <PageSwitchLink to={"/"} className={"link underlined"}>
+      <p className={"description"}>There's nothing here !</p>
+      <PageSwitchLink to={"/"} className={"clickable button"}>
         Back home
       </PageSwitchLink>
     </div>

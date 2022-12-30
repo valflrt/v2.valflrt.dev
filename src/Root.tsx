@@ -6,7 +6,7 @@ import useIsTactile from "./hooks/useIsTactile";
 import useDelayedNavigate from "./hooks/useDelayedNavigate";
 import useWheelStep from "./hooks/useWheelStep";
 
-import Routes from "./routes";
+import Routes from "./Routes";
 
 import Menu from "./components/Menu";
 import Spinner from "./components/Spinner";

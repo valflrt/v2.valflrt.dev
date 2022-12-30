@@ -12,7 +12,13 @@ export default function Main() {
 
   return (
     <div className={"main home"}>
-      <img className={"logo"} src={logo} alt={"valflrt's profile picture"} />
+      <img
+        className={"logo"}
+        src={logo}
+        alt={"valflrt's profile picture"}
+        width={128}
+        height={128}
+      />
       <h1 className={"mainTitle"}>Heya !</h1>
       <p className={"description"}>
         I am Valentin Fleurit (aka valflrt), a programming enthusiast born at{" "}

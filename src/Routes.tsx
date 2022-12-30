@@ -1,17 +1,17 @@
 import { Route, Routes as RouteGroup } from "react-router-dom";
 
-import lazyFactory from "../factories/lazyFactory";
+import lazyFactory from "./factories/lazyFactory";
 
-import useSpinner from "../hooks/useSpinner";
+import useSpinner from "./hooks/useSpinner";
 
-import "./common.scss";
+import "./routes/common.scss";
 
 let elements = [
-  { path: "/", element: () => import("./Main") },
-  { path: "/projects", element: () => import("./Projects") },
-  { path: "/contact", element: () => import("./Contact") },
-  { path: "/project/:id", element: () => import("./Project") },
-  { path: "*", element: () => import("./NotFound") },
+  { path: "/", element: () => import("./routes/Main") },
+  { path: "/projects", element: () => import("./routes/Projects") },
+  { path: "/contact", element: () => import("./routes/Contact") },
+  { path: "/project/:id", element: () => import("./routes/Project") },
+  { path: "*", element: () => import("./routes/NotFound") },
 ];
 
 export default function Routes() {
