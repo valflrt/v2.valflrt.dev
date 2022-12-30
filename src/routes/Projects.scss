@@ -1,4 +1,4 @@
-.main.projects {
+main.projects {
   max-width: 800px;
 
   .mobile & {
@@ -19,23 +19,26 @@
     }
 
     .card {
-      max-width: 350px;
-      min-width: 300px;
+      width: 350px;
       padding: 16px;
-
-      flex: 1 1 160px;
-
-      .mobile & {
-        min-width: 180px;
-      }
 
       background-color: var(--primary-450);
       border-radius: 16px;
 
       transition: 200ms;
 
+      .title {
+        display: inline-block;
+        background-color: var(--primary-500);
+        font-size: 14px;
+      }
+
+      .mobile & {
+        min-width: 180px;
+      }
+
       .description {
-        padding: 8px 4px 0 4px;
+        padding: 12px 8px 0 8px;
 
         font-size: 15px;
 

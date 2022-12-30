@@ -9,7 +9,7 @@ export default function Contact() {
   document.title = "Contact – valflrt.dev";
 
   return (
-    <div className={"main contact"}>
+    <main className={"contact"}>
       <h1 className={"mainTitle"}>Contact</h1>
       <p className="description">
         Feel free to send me a message, I would appreciate it !
@@ -33,6 +33,6 @@ export default function Contact() {
           Email <Copy className={"icon"} />
         </CopyButton>
       </div>
-    </div>
+    </main>
   );
 }

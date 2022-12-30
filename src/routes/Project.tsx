@@ -20,7 +20,7 @@ export default function Project() {
   }
 
   return (
-    <div className={"main project"}>
+    <main className={"project"}>
       {id && project ? (
         <>
           <h1 className={"mainTitle"}>{project.name}</h1>
@@ -44,6 +44,6 @@ export default function Project() {
       ) : (
         <NotFound />
       )}
-    </div>
+    </main>
   );
 }

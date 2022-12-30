@@ -11,7 +11,7 @@ export default function Projects() {
   document.title = "Projects – valflrt.dev";
 
   return (
-    <div className={"main projects"}>
+    <main className={"projects"}>
       <h1 className={"mainTitle"}>Projects</h1>
       <p className="description">Here are some of my projects !</p>
       <div className={"list"}>
@@ -21,10 +21,10 @@ export default function Projects() {
             to={`/project/${p.id}`}
             key={i}
           >
-            <div className={"underlined"}>{p.name}</div>
+            <div className={"title code"}>valflrt/{p.id}</div>
             <div className={"description"}>
               <div className={"text"}>{p.description} </div>
-              <div className={"underlined"}>Read More</div>
+              <span className={"underlined"}>Read More</span>
             </div>
           </PageSwitchLink>
         ))}
@@ -36,6 +36,6 @@ export default function Projects() {
         See more on github
         <ExternalLink className={"icon"} />
       </Link>
-    </div>
+    </main>
   );
 }

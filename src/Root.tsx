@@ -21,11 +21,11 @@ export default function Root() {
   let navigate = useDelayedNavigate({
     onTimeoutStart: () =>
       document
-        .querySelector("#root > .layout > .main")
+        .querySelector("#root > .layout > main")
         ?.classList.add("disappearing"),
     onTimeoutEnd: () =>
       document
-        .querySelector("#root > .layout > .main")
+        .querySelector("#root > .layout > main")
         ?.classList.remove("disappearing"),
     timeout: 400,
   });

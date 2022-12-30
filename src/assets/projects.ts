@@ -15,7 +15,7 @@ const projects: ProjectObject[] = [
   },
   {
     name: "valflrt.dev (v2)",
-    id: "valflrt.dev-v2",
+    id: "v2.valflrt.dev",
     description:
       "This website, made using react and vitejs, it has some cool react hooks too.",
     links: [
@@ -27,7 +27,7 @@ const projects: ProjectObject[] = [
   },
   {
     name: "Le Jardinier",
-    id: "le-jardinier",
+    id: "lejardinier",
     description:
       "Simple utility/test discord bot made using typescript and discord.js.",
     links: [

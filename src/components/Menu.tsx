@@ -12,7 +12,7 @@ export default function Menu() {
 
   return (
     <div className={"menuWrapper"}>
-      <div className={"menu"}>
+      <nav className={"menu"}>
         {links.map((link, i) => (
           <PageSwitchLink
             to={link.url}
@@ -22,7 +22,7 @@ export default function Menu() {
             {link.name}
           </PageSwitchLink>
         ))}
-      </div>
+      </nav>
     </div>
   );
 }

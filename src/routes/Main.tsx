@@ -11,7 +11,7 @@ export default function Main() {
   let elapsedDays = (Date.now() / 1000 - 1108087200) / 60 / 60 / 24;
 
   return (
-    <div className={"main home"}>
+    <main className={"home"}>
       <img
         className={"logo"}
         src={logo}
@@ -41,6 +41,6 @@ export default function Main() {
           <User className={"icon"} /> Contact
         </PageSwitchLink>
       </div>
-    </div>
+    </main>
   );
 }
