@@ -51,10 +51,6 @@ body {
 
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Lobster&family=Roboto+Mono&display=swap");
 
-html {
-  font-size: 16px;
-}
-
 #root {
   width: 100%;
   height: 100%;
@@ -62,6 +58,7 @@ html {
   color: var(--text-color);
   background-color: var(--primary-500);
 
+  font-size: 16px;
   font-family: "Nunito", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
   overflow: hidden auto;
