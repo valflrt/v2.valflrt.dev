@@ -11,6 +11,7 @@ let elements = [
   { path: "/projects", element: () => import("./routes/Projects") },
   { path: "/contact", element: () => import("./routes/Contact") },
   { path: "/project/:id", element: () => import("./routes/Project") },
+  { path: "/project/:id", element: () => import("./routes/NotFound") },
   { path: "*", element: () => import("./routes/NotFound") },
 ];
 

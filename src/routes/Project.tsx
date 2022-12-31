@@ -23,8 +23,12 @@ export default function Project() {
     <main className={"project"}>
       {id && project ? (
         <>
-          <h1 className={"mainTitle"}>{project.name}</h1>
-          <p className={"description"}>{project.description}</p>
+          <div className={"card"}>
+            <div className={"title code"}>valflrt/{project.id}</div>
+            <div className={"description"}>
+              <div className={"text"}>{project.description} </div>
+            </div>
+          </div>
           {project.links ? (
             <div className={"container row wrap centerStretch"}>
               {project.links.map((l, i) => {

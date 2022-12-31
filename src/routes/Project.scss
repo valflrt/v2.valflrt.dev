@@ -1,3 +1,39 @@
 main.project {
-  max-width: 500px;
+  padding: 0;
+
+  .card {
+    width: 350px;
+    padding: 16px;
+
+    background-color: var(--primary-450);
+    border-radius: 16px;
+
+    transition: 200ms;
+
+    .mobile & {
+      padding: 12px;
+    }
+
+    .title {
+      display: inline-block;
+      background-color: var(--primary-500);
+      font-size: 14px;
+    }
+
+    .description {
+      width: 100%;
+      padding: 12px 8px 0 8px;
+
+      font-size: 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+
+      .mobile & {
+        padding: 8px 4px 0 4px;
+      }
+    }
+  }
 }

@@ -14,10 +14,6 @@ main.projects {
     justify-content: center;
     gap: 8px;
 
-    .mobile & {
-      max-width: 350px;
-    }
-
     .card {
       width: 350px;
       padding: 16px;
@@ -34,7 +30,7 @@ main.projects {
       }
 
       .mobile & {
-        min-width: 180px;
+        padding: 12px;
       }
 
       .description {
@@ -49,6 +45,10 @@ main.projects {
 
         * {
           white-space: nowrap;
+        }
+
+        .mobile & {
+          padding: 8px 4px 0 4px;
         }
 
         .text {
