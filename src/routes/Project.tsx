@@ -35,12 +35,12 @@ export default function Project() {
                 let Icon = l.icon ? icons[l.icon] : icons.ExternalLink;
                 return (
                   <Link to={l.url} className={"button clickable"} key={i}>
-                    {l.name} <Icon className={"icon"} />
+                    {l.name} <Icon className={"icon"} size={20} />
                   </Link>
                 );
               })}
               <PageSwitchLink to={"/projects"} className={"button clickable"}>
-                Back to projects <icons.List className={"icon"} />
+                Back to projects <icons.List className={"icon"} size={20} />
               </PageSwitchLink>
             </div>
           ) : null}

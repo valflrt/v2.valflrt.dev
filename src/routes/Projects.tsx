@@ -34,7 +34,7 @@ export default function Projects() {
         className={"button clickable"}
       >
         See more on github
-        <ExternalLink className={"icon"} />
+        <ExternalLink className={"icon"} size={20} />
       </Link>
     </main>
   );
