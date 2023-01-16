@@ -4,7 +4,7 @@ My website/portfolio :)
 
 ## Running and building
 
-This project uses vite so simply uses vite commands:
+This project uses vite so simply use vite commands:
 
 Run with:
 
