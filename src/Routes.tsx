@@ -1,4 +1,4 @@
-import { Route, Routes as RouteGroup } from "react-router-dom";
+import { Navigate, Route, Routes as RouteGroup } from "react-router-dom";
 
 import lazyFactory from "./factories/lazyFactory";
 
@@ -25,13 +25,27 @@ export default function Routes() {
 
   return (
     <RouteGroup>
-      {elements.map((r, i) => (
-        <Route
-          path={r.path}
-          key={i}
-          element={<Lazy importPromise={r.element} />}
-        />
-      ))}
+      <Route
+        path={"/"}
+        element={<Lazy importPromise={() => import("./routes/Main")} />}
+      />
+      <Route
+        path={"/projects"}
+        element={<Lazy importPromise={() => import("./routes/Projects")} />}
+      />
+      <Route
+        path={"/contact"}
+        element={<Lazy importPromise={() => import("./routes/Contact")} />}
+      />
+      <Route
+        path={"/project/:id"}
+        element={<Lazy importPromise={() => import("./routes/Project")} />}
+      />
+      <Route
+        path={"/404"}
+        element={<Lazy importPromise={() => import("./routes/NotFound")} />}
+      />
+      <Route path={"*"} element={<Navigate to={"/404"} replace />} />
     </RouteGroup>
   );
 }
