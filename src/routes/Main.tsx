@@ -7,7 +7,7 @@ import "./Main.scss";
 export default function Main() {
   document.title = "Home – valflrt.dev";
 
-  let elapsedDays = (Date.now() / 1000 - 1108087200) / 60 / 60 / 24;
+  let elapsedDays = (Date.now() / 1000 - 1108132073) / 60 / 60 / 24;
 
   return (
     <main className={"home"}>
@@ -27,7 +27,7 @@ export default function Main() {
             elapsedDays / 365
           ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`}
         >
-          1108087200
+          1108132073
         </code>
         . French and proud to be (oui oui baguette). I also really like sailing
         and swimming.
