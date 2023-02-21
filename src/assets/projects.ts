@@ -2,13 +2,13 @@ import { ProjectObject } from "../types";
 
 const projects: ProjectObject[] = [
   {
-    name: "Fencryption (rust)",
-    id: "fencryption-rust",
+    name: "fencryption",
+    id: "fencryption",
     description:
-      "A remake of the original Fencryption but in Rust because typescript was not appropriate for this kind of project that requires working with io and crypto.",
+      "A crypto util cli program that encrypts/decrypts files and directories. I first built it in typescript but decided to switch to Rust because typescript was not appropriate for this kind of project that requires working with io and crypto. I also wanted to try Rust and low-level programming.",
     links: [
       {
-        url: "https://github.com/valflrt/fencryption-rust",
+        url: "https://github.com/valflrt/fencryption",
         name: "Github",
       },
     ],
@@ -52,18 +52,6 @@ const projects: ProjectObject[] = [
       },
     ],
   },
-  // {
-  //   name: "Fencryption",
-  //   id: "fencryption-typescript",
-  //   description:
-  //     'A simple cli program to encrypt/decrypt a file/directory made in typescript and "compiled" with vercel/pkg.',
-  //   links: [
-  //     {
-  //       url: "https://github.com/valflrt/Fencryption",
-  //       name: "github",
-  //     },
-  //   ],
-  // },
 ];
 
 export default projects;
