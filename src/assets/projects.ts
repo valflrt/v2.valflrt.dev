@@ -26,21 +26,32 @@ const projects: ProjectObject[] = [
     ],
   },
   {
-    name: "Le Jardinier",
-    id: "lejardinier",
-    description:
-      "Simple utility/test discord bot made using typescript and discord.js.",
+    name: "pixel_game",
+    id: "pixel_game",
+    description: "A simple and inefficient helper to build pixel art games.",
     links: [
       {
-        url: "https://github.com/valflrt/lejardinier",
+        url: "https://github.com/valflrt/pixel_game",
         name: "Github",
-      },
-      {
-        url: "https://lejardinier.valflrt.dev/card",
-        name: "Discord Invite",
       },
     ],
   },
+  // {
+  //   name: "Le Jardinier",
+  //   id: "lejardinier",
+  //   description:
+  //     "Simple utility/test discord bot made using typescript and discord.js.",
+  //   links: [
+  //     {
+  //       url: "https://github.com/valflrt/lejardinier",
+  //       name: "Github",
+  //     },
+  //     {
+  //       url: "https://lejardinier.valflrt.dev/card",
+  //       name: "Discord Invite",
+  //     },
+  //   ],
+  // },
   {
     name: "Neural Network",
     id: "neural-network",
