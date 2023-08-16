@@ -1,4 +1,5 @@
 import { ProjectObject } from "../types";
+import brands from "./brands";
 
 const projects: ProjectObject[] = [
   {
@@ -12,6 +13,7 @@ const projects: ProjectObject[] = [
         name: "Github",
       },
     ],
+    used: [brands.rust],
   },
   {
     name: "valflrt.dev (v2)",
@@ -24,6 +26,7 @@ const projects: ProjectObject[] = [
         name: "Github",
       },
     ],
+    used: [brands.html, brands.react, brands.sass, brands.vite],
   },
   {
     name: "pixel_game",
@@ -35,6 +38,7 @@ const projects: ProjectObject[] = [
         name: "Github",
       },
     ],
+    used: [brands.rust],
   },
   // {
   //   name: "Le Jardinier",
@@ -62,6 +66,7 @@ const projects: ProjectObject[] = [
         name: "Github",
       },
     ],
+    used: [brands.python],
   },
 ];
 

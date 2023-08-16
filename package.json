@@ -14,7 +14,8 @@
     "react-feather": "^2.0.10",
     "react-hot-toast": "^2.3.0",
     "react-router-dom": "^6.3.0",
-    "sass": "^1.54.8"
+    "sass": "^1.54.8",
+    "simple-icons": "^9.10.0"
   },
   "devDependencies": {
     "@types/node": "^18.7.14",
