@@ -19,7 +19,7 @@ const projects: ProjectObject[] = [
     name: "valflrt.dev (v2)",
     id: "v2.valflrt.dev",
     description:
-      "This website, made using react and vitejs, it has some cool react hooks too.",
+      "This website, made using react and vitejs, it has some cool react hooks. I might rework it some day.",
     links: [
       {
         url: "https://github.com/valflrt/v2.valflrt.dev",
@@ -31,7 +31,7 @@ const projects: ProjectObject[] = [
   {
     name: "pixel_game",
     id: "pixel_game",
-    description: "A simple and inefficient helper to build pixel art games.",
+    description: "A simple (crappy) pixel art game, but I worked hard on the logic.",
     links: [
       {
         url: "https://github.com/valflrt/pixel_game",
@@ -59,7 +59,7 @@ const projects: ProjectObject[] = [
   {
     name: "Neural Network",
     id: "neural-network",
-    description: "A 2-layered neural network, inspired by several sources.",
+    description: "A simple neural network with two layers, inspired by several sources. It can for example act as a OR gate.",
     links: [
       {
         url: "https://github.com/valflrt/neural-network",
