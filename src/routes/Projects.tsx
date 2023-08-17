@@ -1,4 +1,5 @@
 import { ExternalLink } from "react-feather";
+import * as brandIcons from "@icons-pack/react-simple-icons";
 
 import Link from "../particles/Link";
 import PageSwitchLink from "../particles/PageSwitchLink";
@@ -21,7 +22,17 @@ export default function Projects() {
             to={`/project/${p.id}`}
             key={i}
           >
-            <div className={"title code"}>valflrt/{p.id}</div>
+            <div className="header">
+              <div className={"title code"}>valflrt/{p.id}</div>
+              {p.used ? (
+                <div className={"icons"}>
+                  {p.used.map((v) => {
+                    let Icon = brandIcons[v];
+                    return <Icon size={20} />;
+                  })}
+                </div>
+              ) : null}
+            </div>
             <div className={"description"}>
               <div className={"text"}>{p.description} </div>
               <span className={"underlined"}>Read More</span>

@@ -14,10 +14,20 @@ main.project {
       padding: 12px;
     }
 
-    .title {
-      display: inline-block;
-      background-color: var(--primary-500);
-      font-size: 14px;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .icons {
+        display: flex;
+        gap: 4px;
+      }
+
+      .title {
+        background-color: var(--primary-500);
+        font-size: 14px;
+      }
     }
 
     .description {
@@ -30,6 +40,10 @@ main.project {
       align-items: center;
       justify-content: center;
       gap: 4px;
+
+      .code {
+        background-color: var(--primary-500);
+      }
 
       .mobile & {
         padding: 8px 4px 0 4px;

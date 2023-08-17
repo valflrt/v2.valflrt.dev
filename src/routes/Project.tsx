@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import * as icons from "react-feather";
+import * as brandIcons from "@icons-pack/react-simple-icons";
 
 import Link from "../particles/Link";
 import PageSwitchLink from "../particles/PageSwitchLink";
@@ -22,7 +23,17 @@ export default function Project() {
       {id && project ? (
         <>
           <div className={"card"}>
-            <div className={"title code"}>valflrt/{project.id}</div>
+            <div className="header">
+              <div className={"title code"}>valflrt/{project.id}</div>
+              {project.used ? (
+                <div className={"icons"}>
+                  {project.used.map((v) => {
+                    let Icon = brandIcons[v];
+                    return <Icon size={20} />;
+                  })}
+                </div>
+              ) : null}
+            </div>
             <div className={"description"}>
               <div className={"text"}>{project.description} </div>
             </div>

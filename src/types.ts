@@ -1,24 +1,19 @@
 import * as icons from "react-feather";
-import { SimpleIcon } from "simple-icons";
+import * as brandIcons from "@icons-pack/react-simple-icons";
 
 export interface ProjectObject {
   name: string;
   id: string;
-  description: string;
+  description: string | JSX.Element;
   links?: {
     url: string;
     name: string;
     icon?: keyof typeof icons;
   }[];
-  used?: BrandObject[];
+  used?: (keyof typeof brandIcons)[];
 }
 
 export interface RouteObject {
   name: string;
   path: string;
-}
-
-export interface BrandObject {
-  name: string;
-  icon: SimpleIcon;
 }

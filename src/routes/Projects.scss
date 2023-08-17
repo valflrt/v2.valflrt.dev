@@ -23,11 +23,27 @@ main.projects {
 
       transition: 200ms;
 
-      .title {
-        display: inline-block;
-        background-color: var(--primary-500);
-        font-size: 14px;
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .icons {
+          display: flex;
+          gap: 4px;
+        }
+
+        .title {
+          display: inline-block;
+          background-color: var(--primary-500);
+          font-size: 14px;
+        }
       }
+
+      // .title {
+      //   background-color: var(--primary-500);
+      //   font-size: 14px;
+      // }
 
       .mobile & {
         padding: 12px;
@@ -55,6 +71,10 @@ main.projects {
           flex-grow: 1;
           overflow: hidden;
           text-overflow: ellipsis;
+
+          .code {
+            background-color: var(--primary-500);
+          }
         }
       }
 
