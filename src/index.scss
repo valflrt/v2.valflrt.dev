@@ -10,7 +10,7 @@ body {
 
 * {
   box-sizing: border-box;
-  -webkit-tap-highlight-color: var(--selection-color);
+  -webkit-tap-highlight-color: hsla(255, 5%, 64%, 0.4);
 }
 
 *:focus-visible {
@@ -67,7 +67,6 @@ body {
   --white-800: hsl(255, 5%, 92%);
   --white-900: hsl(255, 5%, 96%);
 
-  --selection-color: #40357960;
   --text-color: #ffffff;
 }
 
@@ -118,7 +117,7 @@ a {
   padding: 0 18px !important;
   border: 1px solid var(--black-700);
   color: inherit !important;
-  background-color: transparent !important;
+  background-color: var(--black-400) !important;
   box-shadow: none !important;
   border-radius: 12px !important;
   font: inherit !important;

@@ -6,15 +6,6 @@ import useSpinner from "./hooks/useSpinner";
 
 import "./routes/common.scss";
 
-let elements = [
-  { path: "/", element: () => import("./routes/Main") },
-  { path: "/projects", element: () => import("./routes/Projects") },
-  { path: "/contact", element: () => import("./routes/Contact") },
-  { path: "/project/:id", element: () => import("./routes/Project") },
-  { path: "/project/:id", element: () => import("./routes/NotFound") },
-  { path: "*", element: () => import("./routes/NotFound") },
-];
-
 export default function Routes() {
   let setSpinnerState = useSpinner();
 

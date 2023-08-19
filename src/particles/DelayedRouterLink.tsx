@@ -1,4 +1,11 @@
-import { Link, LinkProps, useMatch, useNavigate } from "react-router-dom";
+import {
+  Link,
+  LinkProps,
+  useLocation,
+  useMatch,
+  useNavigate,
+} from "react-router-dom";
+import routes from "../assets/routes";
 
 export type DelayedRouterLinkProps = Omit<
   LinkProps,
@@ -6,7 +13,7 @@ export type DelayedRouterLinkProps = Omit<
 > & {
   to: string;
   timeout?: number;
-  onTimeoutStart?: () => any;
+  onTimeoutStart?: (d: number) => any;
   onTimeoutEnd?: () => any;
   className?: string | ((isFocused: boolean) => string);
 };
@@ -25,10 +32,15 @@ export default function DelayedRouterLink(props: DelayedRouterLinkProps) {
   let navigate = useNavigate();
   let isFocused = !!useMatch({ path: to, end: true });
 
+  let location = useLocation();
+  let d =
+    routes.findIndex((r) => to === r.path) -
+    routes.findIndex((r) => location.pathname === r.path);
+
   let handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     if (isFocused) return;
-    if (onTimeoutStart) onTimeoutStart();
+    if (onTimeoutStart) onTimeoutStart(d);
     setTimeout(() => {
       if (onTimeoutEnd) onTimeoutEnd();
       navigate(to);
