@@ -1,21 +1,16 @@
+import routes from "../assets/routes";
 import PageSwitchLink from "../particles/PageSwitchLink";
 import { css } from "../utils";
 
 import "./Menu.scss";
 
 export default function Menu() {
-  let links = [
-    { name: "Home", url: "/" },
-    { name: "Projects", url: "/projects" },
-    { name: "Contact", url: "/contact" },
-  ];
-
   return (
     <div className={"menuWrapper"}>
       <nav className={"menu"}>
-        {links.map((link, i) => (
+        {routes.map((link, i) => (
           <PageSwitchLink
-            to={link.url}
+            to={link.path}
             className={(f) => css.join("clickable button", f && "active")}
             key={i}
           >

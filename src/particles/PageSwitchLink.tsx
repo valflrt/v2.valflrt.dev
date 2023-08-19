@@ -4,14 +4,13 @@ import { css } from "../utils";
 
 let PageSwitchLink = delayedRouterLinkFactory({
   timeout: 450,
-  onTimeoutStart: () =>
+  onTimeoutStart: (d) =>
     document
       .querySelector("#root > .layout > main")
-      ?.classList.add("disappearing"),
-  onTimeoutEnd: () =>
-    document
-      .querySelector("#root > .layout > main")
-      ?.classList.remove("disappearing"),
+      ?.classList?.add(
+        "disappearing",
+        d > 0 ? "moveLeft" : d < 0 ? "moveRight" : ""
+      ),
   className: (isFocused: boolean) =>
     css.join("link", isFocused ? "focused" : ""),
 });

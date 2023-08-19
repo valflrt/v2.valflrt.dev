@@ -28,22 +28,11 @@
     .clickable.button.active {
       position: relative;
 
-      padding: 0 28px;
-
-      background: repeating-linear-gradient(
-        45deg,
-        var(--black-700),
-        var(--black-700) 10px,
-        transparent 10px,
-        transparent 20px
-      );
+      background: var(--primary);
+      border-color: var(--primary);
 
       .mobile & {
         padding: 0 18px;
-      }
-
-      &:hover {
-        border: 1px solid var(--black-700);
       }
 
       &::after {

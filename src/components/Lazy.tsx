@@ -18,7 +18,6 @@ export default function Lazy(props: LazyProps) {
   );
 
   useEffect(() => {
-    setElement(null);
     if (loadStart) loadStart();
     importPromise().then((i) => {
       if (loadEnd) loadEnd();

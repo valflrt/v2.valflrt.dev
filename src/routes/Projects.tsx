@@ -26,9 +26,9 @@ export default function Projects() {
               <div className={"title code"}>valflrt/{p.id}</div>
               {p.used ? (
                 <div className={"icons"}>
-                  {p.used.map((v) => {
+                  {p.used.map((v, i) => {
                     let Icon = brandIcons[v];
-                    return <Icon size={16} />;
+                    return <Icon size={16} key={i} />;
                   })}
                 </div>
               ) : null}

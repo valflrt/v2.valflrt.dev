@@ -62,16 +62,32 @@ main {
   }
 
   &.disappearing {
-    animation: pageDisappear 500ms 1 ease;
+    &.moveLeft {
+      animation: pageMovingLeft 500ms 1 ease;
 
-    @keyframes pageDisappear {
-      0% {
-        transform: scale(1);
-        opacity: 1;
+      @keyframes pageMovingLeft {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-60px);
+          opacity: 0;
+        }
       }
-      100% {
-        transform: scale(0.8);
-        opacity: 0;
+    }
+    &.moveRight {
+      animation: pageMovingRight 500ms 1 ease;
+
+      @keyframes pageMovingRight {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(60px);
+          opacity: 0;
+        }
       }
     }
   }

@@ -1,4 +1,9 @@
-import { Navigate, Route, Routes as RouteGroup } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes as RouteGroup,
+  useLocation,
+} from "react-router-dom";
 
 import lazyFactory from "./factories/lazyFactory";
 
@@ -6,16 +11,8 @@ import useSpinner from "./hooks/useSpinner";
 
 import "./routes/common.scss";
 
-let elements = [
-  { path: "/", element: () => import("./routes/Main") },
-  { path: "/projects", element: () => import("./routes/Projects") },
-  { path: "/contact", element: () => import("./routes/Contact") },
-  { path: "/project/:id", element: () => import("./routes/Project") },
-  { path: "/project/:id", element: () => import("./routes/NotFound") },
-  { path: "*", element: () => import("./routes/NotFound") },
-];
-
 export default function Routes() {
+  useLocation();
   let setSpinnerState = useSpinner();
 
   let Lazy = lazyFactory({

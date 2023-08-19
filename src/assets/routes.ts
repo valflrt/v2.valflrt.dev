@@ -2,12 +2,12 @@ import { RouteObject } from "../types";
 
 const routes: RouteObject[] = [
   {
-    name: "Main",
-    path: "/",
-  },
-  {
     name: "Projects",
     path: "/projects",
+  },
+  {
+    name: "Main",
+    path: "/",
   },
   {
     name: "Contact",

@@ -1,13 +1,13 @@
 .clickable {
   border: 1px solid var(--black-700);
-  background-color: transparent;
+  background-color: var(--black-400);
 
   transition: 200ms;
 
   display: flex;
   align-items: center;
   justify-content: baseline;
-  gap: 16px;
+  gap: 12px;
 
   cursor: pointer;
 }
@@ -19,7 +19,7 @@
   border-radius: 12px;
 
   .notTactile &:hover {
-    border-color: transparent;
+    border-color: var(--black-400);
     background-color: var(--black-700);
   }
 }
