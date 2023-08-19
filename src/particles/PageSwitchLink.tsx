@@ -7,7 +7,7 @@ let PageSwitchLink = delayedRouterLinkFactory({
   onTimeoutStart: (d) =>
     document
       .querySelector("#root > .layout > main")
-      ?.classList.add(
+      ?.classList?.add(
         "disappearing",
         d > 0 ? "moveLeft" : d < 0 ? "moveRight" : ""
       ),

@@ -1,4 +1,9 @@
-import { Navigate, Route, Routes as RouteGroup } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes as RouteGroup,
+  useLocation,
+} from "react-router-dom";
 
 import lazyFactory from "./factories/lazyFactory";
 
@@ -7,6 +12,7 @@ import useSpinner from "./hooks/useSpinner";
 import "./routes/common.scss";
 
 export default function Routes() {
+  useLocation();
   let setSpinnerState = useSpinner();
 
   let Lazy = lazyFactory({
