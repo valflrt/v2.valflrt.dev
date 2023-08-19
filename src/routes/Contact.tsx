@@ -2,6 +2,7 @@ import Link from "../particles/Link";
 import CopyButton from "../particles/CopyButton";
 
 import { Copy, ExternalLink } from "react-feather";
+import { SiGithub, SiInstagram } from "@icons-pack/react-simple-icons";
 
 import "./Contact.scss";
 
@@ -16,22 +17,25 @@ export default function Contact() {
       </p>
       <div className={"container row wrap centerStretch"}>
         <Link to={"https://github.com/valflrt"} className={"button clickable"}>
-          Github <ExternalLink className={"icon"} size={16} />
+          Github <SiGithub className={"icon"} size={16} />
         </Link>
         <CopyButton
-          textToCopy={"valflrt#8436"}
+          textToCopy={"valflrt"}
           title={"discord"}
           className={"button clickable"}
         >
           Discord <Copy className={"icon"} size={16} />
         </CopyButton>
         <CopyButton
-          textToCopy={"val@valflrt.dev"}
+          textToCopy={"valflrt@pm.me"}
           title={"email"}
           className={"button clickable"}
         >
           Email <Copy className={"icon"} size={16} />
         </CopyButton>
+       <Link to={"https://instagram.com/valflrt"} className={"button clickable"}>
+          Instagram <SiInstagram className={"icon"} size={16} />
+        </Link>
       </div>
     </main>
   );
