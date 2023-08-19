@@ -19,6 +19,9 @@ export default function Contact() {
         <Link to={"https://github.com/valflrt"} className={"button clickable"}>
           Github <SiGithub className={"icon"} size={16} />
         </Link>
+        <Link to={"https://instagram.com/valflrt"} className={"button clickable"}>
+          Instagram <SiInstagram className={"icon"} size={16} />
+        </Link>
         <CopyButton
           textToCopy={"valflrt"}
           title={"discord"}
@@ -33,9 +36,6 @@ export default function Contact() {
         >
           Email <Copy className={"icon"} size={16} />
         </CopyButton>
-       <Link to={"https://instagram.com/valflrt"} className={"button clickable"}>
-          Instagram <SiInstagram className={"icon"} size={16} />
-        </Link>
       </div>
     </main>
   );
