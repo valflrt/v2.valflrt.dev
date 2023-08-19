@@ -29,7 +29,7 @@ export default function Project() {
                 <div className={"icons"}>
                   {project.used.map((v) => {
                     let Icon = brandIcons[v];
-                    return <Icon size={20} />;
+                    return <Icon size={16} />;
                   })}
                 </div>
               ) : null}
@@ -44,12 +44,12 @@ export default function Project() {
                 let Icon = l.icon ? icons[l.icon] : icons.ExternalLink;
                 return (
                   <Link to={l.url} className={"button clickable"} key={i}>
-                    {l.name} <Icon className={"icon"} size={20} />
+                    {l.name} <Icon className={"icon"} size={16} />
                   </Link>
                 );
               })}
               <PageSwitchLink to={"/projects"} className={"button clickable"}>
-                Back to projects <icons.List className={"icon"} size={20} />
+                Back to projects <icons.List className={"icon"} size={16} />
               </PageSwitchLink>
             </div>
           ) : null}

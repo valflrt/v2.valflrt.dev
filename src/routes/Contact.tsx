@@ -16,21 +16,21 @@ export default function Contact() {
       </p>
       <div className={"container row wrap centerStretch"}>
         <Link to={"https://github.com/valflrt"} className={"button clickable"}>
-          Github <ExternalLink className={"icon"} size={20} />
+          Github <ExternalLink className={"icon"} size={16} />
         </Link>
         <CopyButton
           textToCopy={"valflrt#8436"}
           title={"discord"}
           className={"button clickable"}
         >
-          Discord <Copy className={"icon"} size={20} />
+          Discord <Copy className={"icon"} size={16} />
         </CopyButton>
         <CopyButton
           textToCopy={"val@valflrt.dev"}
           title={"email"}
           className={"button clickable"}
         >
-          Email <Copy className={"icon"} size={20} />
+          Email <Copy className={"icon"} size={16} />
         </CopyButton>
       </div>
     </main>

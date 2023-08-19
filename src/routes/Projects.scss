@@ -18,7 +18,8 @@ main.projects {
       width: 350px;
       padding: 16px;
 
-      background-color: var(--primary-450);
+      border: 1px solid var(--black-700);
+      background-color: transparent;
       border-radius: 16px;
 
       transition: 200ms;
@@ -35,15 +36,8 @@ main.projects {
 
         .title {
           display: inline-block;
-          background-color: var(--primary-500);
-          font-size: 14px;
         }
       }
-
-      // .title {
-      //   background-color: var(--primary-500);
-      //   font-size: 14px;
-      // }
 
       .mobile & {
         padding: 12px;
@@ -71,15 +65,16 @@ main.projects {
           flex-grow: 1;
           overflow: hidden;
           text-overflow: ellipsis;
-
-          .code {
-            background-color: var(--primary-500);
-          }
         }
       }
 
       .notTactile &:hover {
-        background-color: var(--primary-400);
+        border-color: transparent;
+        background-color: var(--black-700);
+
+        .title {
+          background-color: var(--black-500);
+        }
       }
     }
   }

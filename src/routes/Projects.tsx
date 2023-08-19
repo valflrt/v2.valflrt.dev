@@ -28,7 +28,7 @@ export default function Projects() {
                 <div className={"icons"}>
                   {p.used.map((v) => {
                     let Icon = brandIcons[v];
-                    return <Icon size={20} />;
+                    return <Icon size={16} />;
                   })}
                 </div>
               ) : null}
@@ -45,7 +45,7 @@ export default function Projects() {
         className={"button clickable"}
       >
         See more on github
-        <ExternalLink className={"icon"} size={20} />
+        <ExternalLink className={"icon"} size={16} />
       </Link>
     </main>
   );

@@ -34,10 +34,10 @@ export default function Main() {
       </p>
       <div className={"container row wrap centerStretch"}>
         <PageSwitchLink to={"/projects"} className={"button clickable"}>
-          <List className={"icon"} size={20} /> Projects
+          <List className={"icon"} size={16} /> Projects
         </PageSwitchLink>
         <PageSwitchLink to={"/contact"} className={"button clickable"}>
-          <User className={"icon"} size={20} /> Contact
+          <User className={"icon"} size={16} /> Contact
         </PageSwitchLink>
       </div>
     </main>

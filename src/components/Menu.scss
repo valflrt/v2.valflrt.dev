@@ -25,54 +25,49 @@
       gap: 6px;
     }
 
-    .clickable {
-      height: 36px;
-      padding: 0 18px;
-
-      border-radius: 12px;
-
-      .mobile & {
-        height: 30px;
-        padding: 0 15px;
-        border-radius: 10px;
-      }
-
-      .notTactile &:hover {
-        background-color: var(--primary-400);
-      }
-
+    .clickable.button.active {
       position: relative;
 
-      &.active {
-        padding: 0 28px;
+      padding: 0 28px;
 
-        .mobile & {
-          padding: 0 18px;
-        }
+      background: repeating-linear-gradient(
+        45deg,
+        var(--black-700),
+        var(--black-700) 10px,
+        transparent 10px,
+        transparent 20px
+      );
 
-        &::after {
-          $radius: 2px;
-          $width: 16px;
-          $height: 4px;
+      .mobile & {
+        padding: 0 18px;
+      }
 
-          content: "";
-          position: absolute;
-          width: $width;
-          height: $height;
-          top: calc(100% + 4px);
-          left: 50%;
-          margin-left: calc($width / -2);
+      &:hover {
+        border: 1px solid var(--black-700);
+      }
 
-          background-color: var(--primary-100);
-          border-radius: 3px;
+      &::after {
+        $radius: 2px;
+        $width: 16px;
+        $height: 4px;
 
-          animation: activeNavLinkDot 200ms;
+        content: "";
+        position: absolute;
+        width: $width;
+        height: $height;
+        top: calc(100% + 4px);
+        left: 50%;
+        margin-left: calc($width / -2);
 
-          @keyframes activeNavLinkDot {
-            from {
-              transform: scaleX(0);
-              background-color: transparent;
-            }
+        background-color: var(--white-500);
+        border-radius: 3px;
+
+        animation: activeNavLinkDot 200ms;
+
+        @keyframes activeNavLinkDot {
+          from {
+            transform: scaleX(0);
+            background-color: transparent;
           }
         }
       }

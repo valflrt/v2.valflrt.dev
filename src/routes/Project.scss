@@ -5,7 +5,8 @@ main.project {
     width: 350px;
     padding: 16px;
 
-    background-color: var(--primary-450);
+    border: 1px solid var(--black-700);
+    background-color: transparent;
     border-radius: 16px;
 
     transition: 200ms;
@@ -23,11 +24,6 @@ main.project {
         display: flex;
         gap: 4px;
       }
-
-      .title {
-        background-color: var(--primary-500);
-        font-size: 14px;
-      }
     }
 
     .description {
@@ -40,10 +36,6 @@ main.project {
       align-items: center;
       justify-content: center;
       gap: 4px;
-
-      .code {
-        background-color: var(--primary-500);
-      }
 
       .mobile & {
         padding: 8px 4px 0 4px;

@@ -16,7 +16,7 @@ export default function Menu() {
         {links.map((link, i) => (
           <PageSwitchLink
             to={link.url}
-            className={(f) => css.join("clickable", f && "active")}
+            className={(f) => css.join("clickable button", f && "active")}
             key={i}
           >
             {link.name}
