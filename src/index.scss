@@ -27,25 +27,7 @@ body {
 }
 
 :root {
-  // --primary-050: #dfdcef;
-  // --primary-100: #d2cde9;
-  // --primary-150: #c5bfe3;
-  // --primary-200: #b8b1dd;
-  // --primary-250: #aba3d7;
-  // --primary-300: #9f95d0;
-  // --primary-350: #9286ca;
-  // --primary-400: #8578c4;
-  // --primary-450: #786abe;
-  // --primary-500: #6b5cb8;
-  // --primary-550: #5e4eb1;
-  // --primary-600: #5747a3;
-  // --primary-650: #4f4195;
-  // --primary-700: #483b87;
-  // --primary-750: #403579;
-  // --primary-800: #403579;
-  // --primary-850: #31285c;
-  // --primary-900: #29224e;
-  // --primary-950: #221c40;
+  --primary: hsl(247, 50%, 55%);
 
   --black-100: hsl(255, 5%, 4%);
   --black-200: hsl(255, 5%, 8%);

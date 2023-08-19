@@ -13,30 +13,6 @@ import { css } from "./utils";
 import "./Root.scss";
 
 export default function Root() {
-  // let navigate = useDelayedNavigate({
-  //   onTimeoutStart: () =>
-  //     document
-  //       .querySelector("#root > .layout > main")
-  //       ?.classList.add("disappearing"),
-  //   onTimeoutEnd: () =>
-  //     document
-  //       .querySelector("#root > .layout > main")
-  //       ?.classList.remove("disappearing"),
-  //   timeout: 400,
-  // });
-
-  // let currentIndex = () =>
-  // routes.findIndex((r) => location.pathname === r.path);
-  // useWheelStep(
-  //   (e) => {
-  //     if (e.y === -1 && currentIndex() !== 0)
-  //       navigate(routes[currentIndex() - 1].path);
-  //     else if (e.y === 1 && currentIndex() !== routes.length - 1)
-  //       navigate(routes[currentIndex() + 1].path);
-  //   },
-  //   { delay: 510 }
-  // );
-
   return (
     <div
       className={css.join(
@@ -54,7 +30,7 @@ export default function Root() {
           className: "toast",
           success: {
             iconTheme: {
-              primary: "var(--black-600)",
+              primary: "var(--primary)",
               secondary: "var(--text-color)",
             },
           },
