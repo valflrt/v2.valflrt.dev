@@ -1,17 +1,11 @@
-export function fmt<T extends keyof HTMLElementTagNameMap>(
-  strings: TemplateStringsArray,
-  ...elements: {
-    0: string; // content
-    1: T; // tag
-  }[]
+export function $(
+  tag: keyof HTMLElementTagNameMap,
+  props: { [key: keyof HTMLElement | string]: string } = {}
 ) {
-  return strings
-    .map((s, i) =>
-      i !== strings.length - 1
-        ? s.concat(`<${elements[i][1]}>${elements[i][0]}</${elements[i][1]}>`)
-        : s
-    )
-    .join("");
+  return (...content: (string | false | null | undefined)[]) =>
+    `<${tag} ${Object.entries(props)
+      .map(([k, v]) => `${k}="${v}"`)
+      .join(" ")}>${content.filter((v) => !!v).join("")}</${tag}>`;
 }
 
 export function addWindowEventListeners(
@@ -24,4 +18,36 @@ export function addWindowEventListeners(
   events.forEach((v) => {
     window.addEventListener(v, (eventObject) => listener(v, eventObject));
   });
+}
+
+/**
+ * Toggles `a` and `b` depending on the `condition`.
+ */
+export function toggleClass(
+  element: Element,
+  condition: boolean,
+  a: string,
+  b?: string
+) {
+  if (condition) {
+    if (b) element.classList.remove(b);
+    element.classList.add(a);
+  } else {
+    element.classList.remove(a);
+    if (b) element.classList.add(b);
+  }
+}
+
+export function replaceClass(
+  element: Element,
+  token: string | false | null | undefined,
+  newToken: string
+) {
+  if (token && element.classList.contains(token))
+    element.classList.replace(token, newToken);
+  else element.classList.add(newToken);
+}
+
+export function wait(ms: number) {
+  return new Promise((r) => setTimeout(r, ms));
 }

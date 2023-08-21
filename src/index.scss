@@ -81,7 +81,7 @@ a {
   text-decoration: inherit;
   cursor: pointer;
 
-  .tactile & {
+  .touch & {
     padding: 3px;
   }
 
@@ -115,9 +115,13 @@ button {
   border: inherit;
 }
 
-.mobile .icon {
-  width: 16px;
-  height: 16px;
+svg[role="img"] {
+  width: 20px;
+  height: 20px;
+
+  path {
+    fill: var(--text-color);
+  }
 }
 
 // common
@@ -142,7 +146,7 @@ button {
 
   border-radius: 12px;
 
-  .notTactile &:hover {
+  .non-touch &:hover {
     border-color: var(--black-400);
     background-color: var(--black-700);
   }
@@ -163,7 +167,7 @@ button {
 .container.wrap {
   flex-wrap: wrap;
 }
-.container.centerStretch {
+.container.center-stretch {
   align-items: stretch;
   justify-content: center;
 }
@@ -206,7 +210,7 @@ button {
 
 // route common
 
-main {
+#main {
   max-width: 400px;
   max-height: 100%;
   padding: 0 20px;
@@ -222,7 +226,7 @@ main {
 
   animation: pageSpawn 500ms 1 cubic-bezier(0, 0, 0.25, 1.25);
 
-  h1.mainTitle {
+  h1.main-title {
     text-align: center;
     font-size: 2.6rem;
     font-family: "Lobster";
@@ -270,10 +274,10 @@ main {
   }
 
   &.disappearing {
-    &.moveLeft {
-      animation: pageMovingLeft 500ms 1 ease;
+    &.move-left {
+      animation: page-moving-left 500ms 1 ease;
 
-      @keyframes pageMovingLeft {
+      @keyframes page-moving-left {
         0% {
           transform: translateX(0);
           opacity: 1;
@@ -284,10 +288,10 @@ main {
         }
       }
     }
-    &.moveRight {
-      animation: pageMovingRight 500ms 1 ease;
+    &.move-right {
+      animation: page-moving-right 500ms 1 ease;
 
-      @keyframes pageMovingRight {
+      @keyframes page-moving-right {
         0% {
           transform: translateX(0);
           opacity: 1;
@@ -319,7 +323,7 @@ main {
 
 // main route
 
-main.home {
+#main.home {
   max-width: 460px;
 
   .mobile & {
@@ -332,9 +336,15 @@ main.home {
   }
 }
 
+// contact route
+
+#main.contact {
+  max-width: 800px;
+}
+
 // projects route
 
-main.projects {
+#main.projects {
   max-width: 800px;
 
   .mobile & {
@@ -404,7 +414,7 @@ main.projects {
         }
       }
 
-      .notTactile &:hover {
+      .non-touch &:hover {
         border-color: var(--black-400);
         background-color: var(--black-700);
 
@@ -416,15 +426,9 @@ main.projects {
   }
 }
 
-// contact route
-
-main.contact {
-  max-width: 800px;
-}
-
 // project route
 
-main.project {
+#main.project {
   padding: 0;
 
   .card {
@@ -472,8 +476,8 @@ main.project {
 
 // not found route
 
-main.notFound {
-  h1.fortyHundredAndFour {
+#main.not_found {
+  h1.forty-hundred-and-four {
     font-size: 64px;
     animation: glitch404 500ms infinite;
 
@@ -499,7 +503,7 @@ main.notFound {
 
 // menu
 
-.menuWrapper {
+.menu-wrapper {
   position: fixed;
   width: 100%;
   left: 0;
@@ -594,7 +598,7 @@ main.notFound {
     height: 16px;
 
     transform-origin: center center;
-    animation: spinnerSpin 2s linear infinite;
+    animation: spinner-spin 2s linear infinite;
 
     circle {
       stroke-linecap: square;
@@ -619,7 +623,7 @@ main.notFound {
       }
     }
 
-    @keyframes spinnerSpin {
+    @keyframes spinner-spin {
       100% {
         transform: rotate(360deg);
       }
