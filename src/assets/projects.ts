@@ -30,7 +30,7 @@ const projects: {
     name: "valflrt.dev (v2)",
     id: "v2.valflrt.dev",
     description:
-      "This website, made using pure Typescript and vitejs. It has some cool utility functions and a hash router built from scratch.",
+      "This website, made using pure Typescript and ViteJs. It has some cool utility functions and a hash router built from scratch.",
     links: [
       {
         url: "https://github.com/valflrt/v2.valflrt.dev",
