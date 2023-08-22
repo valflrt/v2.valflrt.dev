@@ -26,6 +26,8 @@ let router = createRouter(routes, async (route, details) => {
       await wait(480);
     }
 
+    if (route.name) document.title = `${route.name} – valflrt.dev`;
+
     if (route.update) route.update(details);
     mainEl.innerHTML =
       typeof route.render === "string" ? route.render : route.render(details);

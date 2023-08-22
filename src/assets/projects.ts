@@ -3,7 +3,6 @@ import { $ } from "../util";
 import * as brandIcons from "./icons";
 
 const projects: {
-  name: string;
   id: string;
   description: string;
   links?: {
@@ -14,7 +13,6 @@ const projects: {
   used?: (keyof typeof brandIcons)[];
 }[] = [
   {
-    name: "fencryption",
     id: "fencryption",
     description:
       "A crypto util cli program to encrypt and decrypt files and directories. I first built it in typescript but decided to switch to Rust because typescript was not appropriate for this kind of project that requires working with io and crypto. I also wanted to try Rust and low-level programming.",
@@ -27,7 +25,6 @@ const projects: {
     used: ["rust"],
   },
   {
-    name: "valflrt.dev (v2)",
     id: "v2.valflrt.dev",
     description:
       "This website, made using pure Typescript and ViteJs. It has some cool utility functions and a hash router built from scratch.",
@@ -40,7 +37,6 @@ const projects: {
     used: ["typescript", "vite"],
   },
   {
-    name: "pixel_game",
     id: "pixel_game",
     description: `A simple (crappy) pixel art "game", but I worked hard on the logic and implemented a struct called ${$(
       "span",
@@ -73,7 +69,6 @@ const projects: {
   //   ],
   // },
   {
-    name: "Neural Network",
     id: "neural-network",
     description:
       "A simple neural network with two layers, inspired by several sources. It can for example act as a meh-accurate OR gate.",

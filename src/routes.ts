@@ -21,7 +21,7 @@ const routes: Routes = [
         return "";
       }
 
-      document.title = `${project.name} – valflrt.dev`;
+      document.title = `${project.id} – valflrt.dev`;
 
       return [
         $("div", { class: "card" })(
@@ -69,7 +69,6 @@ const routes: Routes = [
     id: "projects",
     name: "Projects",
     path: "/projects",
-    update: () => (document.title = "Projects – valflrt.dev"),
     render: [
       $("h1", { class: "main-title" })("Projects"),
       $("p", { class: "description" })("Here are some of my projects !"),
@@ -100,7 +99,6 @@ const routes: Routes = [
     id: "home",
     name: "Home",
     path: "/",
-    update: () => (document.title = "Home – valflrt.dev"),
     render: () => {
       let elapsedDays = (Date.now() / 1000 - 1108132073) / 60 / 60 / 24;
 
@@ -190,7 +188,7 @@ const routes: Routes = [
   },
   {
     id: "not_found",
-    name: "Not Found",
+    name: "404 Not Found",
     path: "/404",
     render: [
       $("h1", { class: "main-title forty-hundred-and-four" })("404"),
