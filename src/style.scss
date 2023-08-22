@@ -77,33 +77,8 @@ a {
   text-decoration: inherit;
 }
 
-.link {
-  text-decoration: inherit;
-  cursor: pointer;
-
-  .touch & {
-    padding: 3px;
-  }
-
-  &.underlined {
-    text-decoration: underline;
-  }
-}
-
 .underlined {
   text-decoration: underline;
-}
-
-.toast {
-  height: 36px !important;
-  padding: 0 18px !important;
-  border: 1px solid var(--black-700);
-  color: inherit !important;
-  background-color: var(--black-400) !important;
-  box-shadow: none !important;
-  border-radius: 12px !important;
-  font: inherit !important;
-  cursor: default;
 }
 
 button {
@@ -208,6 +183,78 @@ svg[role="img"] {
   }
 }
 
+// toast
+
+.toaster-wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  padding: 12px;
+
+  display: flex;
+  justify-content: end;
+
+  pointer-events: none;
+
+  #toast {
+    height: 36px;
+    padding: 0 18px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--black-700);
+    background-color: var(--black-400);
+
+    transition: 200ms;
+
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    gap: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+
+    transform-origin: bottom;
+
+    &.hidden {
+      animation: toast-disappearing 200ms ease 1;
+
+      @keyframes toast-disappearing {
+        from {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: scale(0.8) translateY(60px);
+        }
+      }
+    }
+
+    &.visible {
+      animation: toast-appearing 200ms ease 1;
+      opacity: 1;
+
+      @keyframes toast-appearing {
+        from {
+          opacity: 0;
+          transform: scale(0.8) translateY(60px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+    }
+  }
+}
+
 // route common
 
 #main {
@@ -224,7 +271,7 @@ svg[role="img"] {
   justify-content: center;
   gap: 16px;
 
-  animation: pageSpawn 500ms 1 cubic-bezier(0, 0, 0.25, 1.25);
+  animation: page-spawn 500ms 1 cubic-bezier(0, 0, 0.25, 1.25);
 
   h1.main-title {
     text-align: center;
@@ -262,7 +309,7 @@ svg[role="img"] {
     }
   }
 
-  @keyframes pageSpawn {
+  @keyframes page-spawn {
     0% {
       transform: scale(0.8);
       opacity: 0;
@@ -349,6 +396,7 @@ svg[role="img"] {
 
   .mobile & {
     padding: 2px;
+    max-width: 400px;
   }
 
   .list {
@@ -387,6 +435,14 @@ svg[role="img"] {
 
       .mobile & {
         padding: 12px;
+      }
+
+      &:not(:last-child) {
+        flex: 0 0 350px;
+      }
+
+      &:last-child {
+        flex: 0 0 auto;
       }
 
       .description {
@@ -564,68 +620,6 @@ svg[role="img"] {
             background-color: transparent;
           }
         }
-      }
-    }
-  }
-}
-
-// spinner
-
-.spinner {
-  position: fixed;
-
-  width: 36px;
-  height: 36px;
-  top: 20px;
-  right: 20px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  transition-duration: 200ms;
-  transition-delay: 200ms;
-  transition-property: transform;
-
-  transform: translateX(100px);
-
-  &.visible {
-    transform: translateX(0);
-  }
-
-  & > svg {
-    width: 16px;
-    height: 16px;
-
-    transform-origin: center center;
-    animation: spinner-spin 2s linear infinite;
-
-    circle {
-      stroke-linecap: square;
-      stroke-dasharray: 1, 200;
-      stroke-dashoffset: 0;
-
-      animation: spinnerDash 1.5s ease-in-out infinite;
-
-      @keyframes spinnerDash {
-        0% {
-          stroke-dasharray: 1, 200;
-          stroke-dashoffset: 0;
-        }
-        50% {
-          stroke-dasharray: 89, 200;
-          stroke-dashoffset: -35px;
-        }
-        100% {
-          stroke-dasharray: 89, 200;
-          stroke-dashoffset: -120px;
-        }
-      }
-    }
-
-    @keyframes spinner-spin {
-      100% {
-        transform: rotate(360deg);
       }
     }
   }

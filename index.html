@@ -22,9 +22,16 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://valflrt.dev" />
 
+    <!-- css -->
+    <link rel="stylesheet" href="./src/style.scss" />
+
     <!-- favicons -->
-    <link rel="icon" href="./assets/logo-64.png" type="image/png" />
-    <link rel="shortcut icon" href="./assets/logo-64.png" type="image/png" />
+    <link rel="icon" href="./src/assets/icons/logo-64.png" type="image/png" />
+    <link
+      rel="shortcut icon"
+      href="./src/assets/icons/logo-64.png"
+      type="image/png"
+    />
 
     <!-- color theme -->
     <meta name="theme-color" content="#28272b" />
@@ -34,13 +41,16 @@
   <body>
     <div id="root">
       <div id="layout" class="layout">
-        <div id="main"></div>
         <div class="menu-wrapper">
           <nav class="menu" id="menu">
             <a href="#/projects" class="clickable button">Projects</a>
             <a href="#/" class="clickable button">Home</a>
             <a href="#/contact" class="clickable button">Contact</a>
           </nav>
+        </div>
+        <div id="main"></div>
+        <div class="toaster-wrapper">
+          <div id="toast"></div>
         </div>
       </div>
       <noscript>

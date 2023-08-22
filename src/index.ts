@@ -1,8 +1,5 @@
-import "./index.scss";
-
 import { createRouter, setLocation } from "./router";
 import {
-  $,
   addWindowEventListeners,
   replaceClass,
   toggleClass,
@@ -10,6 +7,7 @@ import {
 } from "./util";
 
 import routes from "./routes";
+import { toast } from "./toaster";
 
 const layoutEl = document.getElementById("layout")!;
 const mainEl = document.getElementById("main")!;
@@ -48,21 +46,24 @@ let router = createRouter(routes, async (route, details) => {
   mainEl.classList.remove("disappearing", "move-left", "move-right");
 });
 
-addWindowEventListeners(["load", "hashchange"], () => {
-  router();
-  document.querySelectorAll<HTMLElement>(".copy[data-copy]").forEach((e) => {
-    e.addEventListener("click", () => {
-      navigator.clipboard
-        .writeText(e.dataset.copy ?? "")
-        .then(() => {
-          console.log("copied");
-          // TODO notification
-        })
-        .catch(() => {
-          // TODO notification
-        });
+addWindowEventListeners(["load", "hashchange"], async () => {
+  await router();
+  document
+    .querySelectorAll<HTMLElement>(".copy[data-copy]:not(.activated)")
+    .forEach((e) => {
+      e.classList.add("activated");
+      e.addEventListener("click", () => {
+        navigator.clipboard
+          .writeText(e.dataset.copy ?? "")
+          .then(() => {
+            console.log("copied");
+            toast("Copied !");
+          })
+          .catch(() => {
+            // TODO notification
+          });
+      });
     });
-  });
 });
 
 addWindowEventListeners(["load", "resize"], () => {
@@ -72,5 +73,5 @@ addWindowEventListeners(["load", "resize"], () => {
     "touch",
     "non-touch"
   );
-  toggleClass(layoutEl, window.innerWidth < 700, "mobile", "desktop");
+  toggleClass(layoutEl, window.innerWidth < 750, "mobile", "desktop");
 });

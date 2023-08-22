@@ -38,6 +38,9 @@ export function toggleClass(
   }
 }
 
+/**
+ * Replace `token` by `newToken` or add `newToken` to classList.
+ */
 export function replaceClass(
   element: Element,
   token: string | false | null | undefined,

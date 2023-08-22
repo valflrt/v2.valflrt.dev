@@ -1,8 +1,10 @@
 import { Routes, setLocation } from "./router";
-import { $ as $ } from "./util";
+import { $ } from "./util";
 
 import { icons } from "feather-icons";
 import * as brandIcons from "./assets/icons";
+
+import logo256 from "./assets/icons/logo-256.png";
 
 import projects from "./assets/projects";
 
@@ -35,7 +37,7 @@ const routes: Routes = [
           )
         ),
         project.links &&
-          $("div", { class: "container row wrap centerStretch" })(
+          $("div", { class: "container row wrap center-stretch" })(
             ...project.links.map((l) =>
               $("a", { href: l.url, class: "button clickable" })(
                 l.name,
@@ -100,7 +102,7 @@ const routes: Routes = [
       return [
         $("img", {
           class: "logo",
-          src: "/assets/logo-256.png",
+          src: logo256,
           alt: "valflrt's profile picture",
           width: "128",
           height: "128",
@@ -120,7 +122,7 @@ const routes: Routes = [
           )}. French and proud to be (oui oui baguette). I also really like sailing and swimming.`
         ),
         $("div", {
-          class: "container row wrap centerStretch",
+          class: "container row wrap center-stretch",
         })(
           $("a", {
             href: "#/projects",
@@ -155,7 +157,7 @@ const routes: Routes = [
       $("p", { class: "description" })(
         "Feel free to send me a message, I would appreciate it !"
       ),
-      $("div", { class: "container row wrap centerStretch" })(
+      $("div", { class: "container row wrap center-stretch" })(
         $("a", {
           href: "https://github.com/valflrt",
           class: "button clickable",
@@ -164,11 +166,11 @@ const routes: Routes = [
           href: "https://instagram.com/valflrt",
           class: "button clickable",
         })(`Instagram ${brandIcons.instagram}`),
-        $("span", {
+        $("button", {
           "data-copy": "valflrt",
           class: "button clickable copy",
         })(`Discord ${brandIcons.discord}`),
-        $("span", {
+        $("button", {
           "data-copy": "valflrt@pm.me",
           class: "button clickable copy",
         })(

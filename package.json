@@ -10,12 +10,11 @@
   },
   "devDependencies": {
     "@types/feather-icons": "^4.29.1",
+    "sass": "^1.66.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "feather-icons": "^4.29.1",
-    "sass": "^1.66.1",
-    "vite-plugin-svgr": "^3.2.0"
+    "feather-icons": "^4.29.1"
   }
 }

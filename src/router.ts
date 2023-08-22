@@ -50,9 +50,9 @@ export function getPathParams(templatePath: string[], path: string[]) {
 
 export function createRouter(
   routes: Routes,
-  callback: (route?: Route, routeDetails?: RouteDetails) => unknown
+  callback: (route?: Route, routeDetails?: RouteDetails) => Promise<unknown>
 ) {
-  return () => {
+  return async () => {
     let currentPath = getPath().split("/").slice(1) ?? [];
 
     let index = getRouteIndex(currentPath, routes);
@@ -63,9 +63,9 @@ export function createRouter(
         index,
         params: getPathParams(route.path.split("/").slice(1), currentPath),
       };
-      callback(route, details);
+      await callback(route, details);
     } else {
-      callback();
+      await callback();
     }
   };
 }
