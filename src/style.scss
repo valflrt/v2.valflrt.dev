@@ -437,14 +437,6 @@ svg[role="img"] {
         padding: 12px;
       }
 
-      &:not(:last-child) {
-        flex: 0 0 350px;
-      }
-
-      &:last-child {
-        flex: 0 0 auto;
-      }
-
       .description {
         padding: 12px 8px 0 8px;
 
