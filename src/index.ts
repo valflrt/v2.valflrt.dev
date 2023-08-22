@@ -62,7 +62,7 @@ addWindowEventListeners(["load", "hashchange"], async () => {
             toast("Copied !");
           })
           .catch(() => {
-            // TODO notification
+            console.error("Failed to copy");
           });
       });
     });

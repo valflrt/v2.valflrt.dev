@@ -1,3 +1,7 @@
+// IDEA $ generate an array of strings and functions, strings
+// are static parts of the whole thing and function have to
+// be executed for each render
+
 export function $(
   tag: keyof HTMLElementTagNameMap,
   props: { [key: keyof HTMLElement | string]: string } = {}

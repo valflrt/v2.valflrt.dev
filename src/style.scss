@@ -19,37 +19,36 @@ body {
 
 ::selection {
   color: var(--text-color);
-  background: hsla(255, 5%, 64%, 0.4);
+  background-color: hsla(255, 5%, 64%, 0.4);
 }
 ::-moz-selection {
   color: var(--text-color);
-  background: hsla(255, 5%, 64%, 0.4);
+  background-color: hsla(255, 5%, 64%, 0.4);
 }
 
 :root {
   --primary: hsl(247, 50%, 55%);
+  --text-color: #ffffff;
 
-  --black-100: hsl(255, 5%, 4%);
-  --black-200: hsl(255, 5%, 8%);
-  --black-300: hsl(255, 5%, 12%);
+  // --black-100: hsl(255, 5%, 4%);
+  // --black-200: hsl(255, 5%, 8%);
+  // --black-300: hsl(255, 5%, 12%);
   --black-400: hsl(255, 5%, 16%);
   --black-500: hsl(255, 5%, 20%);
-  --black-600: hsl(255, 5%, 24%);
+  // --black-600: hsl(255, 5%, 24%);
   --black-700: hsl(255, 5%, 28%);
   --black-800: hsl(255, 5%, 32%);
   --black-900: hsl(255, 5%, 36%);
 
-  --white-100: hsl(255, 5%, 64%);
-  --white-200: hsl(255, 5%, 68%);
-  --white-300: hsl(255, 5%, 72%);
-  --white-400: hsl(255, 5%, 76%);
+  // --white-100: hsl(255, 5%, 64%);
+  // --white-200: hsl(255, 5%, 68%);
+  // --white-300: hsl(255, 5%, 72%);
+  // --white-400: hsl(255, 5%, 76%);
   --white-500: hsl(255, 5%, 80%);
-  --white-600: hsl(255, 5%, 84%);
-  --white-700: hsl(255, 5%, 88%);
-  --white-800: hsl(255, 5%, 92%);
-  --white-900: hsl(255, 5%, 96%);
-
-  --text-color: #ffffff;
+  // --white-600: hsl(255, 5%, 84%);
+  // --white-700: hsl(255, 5%, 88%);
+  // --white-800: hsl(255, 5%, 92%);
+  // --white-900: hsl(255, 5%, 96%);
 }
 
 #root {
@@ -204,8 +203,8 @@ svg[role="img"] {
 
     border-radius: 12px;
 
-    border: 1px solid var(--black-700);
-    background-color: var(--black-400);
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
 
     transition: 200ms;
 
@@ -238,7 +237,7 @@ svg[role="img"] {
     }
 
     &.visible {
-      animation: toast-appearing 200ms ease 1;
+      animation: toast-appearing 200ms ease-in-out 1;
       opacity: 1;
 
       @keyframes toast-appearing {
