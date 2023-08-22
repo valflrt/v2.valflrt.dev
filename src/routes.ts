@@ -41,12 +41,17 @@ const routes: Routes = [
             ...project.links.map((l) =>
               $("a", { href: l.url, class: "button clickable" })(
                 l.name,
-                l.icon &&
-                  icons[l.icon].toSvg({
-                    class: "icon",
-                    width: 16,
-                    height: 16,
-                  })
+                l.icon
+                  ? icons[l.icon].toSvg({
+                      class: "icon",
+                      width: 16,
+                      height: 16,
+                    })
+                  : icons["external-link"].toSvg({
+                      class: "icon",
+                      width: 16,
+                      height: 16,
+                    })
               )
             ),
             $("a", { href: "#/projects", class: "button clickable" })(
