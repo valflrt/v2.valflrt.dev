@@ -58,11 +58,10 @@ addWindowEventListeners(["load", "hashchange"], async () => {
         navigator.clipboard
           .writeText(e.dataset.copy ?? "")
           .then(() => {
-            console.log("copied");
-            toast("Copied !");
+            toast("Copied !", "highlight");
           })
           .catch(() => {
-            console.error("Failed to copy");
+            toast("Failed to copy", "error");
           });
       });
     });

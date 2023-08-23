@@ -28,6 +28,9 @@ body {
 
 :root {
   --primary: hsl(247, 50%, 55%);
+  --success: #28e460;
+  --error: #e42851;
+
   --text-color: #ffffff;
 
   // --black-100: hsl(255, 5%, 4%);
@@ -201,10 +204,9 @@ svg[role="img"] {
     height: 36px;
     padding: 0 18px;
 
+    background-color: var(--black-400);
+    border: 1px solid var(--black-700);
     border-radius: 12px;
-
-    border: 1px solid var(--primary);
-    background-color: var(--primary);
 
     transition: 200ms;
 
@@ -220,6 +222,19 @@ svg[role="img"] {
     opacity: 0;
 
     transform-origin: bottom;
+
+    &.color-highlight {
+      border-color: var(--primary);
+      background-color: var(--primary);
+    }
+    &.color-success {
+      border-color: var(--success);
+      background-color: var(--success);
+    }
+    &.color-error {
+      border-color: var(--error);
+      background-color: var(--error);
+    }
 
     &.hidden {
       animation: toast-disappearing 200ms ease 1;
