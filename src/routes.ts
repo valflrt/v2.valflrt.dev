@@ -41,7 +41,9 @@ const routes: Routes = [
             ...project.links.map((l) =>
               $("a", { href: l.url, class: "button clickable" })(
                 l.name,
-                l.icon
+                l.brand
+                  ? brandIcons[l.brand]
+                  : l.icon
                   ? icons[l.icon].toSvg({
                       class: "icon",
                       width: 16,
@@ -87,12 +89,12 @@ const routes: Routes = [
               $("span", { class: "underlined" })("Read More")
             )
           )
-        ),
-        $("a", {
-          href: "https://github.com/valflrt?tab=repositories",
-          class: "button clickable",
-        })(`See more on github ${brandIcons.github}`)
+        )
       ),
+      $("a", {
+        href: "https://github.com/valflrt?tab=repositories",
+        class: "button clickable",
+      })(`See more on github ${brandIcons.github}`),
     ].join(""),
   },
   {
@@ -131,21 +133,21 @@ const routes: Routes = [
             href: "#/projects",
             class: "button clickable",
           })(
-            `${icons.list.toSvg({
+            `Projects ${icons.list.toSvg({
               class: "icon",
               width: 16,
               height: 16,
-            })} Projects`
+            })}`
           ),
           $("a", {
             href: "#/contact",
             class: "button clickable",
           })(
-            `${icons.user.toSvg({
+            `Contact ${icons.user.toSvg({
               class: "icon",
               width: 16,
               height: 16,
-            })} Contact`
+            })}`
           )
         ),
       ].join("");

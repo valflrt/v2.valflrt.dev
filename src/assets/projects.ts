@@ -9,6 +9,7 @@ const projects: {
     url: string;
     name: string;
     icon?: keyof typeof icons;
+    brand?: keyof typeof brandIcons;
   }[];
   used?: (keyof typeof brandIcons)[];
 }[] = [
@@ -20,6 +21,7 @@ const projects: {
       {
         url: "https://github.com/valflrt/fencryption",
         name: "Github",
+        brand: "github",
       },
     ],
     used: ["rust"],
@@ -32,6 +34,7 @@ const projects: {
       {
         url: "https://github.com/valflrt/v2.valflrt.dev",
         name: "Github",
+        brand: "github",
       },
     ],
     used: ["typescript", "vite"],
@@ -48,6 +51,7 @@ const projects: {
       {
         url: "https://github.com/valflrt/pixel_game",
         name: "Github",
+        brand: "github",
       },
     ],
     used: ["rust"],
@@ -76,6 +80,7 @@ const projects: {
       {
         url: "https://github.com/valflrt/neural-network",
         name: "Github",
+        brand: "github",
       },
     ],
     used: ["python"],
