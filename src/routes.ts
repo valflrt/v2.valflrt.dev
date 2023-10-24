@@ -102,7 +102,7 @@ const routes: Routes = [
     name: "Home",
     path: "/",
     render: () => {
-      let elapsedDays = (Date.now() / 1000 - 1108132073) / 60 / 60 / 24;
+      let elapsedDays = (Date.now() / 1000 - 1108132680) / 60 / 60 / 24;
 
       return [
         $("img", {
@@ -123,7 +123,7 @@ const routes: Routes = [
               ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`,
             }
           )(
-            "1108132073"
+            "1108132680"
           )}. French and proud to be (oui oui baguette). I also really like sailing and swimming.`
         ),
         $("div", {
