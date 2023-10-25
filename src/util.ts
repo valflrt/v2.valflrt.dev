@@ -58,3 +58,39 @@ export function replaceClass(
 export function wait(ms: number) {
   return new Promise((r) => setTimeout(r, ms));
 }
+
+export function elapsedTime(msDate: number) {
+  function addS(n: number) {
+    return n > 1 ? "s" : "";
+  }
+  function compute(n: number, d: number) {
+    return [Math.floor(n / d), Math.floor(n % d)];
+  }
+
+  let elapsed = (Date.now() - msDate) / 1000;
+
+  let [years, yearsRemaining] = compute(elapsed, 60 * 60 * 24 * 365.24);
+  let [days, daysRemaining] = compute(yearsRemaining, 60 * 60 * 24);
+  let [hours, hoursRemaining] = compute(daysRemaining, 60 * 60);
+  let [minutes, minutesRemaining] = compute(hoursRemaining, 60);
+  let seconds = minutesRemaining % 60;
+
+  return Object.entries({
+    year: years,
+    day: days,
+    hour: hours,
+    minute: minutes,
+    second: seconds,
+  })
+    .map(
+      ([k, v], i, arr) =>
+        v
+          .toFixed()
+          .concat(" ")
+          .concat(k)
+          .concat(addS(years))
+          .concat(i === arr.length - 2 ? " and" : "")
+      // .concat(i >= arr.length - 2 ? "" : ", ")
+    )
+    .join(" ");
+}

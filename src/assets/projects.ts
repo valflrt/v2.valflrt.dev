@@ -1,6 +1,5 @@
-import { icons } from "feather-icons";
 import { $ } from "../util";
-import * as brandIcons from "./icons";
+import * as icons from "./icons";
 
 const projects: {
   id: string;
@@ -9,9 +8,8 @@ const projects: {
     url: string;
     name: string;
     icon?: keyof typeof icons;
-    brand?: keyof typeof brandIcons;
   }[];
-  used?: (keyof typeof brandIcons)[];
+  used?: (keyof typeof icons)[];
 }[] = [
   {
     id: "fencryption",
@@ -21,7 +19,7 @@ const projects: {
       {
         url: "https://github.com/valflrt/fencryption",
         name: "Github",
-        brand: "github",
+        icon: "github",
       },
     ],
     used: ["rust"],
@@ -34,7 +32,7 @@ const projects: {
       {
         url: "https://github.com/valflrt/v2.valflrt.dev",
         name: "Github",
-        brand: "github",
+        icon: "github",
       },
     ],
     used: ["typescript", "vite"],
@@ -51,7 +49,7 @@ const projects: {
       {
         url: "https://github.com/valflrt/pixel_game",
         name: "Github",
-        brand: "github",
+        icon: "github",
       },
     ],
     used: ["rust"],
@@ -80,7 +78,7 @@ const projects: {
       {
         url: "https://github.com/valflrt/neural-network",
         name: "Github",
-        brand: "github",
+        icon: "github",
       },
     ],
     used: ["python"],

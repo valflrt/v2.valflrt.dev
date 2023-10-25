@@ -1,8 +1,7 @@
 import { Routes, setLocation } from "./router";
-import { $ } from "./util";
+import { $, elapsedTime } from "./util";
 
-import { icons } from "feather-icons";
-import * as brandIcons from "./assets/icons";
+import * as icons from "./assets/icons";
 
 import logo256 from "./assets/icons/logo-256.png";
 
@@ -28,9 +27,7 @@ const routes: Routes = [
           $("div", { class: "header" })(
             $("div", { class: "title code" })(`valflrt/${project.id}`),
             project.used &&
-              $("div", { class: "icons" })(
-                ...project.used.map((v) => brandIcons[v])
-              )
+              $("div", { class: "icons" })(...project.used.map((v) => icons[v]))
           ),
           $("div", { class: "description" })(
             $("p", { class: "text" })(project.description)
@@ -41,27 +38,11 @@ const routes: Routes = [
             ...project.links.map((l) =>
               $("a", { href: l.url, class: "button clickable" })(
                 l.name,
-                l.brand
-                  ? brandIcons[l.brand]
-                  : l.icon
-                  ? icons[l.icon].toSvg({
-                      class: "icon",
-                      width: 16,
-                      height: 16,
-                    })
-                  : icons["external-link"].toSvg({
-                      class: "icon",
-                      width: 16,
-                      height: 16,
-                    })
+                l.icon ? icons[l.icon] : icons.externalLink
               )
             ),
             $("a", { href: "#/projects", class: "button clickable" })(
-              `Back to projects ${icons.list.toSvg({
-                class: "icon",
-                width: 16,
-                height: 16,
-              })}`
+              `Back to projects ${icons.list}`
             )
           ),
       ].join("");
@@ -80,9 +61,7 @@ const routes: Routes = [
             $("div", { class: "header" })(
               $("div", { class: "title code" })(`valflrt/${p.id}`),
               p.used &&
-                $("div", { class: "icons" })(
-                  ...p.used.map((v) => brandIcons[v])
-                )
+                $("div", { class: "icons" })(...p.used.map((v) => icons[v]))
             ),
             $("div", { class: "description" })(
               $("div", { class: "text" })(p.description),
@@ -94,7 +73,7 @@ const routes: Routes = [
       $("a", {
         href: "https://github.com/valflrt?tab=repositories",
         class: "button clickable",
-      })(`See more on github ${brandIcons.github}`),
+      })(`See more on github ${icons.github}`),
     ].join(""),
   },
   {
@@ -102,8 +81,6 @@ const routes: Routes = [
     name: "Home",
     path: "/",
     render: () => {
-      let elapsedDays = (Date.now() / 1000 - 1108132680) / 60 / 60 / 24;
-
       return [
         $("img", {
           class: "logo",
@@ -118,9 +95,9 @@ const routes: Routes = [
             "code",
             {
               class: "birthDate code",
-              title: `Alive for approximately ${Math.trunc(
-                elapsedDays / 365
-              ).toFixed()} years and ${(elapsedDays % 365).toFixed()} days`,
+              title: `Alive for approximately ${elapsedTime(
+                1108132680 * 1000
+              )}`,
             }
           )(
             "1108132680"
@@ -132,23 +109,11 @@ const routes: Routes = [
           $("a", {
             href: "#/projects",
             class: "button clickable",
-          })(
-            `Projects ${icons.list.toSvg({
-              class: "icon",
-              width: 16,
-              height: 16,
-            })}`
-          ),
+          })(`Projects ${icons.list}`),
           $("a", {
             href: "#/contact",
             class: "button clickable",
-          })(
-            `Contact ${icons.user.toSvg({
-              class: "icon",
-              width: 16,
-              height: 16,
-            })}`
-          )
+          })(`Contact ${icons.user}`)
         ),
       ].join("");
     },
@@ -166,25 +131,19 @@ const routes: Routes = [
         $("a", {
           href: "https://github.com/valflrt",
           class: "button clickable",
-        })(`Github ${brandIcons.github}`),
+        })(`Github ${icons.github}`),
         $("a", {
           href: "https://instagram.com/valflrt",
           class: "button clickable",
-        })(`Instagram ${brandIcons.instagram}`),
+        })(`Instagram ${icons.instagram}`),
         $("button", {
           "data-copy": "valflrt",
           class: "button clickable copy",
-        })(`Discord ${brandIcons.discord}`),
+        })(`Discord ${icons.discord}`),
         $("button", {
           "data-copy": "valflrt@pm.me",
           class: "button clickable copy",
-        })(
-          `Email ${icons["at-sign"].toSvg({
-            class: "icon",
-            width: 20,
-            height: 20,
-          })}`
-        )
+        })(`Email ${icons.atSign}`)
       ),
     ].join(""),
   },
