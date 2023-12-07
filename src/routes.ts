@@ -5,7 +5,7 @@ import * as icons from "./assets/icons";
 
 import logo256 from "./assets/icons/logo-256.png";
 
-import projects from "./assets/projects";
+import projects from "./projects";
 
 const routes: Routes = [
   {
@@ -91,7 +91,7 @@ const routes: Routes = [
         })(),
         $("h1", { class: "main-title" })("Heya !"),
         $("p", { class: "description" })(
-          `I am Valentin Fleurit (aka valflrt), a programming enthusiast born at ${$(
+          `I am Valentin Fleurit aka valflrt, a programming enthusiast born at ${$(
             "code",
             {
               class: "birthDate code",
@@ -101,7 +101,7 @@ const routes: Routes = [
             }
           )(
             "1108132680"
-          )}. French and proud to be (oui oui baguette). I also really like sailing and swimming.`
+          )}. I study math and physics and I like swimming and sailing. French and proud to be (oui oui baguette).`
         ),
         $("div", {
           class: "container row wrap center-stretch",
