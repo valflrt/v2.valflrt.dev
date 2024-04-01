@@ -101,7 +101,7 @@ const routes: Routes = [
             }
           )(
             "1108132680"
-          )}. I study math and physics and I like swimming and sailing. French and proud to be (oui oui baguette).`
+          )}. I study math and physics and I like swimming and sailing.\nFrench and proud to be (oui oui baguette).`
         ),
         $("div", {
           class: "container row wrap center-stretch",
