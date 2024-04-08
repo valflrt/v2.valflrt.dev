@@ -29,6 +29,29 @@ const projects: {
     used: ["rust"],
   },
   {
+    id: "smarticles-fork",
+    description: `A particle simulation program that I forked from ${$("span", {
+      class: "code",
+    })(
+      "ChevyRay/smarticles"
+    )}, I added some optimizations and features. In the simulation there are 8 classes of particles with different attraction/repulsion forces for `.concat(
+      "particles of every other class. It can simulate around 5000 particles with an update rate of 40ms. I had a lot of fun working on this."
+    ),
+    links: [
+      {
+        url: "https://github.com/valflrt/smarticles-fork",
+        name: "Github",
+        icon: "github",
+      },
+      {
+        url: "https://github.com/ChevyRay/smarticles",
+        name: "Original Project",
+        icon: "github",
+      },
+    ],
+    used: ["rust"],
+  },
+  {
     id: "v2.valflrt.dev",
     description:
       "This website, made using Typescript and ViteJs. It has some cool utility functions and a hash router built from scratch. (I'm pretty proud of it btw)",
