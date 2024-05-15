@@ -84,7 +84,7 @@ const projects: {
     id: "pixel_game",
     description: [
       $("p")(
-        "A simple pixel art game (if we can call it that). The game draws the pixels to the screen in the most ineficient way possible."
+        "A simple pixel art game (if we can call it that). The game draws the pixels to the screen in the most inefficient way possible."
       ),
       $("p")(
         "I created a struct called ",
