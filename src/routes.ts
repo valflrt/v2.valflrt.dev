@@ -38,7 +38,11 @@ const routes: Routes = [
               $("div", { class: "icons" })(...project.used.map((v) => icons[v]))
           ),
           $("div", { class: "description" })(
-            $("p", { class: "text" })(project.description)
+            $("div", { class: "text" })(
+              typeof project.description == "string"
+                ? project.description
+                : project.description()
+            )
           )
         ),
         project.links &&
@@ -74,7 +78,11 @@ const routes: Routes = [
                 $("div", { class: "icons" })(...p.used.map((v) => icons[v]))
             ),
             $("div", { class: "description" })(
-              $("div", { class: "text" })(p.description),
+              $("div", { class: "text" })(
+                typeof p.description == "string"
+                  ? p.description
+                  : p.description()
+              ),
               $("span", { class: "underlined" })("Read More")
             )
           )
