@@ -1,10 +1,10 @@
-import { replaceClass } from "./util";
+import { replaceOrAddClass } from "./util";
 
 let hideTimeout: number | null = null;
 
 function hideToast(toast: HTMLElement) {
   return setTimeout(() => {
-    replaceClass(toast, "visible", "hidden");
+    replaceOrAddClass(toast, "visible", "hidden");
     toast.classList.remove("bounce", "color-success", "color-error");
   }, 2000);
 }
@@ -20,7 +20,7 @@ export function toast(
     if (hideTimeout) clearTimeout(hideTimeout);
     hideTimeout = hideToast(toast);
   } else {
-    replaceClass(toast, "hidden", "visible");
+    replaceOrAddClass(toast, "hidden", "visible");
     toast.innerHTML = text;
     hideTimeout = hideToast(toast);
   }

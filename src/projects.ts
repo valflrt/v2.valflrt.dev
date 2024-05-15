@@ -45,7 +45,7 @@ const projects: {
       },
       {
         url: "https://github.com/ChevyRay/smarticles",
-        name: "Original Project",
+        name: "Original Repository",
         icon: "github",
       },
     ],

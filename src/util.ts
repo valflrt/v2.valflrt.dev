@@ -1,7 +1,3 @@
-// IDEA $ generate an array of strings and functions, strings
-// are static parts of the whole thing and function have to
-// be executed for each render
-
 export function $(
   tag: keyof HTMLElementTagNameMap,
   props: { [key: keyof HTMLElement | string]: string } = {}
@@ -25,7 +21,10 @@ export function addWindowEventListeners(
 }
 
 /**
- * Toggles `a` and `b` depending on the `condition`.
+ * Toggles `a` and `b` depending on `condition` (when
+ * `condition` is `true`, `a` is enabled and `b` disabled if
+ * present and when it is `false`, `a` is disabled and `b`
+ * enabled if present).
  */
 export function toggleClass(
   element: Element,
@@ -43,9 +42,10 @@ export function toggleClass(
 }
 
 /**
- * Replace `token` by `newToken` or add `newToken` to classList.
+ * Replace `token` with `newToken` or add `newToken` to
+ * classList.
  */
-export function replaceClass(
+export function replaceOrAddClass(
   element: Element,
   token: string | false | null | undefined,
   newToken: string
@@ -82,15 +82,13 @@ export function elapsedTime(msDate: number) {
     minute: minutes,
     second: seconds,
   })
-    .map(
-      ([k, v], i, arr) =>
-        v
-          .toFixed()
-          .concat(" ")
-          .concat(k)
-          .concat(addS(years))
-          .concat(i === arr.length - 2 ? " and" : "")
-      // .concat(i >= arr.length - 2 ? "" : ", ")
+    .map(([k, v], i, arr) =>
+      v
+        .toFixed()
+        .concat(" ")
+        .concat(k)
+        .concat(addS(years))
+        .concat(i === arr.length - 2 ? " and" : "")
     )
     .join(" ");
 }

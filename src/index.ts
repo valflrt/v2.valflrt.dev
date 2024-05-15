@@ -1,7 +1,7 @@
-import { createRouter, setLocation } from "./router";
+import { createRouter, navigate } from "./router";
 import {
   addWindowEventListeners,
-  replaceClass,
+  replaceOrAddClass,
   toggleClass,
   wait,
 } from "./util";
@@ -32,7 +32,7 @@ let router = createRouter(routes, async (route, details) => {
     mainEl.innerHTML =
       typeof route.render === "string" ? route.render : route.render(details);
 
-    replaceClass(mainEl, prevRouteId, route.id);
+    replaceOrAddClass(mainEl, prevRouteId, route.id);
     document
       .querySelectorAll<HTMLAnchorElement>("#menu > a")
       .forEach((e) =>
@@ -42,7 +42,7 @@ let router = createRouter(routes, async (route, details) => {
     prevRouteId = route.id;
     prevRouteIndex = details.index;
   } else {
-    setLocation("/404", true);
+    navigate("/404", true);
   }
 
   mainEl.classList.remove("disappearing", "move-left", "move-right");

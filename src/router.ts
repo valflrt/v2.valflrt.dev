@@ -12,7 +12,7 @@ export interface RouteDetails {
   params: { [key: string]: string };
 }
 
-export function setLocation(path: string, replace?: boolean) {
+export function navigate(path: string, replace?: boolean) {
   if (!replace) window.location.hash = "#".concat(path);
   else {
     let newUrl = new URL(window.location.href);
@@ -48,6 +48,13 @@ export function getPathParams(templatePath: string[], path: string[]) {
   return params;
 }
 
+/**
+ * Creates a router
+ * @param routes routes...
+ * @param callback a custom function that will be executed
+ * every time the route changes
+ * @returns a function that must be called on hashchange
+ */
 export function createRouter(
   routes: Routes,
   callback: (route?: Route, routeDetails?: RouteDetails) => Promise<unknown>

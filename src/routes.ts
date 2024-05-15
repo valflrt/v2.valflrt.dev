@@ -1,12 +1,20 @@
-import { Routes, setLocation } from "./router";
+import { Routes, navigate } from "./router";
 import { $, elapsedTime } from "./util";
 
 import * as icons from "./assets/icons";
 
-import logo256 from "./assets/icons/logo-256.png";
+import logo256 from "./assets/icons/logo-256-alt.png";
 
 import projects from "./projects";
 
+/**
+ * This is the route object, order is important since it is
+ * used to animate correctly transitions between routes.
+ *
+ * Example: /projects is on the "left" of /home therefore
+ * the transition from /projects to /home must be animated
+ * from left to right (see index.ts at line 25).
+ */
 const routes: Routes = [
   {
     id: "project",
@@ -16,7 +24,7 @@ const routes: Routes = [
       let project = projects.find((p) => p.id === id);
 
       if (!id || !project) {
-        setLocation("/notfound");
+        navigate("/notfound");
         return "";
       }
 
@@ -54,7 +62,9 @@ const routes: Routes = [
     path: "/projects",
     render: [
       $("h1", { class: "main-title" })("Projects"),
-      $("p", { class: "description" })("Here are some of my projects !"),
+      $("p", { class: "description" })(
+        "Here are some of my favorite projects !"
+      ),
       $("div", { class: "list" })(
         ...projects.map((p) =>
           $("a", { href: `#/project/${p.id}`, class: "item card" })(
@@ -80,43 +90,39 @@ const routes: Routes = [
     id: "home",
     name: "Home",
     path: "/",
-    render: () => {
-      return [
-        $("img", {
-          class: "logo",
-          src: logo256,
-          alt: "valflrt's profile picture",
-          width: "128",
-          height: "128",
-        })(),
-        $("h1", { class: "main-title" })("Heya !"),
-        $("p", { class: "description" })(
-          `I am Valentin Fleurit aka valflrt, a programming enthusiast born at ${$(
-            "code",
-            {
-              class: "birthDate code",
-              title: `Alive for approximately ${elapsedTime(
-                1108132680 * 1000
-              )}`,
-            }
-          )(
-            "1108132680"
-          )}. I study math and physics and I like swimming and sailing.\nFrench and proud to be (oui oui baguette).`
-        ),
-        $("div", {
-          class: "container row wrap center-stretch",
-        })(
-          $("a", {
-            href: "#/projects",
-            class: "button clickable",
-          })(`Projects ${icons.list}`),
-          $("a", {
-            href: "#/contact",
-            class: "button clickable",
-          })(`Contact ${icons.user}`)
-        ),
-      ].join("");
-    },
+    render: [
+      $("img", {
+        class: "logo",
+        src: logo256,
+        alt: "valflrt's profile picture",
+        width: "128",
+        height: "128",
+      })(),
+      $("h1", { class: "main-title" })("Heya !"),
+      $("p", { class: "description" })(
+        `I am Valentin Fleurit aka valflrt, a programming enthusiast born at ${$(
+          "code",
+          {
+            class: "birthDate code",
+            title: `Alive for approximately ${elapsedTime(1108132680 * 1000)}`,
+          }
+        )(
+          "1108132680"
+        )}. I study math and physics and I like swimming and sailing.\nFrench and proud to be (oui oui baguette).`
+      ),
+      $("div", {
+        class: "container row wrap center-stretch",
+      })(
+        $("a", {
+          href: "#/projects",
+          class: "button clickable",
+        })(`Projects ${icons.list}`),
+        $("a", {
+          href: "#/contact",
+          class: "button clickable",
+        })(`Contact ${icons.user}`)
+      ),
+    ].join(""),
   },
   {
     id: "contact",
