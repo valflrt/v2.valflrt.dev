@@ -56,6 +56,11 @@ const projects: {
         icon: "github",
       },
       {
+        url: "https://github.com/valflrt/smarticles-fork/releases/latest",
+        name: "Try it !",
+        icon: "github",
+      },
+      {
         url: "https://github.com/ChevyRay/smarticles",
         name: "Original Repository",
         icon: "github",
