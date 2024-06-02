@@ -41,7 +41,7 @@ const projects: {
         )} to which I added some optimizations (I think ?) and features.`
       ),
       $("p")(
-        "In the simulation there are 8 classes of particles.",
+        "In the simulation there are 8 classes of particles. ",
         "Particles from one of the classes apply a class-specific attractive or repulsive force on other particles."
       ),
       $("p")(
