@@ -132,7 +132,7 @@ const projects: {
         "A python program for training a neural network with two layers, inspired by several sources. It can for example act as a meh-accurate XOR gate (or do greater things I guess)."
       ),
       $("p")(
-        'You might find weird things in it since at the time I did\'t know how to find "the derivative" of a matrix expression.'
+        'You might find weird things in it since at the time I didn\'t know how to find "the derivative" of a matrix expression.'
       ),
     ].join(""),
     links: [
