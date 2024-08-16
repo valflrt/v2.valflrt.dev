@@ -48,6 +48,7 @@ const projects: {
         "Thanks to multithreading the movement of around 5000 particles can be simulated with an update rate of 50ms."
       ),
       $("p")("I had a lot of fun working on this."),
+      $("p")("Edit: I added spatial partitioning which enables simulating thousands of particles (up to 120,000) while rarely exceeding 50-80ms of update rate !")
     ].join(""),
     links: [
       {
