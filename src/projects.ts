@@ -12,25 +12,6 @@ const projects: {
   used?: (keyof typeof icons)[];
 }[] = [
   {
-    id: "fencryption",
-    description: [
-      $("p")(
-        "A work-in-progress crypto util cli program to encrypt and decrypt files and directories."
-      ),
-      $("p")(
-        "I first built it in typescript but decided to switch to Rust because typescript was (really) not appropriate for this kind of project that requires working with io and crypto. I also wanted to try Rust and low-level programming."
-      ),
-    ].join(""),
-    links: [
-      {
-        url: "https://github.com/valflrt/fencryption",
-        name: "Github",
-        icon: "github",
-      },
-    ],
-    used: ["rust"],
-  },
-  {
     id: "smarticles-fork",
     description: [
       $("p")(
@@ -48,7 +29,9 @@ const projects: {
         "Thanks to multithreading the movement of around 5000 particles can be simulated with an update rate of 50ms."
       ),
       $("p")("I had a lot of fun working on this."),
-      $("p")("Edit: I added spatial partitioning which enables simulating thousands of particles (up to 120,000) while rarely exceeding 50-80ms of update rate !")
+      $("p")(
+        "Edit: I added spatial partitioning which enables simulating thousands of particles (up to 120,000) while rarely exceeding 50-80ms of update rate !"
+      ),
     ].join(""),
     links: [
       {
@@ -85,6 +68,25 @@ const projects: {
       },
     ],
     used: ["typescript", "vite"],
+  },
+  {
+    id: "fencryption",
+    description: [
+      $("p")(
+        "A work-in-progress crypto util cli program to encrypt and decrypt files and directories."
+      ),
+      $("p")(
+        "I first built it in typescript but decided to switch to Rust because typescript was (really) not appropriate for this kind of project that requires working with io and crypto. I also wanted to try Rust and low-level programming."
+      ),
+    ].join(""),
+    links: [
+      {
+        url: "https://github.com/valflrt/fencryption",
+        name: "Github",
+        icon: "github",
+      },
+    ],
+    used: ["rust"],
   },
   {
     id: "pixel_game",
