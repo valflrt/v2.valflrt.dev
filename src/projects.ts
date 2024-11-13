@@ -110,7 +110,7 @@ const projects: {
       ),
       p(
         {},
-        "Somthing kind of interesting is that I created a struct called ",
+        "Something kind of interesting is that I created a struct called ",
         span({ class: "code" }, "Mat"),
         " similar to the common Rust ",
         span({ class: "code" }, "Vec"),
