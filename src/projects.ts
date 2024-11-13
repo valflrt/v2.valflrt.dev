@@ -1,5 +1,5 @@
-import { $ } from "./util";
 import * as icons from "./assets/icons";
+import { p, span } from "./rendering";
 
 const projects: {
   id: string;
@@ -14,24 +14,29 @@ const projects: {
   {
     id: "smarticles-fork",
     description: [
-      $("p")(
-        `A particle simulation program forked from ${$("span", {
-          class: "code",
-        })(
-          "ChevyRay/smarticles"
-        )} to which I added some optimizations (I think ?) and features.`
+      p(
+        {},
+        "A particle simulation program forked from " +
+          span(
+            {
+              class: "code",
+            },
+            "ChevyRay/smarticles"
+          ) +
+          ", to which I added some optimizations (I think ?) and features."
       ),
-      $("p")(
-        "In the simulation there are 8 classes of particles. ",
-        "Particles from one of the classes apply a class-specific attractive or repulsive force on other particles."
+      p(
+        {},
+        "In the simulation there are six classes of particles. ",
+        "Particles from one of the classes apply a class-specific attractive or repulsive force " +
+          "to other particles."
       ),
-      $("p")(
-        "Thanks to multithreading the movement of around 5000 particles can be simulated with an update rate of 50ms."
+      p(
+        {},
+        "Using spatial partitioning and a more efficient use of multithreading, I was able to " +
+          "simulate tens of thousands of particles while rarely exceeding 50ms of update rate !"
       ),
-      $("p")("I had a lot of fun working on this."),
-      $("p")(
-        "Edit: I added spatial partitioning which enables simulating thousands of particles (up to 120,000) while rarely exceeding 50-80ms of update rate !"
-      ),
+      p({}, "I had a lot of fun working on this."),
     ].join(""),
     links: [
       {
@@ -55,10 +60,12 @@ const projects: {
   {
     id: "v2.valflrt.dev",
     description: [
-      $("p")(
-        "This website, made using Typescript and ViteJs. It has some cool utility functions and a hash router built from scratch, some might hurt your eyes tho."
+      p(
+        {},
+        "This website, made using Typescript and ViteJs. It has some cool utility functions and " +
+          "a hash router built from scratch, some things might scratch your eyes tho."
       ),
-      $("p")("(I'm pretty proud of it btw)"),
+      p({}, "(I'm pretty proud of it btw)"),
     ].join(""),
     links: [
       {
@@ -72,11 +79,15 @@ const projects: {
   {
     id: "fencryption",
     description: [
-      $("p")(
+      p(
+        {},
         "A work-in-progress crypto util cli program to encrypt and decrypt files and directories."
       ),
-      $("p")(
-        "I first built it in typescript but decided to switch to Rust because typescript was (really) not appropriate for this kind of project that requires working with io and crypto. I also wanted to try Rust and low-level programming."
+      p(
+        {},
+        "I first built it in typescript but decided to switch to Rust because typescript was " +
+          "(really) not appropriate for this kind of project that requires working with io and " +
+          "crypto. I also wanted to try Rust and low-level programming."
       ),
     ].join(""),
     links: [
@@ -91,17 +102,21 @@ const projects: {
   {
     id: "pixel_game",
     description: [
-      $("p")(
-        "A simple pixel art game (if we can call it that). The game draws the pixels to the screen in the most inefficient way possible."
+      p(
+        {},
+        "A simple pixel art game (if we can call it that). The game draws the pixels to the " +
+          "screen in the most inefficient way possible."
       ),
-      $("p")(
+      p(
+        {},
         "I created a struct called ",
-        $("span", { class: "code" })("Mat"),
+        span({ class: "code" }, "Mat"),
         " similar to the common Rust ",
-        $("span", { class: "code" })("Vec"),
-        " but in two dimensions, it holds the pixels that will be displayed on the screen (yes I know, it's just the worst way to do it) and can also be used to store textures/images."
+        span({ class: "code" }, "Vec"),
+        " but in two dimensions, it holds the pixels that will be displayed on the screen (yes, " +
+          "I know, it's just the worst way to do it) and can also be used to store textures/images."
       ),
-      $("p")("I've spent way too much time on this for a meh result..."),
+      p({}, "I've spent way too much time on this for a meh result..."),
     ].join(""),
     links: [
       {
@@ -112,40 +127,30 @@ const projects: {
     ],
     used: ["rust"],
   },
-  // {
-  //   name: "Le Jardinier",
-  //   id: "lejardinier",
-  //   description:
-  //     "Simple utility/test discord bot made using typescript and discord.js.",
-  //   links: [
-  //     {
-  //       url: "https://github.com/valflrt/lejardinier",
-  //       name: "Github",
-  //     },
-  //     {SiRust
-  //       url: "https://lejardinier.valflrt.dev/card",
-  //       name: "Discord Invite",
-  //     },
-  //   ],
-  // },
   {
-    id: "neural-network",
+    id: "omega_mandelbrot",
     description: [
-      $("p")(
-        "A python program for training a neural network with two layers, inspired by several sources. It can for example act as a meh-accurate XOR gate (or do greater things I guess)."
+      p(
+        {},
+        "A native app for Omega on the Numworks calculator that lets you explore the Mandelbrot " +
+          "set with a reasonable maximum depth."
       ),
-      $("p")(
-        'You might find weird things in it since at the time I didn\'t know how to find "the derivative" of a matrix expression.'
+      p(
+        {},
+        "I also included the original python script, which I wrote entirely on my calculator," +
+          "starting from the basic Mandelbrot script included by default. This script was very " +
+          "slow, to say the least, and I wanted to speed it up. The solution I found was to " +
+          "implement it as a native Omega app."
       ),
     ].join(""),
     links: [
       {
-        url: "https://github.com/valflrt/neural-network",
+        url: "https://github.com/valflrt/omega_mandelbrot",
         name: "Github",
         icon: "github",
       },
     ],
-    used: ["python"],
+    used: ["cplusplus"],
   },
 ];
 

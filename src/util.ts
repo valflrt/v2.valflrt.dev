@@ -1,13 +1,3 @@
-export function $(
-  tag: keyof HTMLElementTagNameMap,
-  props: { [key: keyof HTMLElement | string]: string } = {}
-) {
-  return (...content: (string | false | null | undefined)[]) =>
-    `<${tag}${Object.keys(props).length == 0 ? "" : " "}${Object.entries(props)
-      .map(([k, v]) => `${k}="${v}"`)
-      .join(" ")}>${content.filter((v) => !!v).join("")}</${tag}>`;
-}
-
 export function addWindowEventListeners(
   events: (keyof WindowEventMap)[],
   listener: <K extends keyof WindowEventMap>(

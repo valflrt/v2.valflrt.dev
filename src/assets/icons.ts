@@ -1,4 +1,5 @@
 import atSign from "./icons/at-sign.svg?raw";
+import cplusplus from "./icons/cplusplus.svg?raw";
 import discord from "./icons/discord.svg?raw";
 import externalLink from "./icons/external-link.svg?raw";
 import github from "./icons/github.svg?raw";
@@ -10,8 +11,11 @@ import typescript from "./icons/typescript.svg?raw";
 import user from "./icons/user.svg?raw";
 import vite from "./icons/vite.svg?raw";
 
+// icons from https://simpleicons.org/
+
 export {
   atSign,
+  cplusplus,
   discord,
   externalLink,
   github,

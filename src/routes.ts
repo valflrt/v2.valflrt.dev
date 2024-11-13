@@ -1,5 +1,6 @@
 import { Routes, navigate } from "./router";
-import { $, elapsedTime } from "./util";
+import { elapsedTime } from "./util";
+import { div, a, h1, p, span, img, code, button } from "./rendering";
 
 import * as icons from "./assets/icons";
 
@@ -31,14 +32,18 @@ const routes: Routes = [
       document.title = `${project.id} – valflrt.dev`;
 
       return [
-        $("div", { class: "card" })(
-          $("div", { class: "header" })(
-            $("div", { class: "title code" })(`valflrt/${project.id}`),
+        div(
+          { class: "card" },
+          div(
+            { class: "header" },
+            div({ class: "title code" }, `valflrt/${project.id}`),
             project.used &&
-              $("div", { class: "icons" })(...project.used.map((v) => icons[v]))
+              div({ class: "icons" }, ...project.used.map((v) => icons[v]))
           ),
-          $("div", { class: "description" })(
-            $("div", { class: "text" })(
+          div(
+            { class: "description" },
+            div(
+              { class: "text" },
               typeof project.description == "string"
                 ? project.description
                 : project.description()
@@ -46,14 +51,17 @@ const routes: Routes = [
           )
         ),
         project.links &&
-          $("div", { class: "container row wrap center-stretch" })(
+          div(
+            { class: "container row wrap center-stretch" },
             ...project.links.map((l) =>
-              $("a", { href: l.url, class: "button clickable" })(
+              a(
+                { href: l.url, class: "button clickable" },
                 l.name,
                 l.icon ? icons[l.icon] : icons.externalLink
               )
             ),
-            $("a", { href: "#/projects", class: "button clickable" })(
+            a(
+              { href: "#/projects", class: "button clickable" },
               `Back to projects ${icons.list}`
             )
           ),
@@ -65,33 +73,38 @@ const routes: Routes = [
     name: "Projects",
     path: "/projects",
     render: [
-      $("h1", { class: "main-title" })("Projects"),
-      $("p", { class: "description" })(
-        "Here are some of my favorite projects !"
-      ),
-      $("div", { class: "list" })(
+      h1({ class: "main-title" }, "Projects"),
+      p({ class: "description" }, "Here are some of my favorite projects !"),
+      div(
+        { class: "list" },
         ...projects.map((p) =>
-          $("a", { href: `#/project/${p.id}`, class: "item card" })(
-            $("div", { class: "header" })(
-              $("div", { class: "title code" })(`valflrt/${p.id}`),
-              p.used &&
-                $("div", { class: "icons" })(...p.used.map((v) => icons[v]))
+          a(
+            { href: `#/project/${p.id}`, class: "item card" },
+            div(
+              { class: "header" },
+              div({ class: "title code" }, `valflrt/${p.id}`),
+              p.used && div({ class: "icons" }, ...p.used.map((v) => icons[v]))
             ),
-            $("div", { class: "description" })(
-              $("div", { class: "text" })(
+            div(
+              { class: "description" },
+              div(
+                { class: "text" },
                 typeof p.description == "string"
                   ? p.description
                   : p.description()
               ),
-              $("span", { class: "underlined" })("Read More")
+              span({ class: "underlined" }, "Read More")
             )
           )
         )
       ),
-      $("a", {
-        href: "https://github.com/valflrt?tab=repositories",
-        class: "button clickable",
-      })(`See more on github ${icons.github}`),
+      a(
+        {
+          href: "https://github.com/valflrt?tab=repositories",
+          class: "button clickable",
+        },
+        `See more on github ${icons.github}`
+      ),
     ].join(""),
   },
   {
@@ -99,36 +112,47 @@ const routes: Routes = [
     name: "Home",
     path: "/",
     render: [
-      $("img", {
+      img({
         class: "logo",
         src: logo256,
         alt: "valflrt's profile picture",
         width: "128",
         height: "128",
-      })(),
-      $("h1", { class: "main-title" })("Heya !"),
-      $("p", { class: "description" })(
-        `I am Valentin Fleurit aka valflrt, a programming enthusiast born at ${$(
-          "code",
-          {
-            class: "birthDate code",
-            title: `Alive for approximately ${elapsedTime(1108132680 * 1000)}`,
-          }
-        )(
-          "1108132680"
-        )}. I study math and physics and I like swimming and sailing.\nFrench and proud to be (oui oui baguette).`
+      }),
+      h1({ class: "main-title" }, "Heya !"),
+      p(
+        { class: "description" },
+        "I am Valentin Fleurit aka valflrt, a programming enthusiast born at " +
+          code(
+            {
+              class: "birthDate code",
+              title: `Alive for approximately ${elapsedTime(
+                1108132680 * 1000
+              )}`,
+            },
+            "1108132680"
+          ) +
+          ". I study math and physics and I like swimming and sailing.\n" +
+          "French and proud to be (oui oui baguette)."
       ),
-      $("div", {
-        class: "container row wrap center-stretch",
-      })(
-        $("a", {
-          href: "#/projects",
-          class: "button clickable",
-        })(`Projects ${icons.list}`),
-        $("a", {
-          href: "#/contact",
-          class: "button clickable",
-        })(`Contact ${icons.user}`)
+      div(
+        {
+          class: "container row wrap center-stretch",
+        },
+        a(
+          {
+            href: "#/projects",
+            class: "button clickable",
+          },
+          `Projects ${icons.list}`
+        ),
+        a(
+          {
+            href: "#/contact",
+            class: "button clickable",
+          },
+          `Contact ${icons.user}`
+        )
       ),
     ].join(""),
   },
@@ -137,27 +161,41 @@ const routes: Routes = [
     name: "Contact",
     path: "/contact",
     render: [
-      $("h1", { class: "main-title" })("Contact"),
-      $("p", { class: "description" })(
+      h1({ class: "main-title" }, "Contact"),
+      p(
+        { class: "description" },
         "Feel free to send me a message, I would appreciate it !"
       ),
-      $("div", { class: "container row wrap center-stretch" })(
-        $("a", {
-          href: "https://github.com/valflrt",
-          class: "button clickable",
-        })(`Github ${icons.github}`),
-        $("a", {
-          href: "https://instagram.com/valflrt",
-          class: "button clickable",
-        })(`Instagram ${icons.instagram}`),
-        $("button", {
-          "data-copy": "valflrt",
-          class: "button clickable copy",
-        })(`Discord ${icons.discord}`),
-        $("button", {
-          "data-copy": "valflrt@pm.me",
-          class: "button clickable copy",
-        })(`Email ${icons.atSign}`)
+      div(
+        { class: "container row wrap center-stretch" },
+        a(
+          {
+            href: "https://github.com/valflrt",
+            class: "button clickable",
+          },
+          `Github ${icons.github}`
+        ),
+        a(
+          {
+            href: "https://instagram.com/valflrt",
+            class: "button clickable",
+          },
+          `Instagram ${icons.instagram}`
+        ),
+        button(
+          {
+            "data-copy": "valflrt",
+            class: "button clickable copy",
+          },
+          `Discord ${icons.discord}`
+        ),
+        button(
+          {
+            "data-copy": "valflrt@pm.me",
+            class: "button clickable copy",
+          },
+          `Email ${icons.atSign}`
+        )
       ),
     ].join(""),
   },
@@ -166,9 +204,9 @@ const routes: Routes = [
     name: "404 Not Found",
     path: "/404",
     render: [
-      $("h1", { class: "main-title forty-hundred-and-four" })("404"),
-      $("p", { class: "description" })("There's nothing here !"),
-      $("a", { href: "#/", class: "clickable button" })("Back Home"),
+      h1({ class: "main-title forty-hundred-and-four" }, "404"),
+      p({ class: "description" }, "There's nothing here !"),
+      a({ href: "#/", class: "clickable button" }, "Back Home"),
     ].join(""),
   },
 ];
