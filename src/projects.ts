@@ -137,7 +137,7 @@ const projects: {
       ),
       p(
         {},
-        "I also included the original python script, which I wrote entirely on my calculator," +
+        "I also included the original python script, which I wrote entirely on my calculator, " +
           "starting from the basic Mandelbrot script included by default. This script was very " +
           "slow, to say the least, and I wanted to speed it up. The solution I found was to " +
           "implement it as a native Omega app."
