@@ -33,9 +33,7 @@ export function getRouteIndex(path: string[], routes: Routes) {
     let p = v.split("/").slice(1);
     return (
       path.length === p.length &&
-      p.every((word, i) => {
-        return word === path[i] || word.startsWith(":");
-      })
+      p.every((word, i) => word === path[i] || word.startsWith(":"))
     );
   });
 }

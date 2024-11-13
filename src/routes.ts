@@ -25,7 +25,7 @@ const routes: Routes = [
       let project = projects.find((p) => p.id === id);
 
       if (!id || !project) {
-        navigate("/notfound");
+        navigate("/404", true);
         return "";
       }
 

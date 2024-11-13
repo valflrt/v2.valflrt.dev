@@ -50,6 +50,9 @@ let router = createRouter(routes, async (route, details) => {
 
 addWindowEventListeners(["load", "hashchange"], async () => {
   await router();
+
+  // apparently this needs to be here because it needs to be
+  // applied each time the hash changes (idk why...)
   document
     .querySelectorAll<HTMLElement>(".copy[data-copy]:not(.activated)")
     .forEach((e) => {

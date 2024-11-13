@@ -33,7 +33,7 @@ const projects: {
       ),
       p(
         {},
-        "Using spatial partitioning and a more efficient use of multithreading, I was able to " +
+        "Using spatial partitioning and using multithreading more efficiently, I was able to " +
           "simulate tens of thousands of particles while rarely exceeding 50ms of update rate !"
       ),
       p({}, "I had a lot of fun working on this."),
@@ -62,8 +62,9 @@ const projects: {
     description: [
       p(
         {},
-        "This website, made using Typescript and ViteJs. It has some cool utility functions and " +
-          "a hash router built from scratch, some things might scratch your eyes tho."
+        "This is the website you're currently viewing. It was made using TypeScript and Vite.js. " +
+          "It has some cool utility functions and a hash router built from scratch, though some " +
+          "parts might not be the prettiest to look at..."
       ),
       p({}, "(I'm pretty proud of it btw)"),
     ].join(""),
@@ -81,7 +82,7 @@ const projects: {
     description: [
       p(
         {},
-        "A work-in-progress crypto util cli program to encrypt and decrypt files and directories."
+        "A unfinished crypto util cli program to encrypt and decrypt files and directories."
       ),
       p(
         {},
@@ -109,14 +110,17 @@ const projects: {
       ),
       p(
         {},
-        "I created a struct called ",
+        "Somthing kind of interesting is that I created a struct called ",
         span({ class: "code" }, "Mat"),
         " similar to the common Rust ",
         span({ class: "code" }, "Vec"),
         " but in two dimensions, it holds the pixels that will be displayed on the screen (yes, " +
           "I know, it's just the worst way to do it) and can also be used to store textures/images."
       ),
-      p({}, "I've spent way too much time on this for a meh result..."),
+      p(
+        {},
+        "But still, I've spent way too much time on this for a meh result..."
+      ),
     ].join(""),
     links: [
       {
