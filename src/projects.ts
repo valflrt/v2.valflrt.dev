@@ -82,7 +82,7 @@ const projects: {
     description: [
       p(
         {},
-        "A unfinished crypto util cli program to encrypt and decrypt files and directories."
+        "An unfinished crypto util cli program to encrypt and decrypt files and directories."
       ),
       p(
         {},
