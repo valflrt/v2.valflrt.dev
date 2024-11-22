@@ -4,7 +4,7 @@ import { div, a, h1, p, span, img, code, button } from "./rendering";
 
 import * as icons from "./assets/icons";
 
-import logo256 from "./assets/icons/logo-256-alt.png";
+import logo256 from "./assets/logo/logo-3-256.png";
 
 import projects from "./projects";
 
