@@ -1,4 +1,5 @@
 import atSign from "./icons/at-sign.svg?raw";
+import bluesky from "./icons/bluesky.svg?raw";
 import cplusplus from "./icons/cplusplus.svg?raw";
 import discord from "./icons/discord.svg?raw";
 import externalLink from "./icons/external-link.svg?raw";
@@ -15,6 +16,7 @@ import vite from "./icons/vite.svg?raw";
 
 export {
   atSign,
+  bluesky,
   cplusplus,
   discord,
   externalLink,

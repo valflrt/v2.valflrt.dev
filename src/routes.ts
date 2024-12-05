@@ -196,6 +196,13 @@ const routes: Routes = [
           },
           `Discord ${icons.discord}`
         ),
+        a(
+          {
+            href: "https://bsky.app/profile/valflrt.dev",
+            class: "button clickable",
+          },
+          `Bluesky ${icons.bluesky}`
+        ),
         button(
           {
             "data-copy": "valflrt@pm.me",
