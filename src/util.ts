@@ -61,15 +61,15 @@ export function elapsedTime(msDate: number) {
 
   let [years, yearsRemaining] = compute(elapsed, 60 * 60 * 24 * 365.24);
   let [days, daysRemaining] = compute(yearsRemaining, 60 * 60 * 24);
-  let [hours, hoursRemaining] = compute(daysRemaining, 60 * 60);
-  let [minutes, _minutesRemaining] = compute(hoursRemaining, 60);
+  let [hours, _hoursRemaining] = compute(daysRemaining, 60 * 60);
+  // let [minutes, _minutesRemaining] = compute(hoursRemaining, 60);
   // let seconds = minutesRemaining % 60;
 
   return Object.entries({
     year: years,
     day: days,
     hour: hours,
-    minute: minutes,
+    // minute: minutes,
     // second: seconds,
   })
     .map(([k, v], i, arr) =>
@@ -77,7 +77,7 @@ export function elapsedTime(msDate: number) {
         .toFixed()
         .concat(" ")
         .concat(k)
-        .concat(addS(years))
+        .concat(addS(v))
         .concat(i === arr.length - 2 ? " and" : "")
     )
     .join(" ");

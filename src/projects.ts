@@ -58,6 +58,36 @@ const projects: {
     used: ["rust"],
   },
   {
+    id: "fractal_renderer",
+    description: [
+      p(
+        {},
+        "This is a very simple program that renders fractals using a parameter json file."
+      ),
+      p(
+        {},
+        "It includes different kinds of fractals among which are the Mandelbrot set and a " +
+          "(potentially new) type of fractal I came up with by using second- and third-degree " +
+          "recursive sequences instead of the classic first-degree recursive pattern used to " +
+          "draw the Mandelbrot set."
+      ),
+      p(
+        {},
+        "I am very happy with this project because, with just a single-file program, I managed to " +
+          "generate some really cool fractals (at least I think they are). If you want to check " +
+          "out some examples, feel free to head over to the project's github page ! (link below)"
+      ),
+    ].join(""),
+    links: [
+      {
+        url: "https://github.com/valflrt/fractal_renderer",
+        name: "Github",
+        icon: "github",
+      },
+    ],
+    used: ["rust"],
+  },
+  {
     id: "v2.valflrt.dev",
     description: [
       p(
@@ -131,31 +161,31 @@ const projects: {
     ],
     used: ["rust"],
   },
-  {
-    id: "omega_mandelbrot",
-    description: [
-      p(
-        {},
-        "A native app for Omega on the Numworks calculator that lets you explore the Mandelbrot " +
-          "set with a reasonable maximum depth."
-      ),
-      p(
-        {},
-        "I also included the original python script, which I wrote entirely on my calculator, " +
-          "starting from the basic Mandelbrot script included by default. This script was very " +
-          "slow, to say the least, and I wanted to speed it up. The solution I found was to " +
-          "implement it as a native Omega app."
-      ),
-    ].join(""),
-    links: [
-      {
-        url: "https://github.com/valflrt/omega_mandelbrot",
-        name: "Github",
-        icon: "github",
-      },
-    ],
-    used: ["cplusplus"],
-  },
+  // {
+  //   id: "omega_mandelbrot",
+  //   description: [
+  //     p(
+  //       {},
+  //       "A native app for Omega on the Numworks calculator that lets you explore the Mandelbrot " +
+  //         "set with a reasonable maximum depth."
+  //     ),
+  //     p(
+  //       {},
+  //       "I also included the original python script, which I wrote entirely on my calculator, " +
+  //         "starting from the basic Mandelbrot script included by default. This script was very " +
+  //         "slow, to say the least, and I wanted to speed it up. The solution I found was to " +
+  //         "implement it as a native Omega app."
+  //     ),
+  //   ].join(""),
+  //   links: [
+  //     {
+  //       url: "https://github.com/valflrt/omega_mandelbrot",
+  //       name: "Github",
+  //       icon: "github",
+  //     },
+  //   ],
+  //   used: ["cplusplus"],
+  // },
 ];
 
 export default projects;

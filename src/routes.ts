@@ -120,20 +120,27 @@ const routes: Routes = [
         height: "128",
       }),
       h1({ class: "main-title" }, "Heya !"),
-      p(
+      div(
         { class: "description" },
-        "I am Valentin Fleurit aka valflrt, a programming enthusiast born at " +
-          code(
-            {
-              class: "birthDate code",
-              title: `Alive for approximately ${elapsedTime(
-                1108132680 * 1000
-              )}`,
-            },
-            "1108132680"
-          ) +
-          ". I study math and physics and I like hiking, sailing and swimming.\n" +
-          "I am french and kind of proud to be (oui oui baguette)."
+        p(
+          {},
+          "I am Valentin Fleurit aka valflrt, a programming enthusiast born at " +
+            code(
+              {
+                class: "birthDate code",
+                title: `Alive for approximately ${elapsedTime(
+                  1108132680 * 1000
+                )}`,
+              },
+              "1108132680"
+            ) +
+            "."
+        ),
+        p(
+          {},
+          "Math+Physics wizard in progress... I like harsh-melodic music as well as hiking, sailing and swimming."
+        ),
+        p({}, "French and proud to be (oui oui baguette).")
       ),
       div(
         {
