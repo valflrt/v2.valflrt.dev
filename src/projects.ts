@@ -73,7 +73,7 @@ const projects: {
       ),
       p(
         {},
-        "I am very happy with this project because, with just a single-file program, I managed to " +
+        "I am very happy with this project because, with just a small program, I managed to " +
           "generate some really cool fractals (at least I think they are). If you want to check " +
           "out some examples, feel free to head over to the project's github page ! (link below)"
       ),
