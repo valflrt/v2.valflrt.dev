@@ -124,7 +124,7 @@ const routes: Routes = [
         { class: "description" },
         p(
           {},
-          "I am Valentin Fleurit aka valflrt, a programming enthusiast born at " +
+          "I am Valentin Fleurit aka valflrt, <br /> a programming enthusiast born at " +
             code(
               {
                 class: "birthDate code",
