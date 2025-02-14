@@ -155,24 +155,21 @@ const routes: Routes = [
         ),
         a(
           {
-            href: "#/contact",
+            href: "#/social",
             class: "button clickable",
           },
-          `Contact ${icons.user}`
+          `Social ${icons.user}`
         )
       ),
     ].join(""),
   },
   {
-    id: "contact",
-    name: "Contact",
-    path: "/contact",
+    id: "social",
+    name: "Social",
+    path: "/social",
     render: [
-      h1({ class: "main-title" }, "Contact"),
-      p(
-        { class: "description" },
-        "Feel free to send me a message, I would appreciate it !"
-      ),
+      h1({ class: "main-title" }, "Social"),
+      p({ class: "description" }, "Here are some of my online connections !"),
       div(
         { class: "container row wrap center-stretch" },
         a(
