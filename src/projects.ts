@@ -67,15 +67,23 @@ const projects: {
       p(
         {},
         "It includes different kinds of fractals among which are the Mandelbrot set and a " +
-          "(potentially new) type of fractal I came up with by using second- and third-degree " +
-          "recursive sequences instead of the classic first-degree recursive pattern used to " +
+          "(potentially new) type of fractal I came up with by using second- and third-order " +
+          "recursive sequences instead of the classic first-order recursive pattern used to " +
           "draw the Mandelbrot set."
       ),
       p(
         {},
-        "I am very happy with this project because, with just a small program, I managed to " +
-          "generate some really cool fractals (at least I think they are). If you want to check " +
-          "out some examples, feel free to head over to the project's github page ! (link below)"
+        "I am very happy with this project because, I managed to generate some really cool " +
+          "fractals (at least I think they are). If you want to check out some examples, feel " +
+          "free to head over to the project's github page ! (link below)"
+      ),
+      p(
+        {},
+        "I also tried to implement anti-aliasing and it works pretty well !"
+      ),
+      p(
+        {},
+        "Edit: the 2nd order recursive sequence was discovered already and it's called manowar."
       ),
     ].join(""),
     links: [
