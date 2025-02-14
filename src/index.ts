@@ -14,14 +14,12 @@ const mainEl = document.getElementById("main")!;
 
 let prevRouteIndex: number | null = null;
 let prevRouteId: string | null = null;
-let prevRouteHadHash: boolean = false;
 
 let router = createRouter(routes, async (route, details) => {
   console.log(route, details);
 
   if (route && details) {
-    console.log(prevRouteIndex, prevRouteId);
-    if (prevRouteIndex != null && prevRouteHadHash) {
+    if (prevRouteIndex != null && prevRouteId != route.id) {
       let d = details.index - prevRouteIndex;
       mainEl.classList.add("disappearing");
       toggleClass(mainEl, d >= 0, "move-left", "move-right");
@@ -43,7 +41,6 @@ let router = createRouter(routes, async (route, details) => {
 
     prevRouteId = route.id;
     prevRouteIndex = details.index;
-    prevRouteHadHash = window.location.hash.startsWith("#/");
   } else {
     navigate("/404", true);
   }
