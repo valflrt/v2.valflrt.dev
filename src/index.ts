@@ -19,7 +19,7 @@ let router = createRouter(routes, async (route, details) => {
   console.log(route, details);
 
   if (route && details) {
-    if (prevRouteIndex != null && prevRouteId != route.id) {
+    if (prevRouteId != route.id) {
       let d = details.index - prevRouteIndex;
       mainEl.classList.add("disappearing");
       toggleClass(mainEl, d >= 0, "move-left", "move-right");
