@@ -1,5 +1,5 @@
 import * as icons from "./assets/icons";
-import { a, p, span } from "./rendering";
+import { a, p } from "./rendering";
 
 const projects: {
   id: string;
