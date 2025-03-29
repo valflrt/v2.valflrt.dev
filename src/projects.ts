@@ -112,7 +112,7 @@ const projects: {
           },
           "rychveldir",
         ),
-        " it now works pretty well !",
+        ", it is now working pretty well !",
       ),
     ].join(""),
     links: [
