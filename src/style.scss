@@ -636,7 +636,7 @@ svg[role="img"] {
                 padding: 0 18px;
             }
 
-            &::after {
+            /* &::after {
                 $radius: 2px;
                 $width: 16px;
                 $height: 4px;
@@ -660,7 +660,7 @@ svg[role="img"] {
                         background-color: transparent;
                     }
                 }
-            }
+            } */
         }
     }
 }
