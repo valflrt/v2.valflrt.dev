@@ -36,7 +36,7 @@ let router = createRouter(routes, async (route, details) => {
     document
       .querySelectorAll<HTMLAnchorElement>("#menu > a")
       .forEach((e) =>
-        toggleClass(e, new URL(e.href).hash.slice(1) === route.path, "active")
+        toggleClass(e, new URL(e.href).hash.slice(1) === route.path, "active"),
       );
 
     prevRouteId = route.id;
@@ -75,7 +75,7 @@ addWindowEventListeners(["load", "resize"], () => {
     layoutEl,
     "ontouchstart" in window || !!navigator.maxTouchPoints,
     "touch",
-    "non-touch"
+    "non-touch",
   );
   toggleClass(layoutEl, window.innerWidth < 750, "mobile", "desktop");
 });
