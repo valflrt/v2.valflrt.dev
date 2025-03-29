@@ -84,13 +84,22 @@ const projects: {
     description: [
       p(
         {},
-        "A fractal rendering program with a simple gui. It offers various types of fractals to explore.",
+        "This is a program for rendering fractals, it has a simple gui and offers various types of fractals to explore.",
       ),
       p(
         {},
-        "I am very happy with this project because, I managed to generate some really cool " +
+        "I am very happy with this project because I managed to generate some really cool " +
           "fractals (at least I think they are). If you want to check out some examples, feel " +
-          "free to head over to the project's github page ! (link below)",
+          "free to head over to the ",
+        a(
+          {
+            href: "https://github.com/valflrt/fractal_rndr",
+            target: "_blank",
+            class: "link",
+          },
+          "project's github page",
+        ),
+        " !",
       ),
       p(
         {},
@@ -117,7 +126,7 @@ const projects: {
     ].join(""),
     links: [
       {
-        url: "https://github.com/valflrt/fractal_renderer",
+        url: "https://github.com/valflrt/fractal_rndr",
         name: "Github",
         icon: "github",
       },
@@ -167,62 +176,62 @@ const projects: {
     ],
     used: ["rust"],
   },
-  {
-    id: "pixel_game",
-    description: [
-      p(
-        {},
-        "A simple pixel art game (if we can call it that). The game draws the pixels to the " +
-          "screen in the most inefficient way possible.",
-      ),
-      p(
-        {},
-        "Something kind of interesting is that I created a struct called ",
-        span({ class: "code" }, "Mat"),
-        " similar to the common Rust ",
-        span({ class: "code" }, "Vec"),
-        " but in two dimensions, it holds the pixels that will be displayed on the screen (yes, " +
-          "I know, it's just the worst way to do it) and can also be used to store textures/images.",
-      ),
-      p(
-        {},
-        "But still, I've spent way too much time on this for a meh result...",
-      ),
-    ].join(""),
-    links: [
-      {
-        url: "https://github.com/valflrt/pixel_game",
-        name: "Github",
-        icon: "github",
-      },
-    ],
-    used: ["rust"],
-  },
   // {
-  //   id: "omega_mandelbrot",
+  //   id: "pixel_game",
   //   description: [
   //     p(
   //       {},
-  //       "A native app for Omega on the Numworks calculator that lets you explore the Mandelbrot " +
-  //         "set with a reasonable maximum depth."
+  //       "A simple pixel art game (if we can call it that). The game draws the pixels to the " +
+  //         "screen in the most inefficient way possible.",
   //     ),
   //     p(
   //       {},
-  //       "I also included the original python script, which I wrote entirely on my calculator, " +
-  //         "starting from the basic Mandelbrot script included by default. This script was very " +
-  //         "slow, to say the least, and I wanted to speed it up. The solution I found was to " +
-  //         "implement it as a native Omega app."
+  //       "Something kind of interesting is that I created a struct called ",
+  //       span({ class: "code" }, "Mat"),
+  //       " similar to the common Rust ",
+  //       span({ class: "code" }, "Vec"),
+  //       " but in two dimensions, it holds the pixels that will be displayed on the screen (yes, " +
+  //         "I know, it's just the worst way to do it) and can also be used to store textures/images.",
+  //     ),
+  //     p(
+  //       {},
+  //       "But still, I've spent way too much time on this for a meh result...",
   //     ),
   //   ].join(""),
   //   links: [
   //     {
-  //       url: "https://github.com/valflrt/omega_mandelbrot",
+  //       url: "https://github.com/valflrt/pixel_game",
   //       name: "Github",
   //       icon: "github",
   //     },
   //   ],
-  //   used: ["cplusplus"],
+  //   used: ["rust"],
   // },
+  {
+    id: "omega_mandelbrot",
+    description: [
+      p(
+        {},
+        "A native app for Omega on the Numworks calculator that lets you explore the Mandelbrot " +
+          "set with a reasonable maximum depth.",
+      ),
+      p(
+        {},
+        "I also included the original python script, which I wrote entirely on my calculator, " +
+          "starting from the basic Mandelbrot script included by default (took ages). This script was very " +
+          "slow, to say the least, and I wanted to speed it up. The solution I found was to " +
+          "implement it as a native Omega app.",
+      ),
+    ].join(""),
+    links: [
+      {
+        url: "https://github.com/valflrt/omega_mandelbrot",
+        name: "Github",
+        icon: "github",
+      },
+    ],
+    used: ["cplusplus"],
+  },
 ];
 
 export default projects;
