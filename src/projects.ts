@@ -1,5 +1,5 @@
 import * as icons from "./assets/icons";
-import { p, span } from "./rendering";
+import { a, p, span } from "./rendering";
 
 const projects: {
   id: string;
@@ -17,26 +17,53 @@ const projects: {
       p(
         {},
         "A particle simulation program forked from " +
-          span(
+          a(
             {
-              class: "code",
+              href: "https://github.com/ChevyRay/smarticles",
+              target: "_blank",
+              class: "code link",
             },
-            "ChevyRay/smarticles"
+            "ChevyRay/smarticles",
           ) +
-          ", to which I added some optimizations (I think ?) and features."
+          ", to which I added some optimizations (I think ?) and features.",
+      ),
+      p(
+        {},
+        "It was also inspired from ",
+        a(
+          {
+            href: "https://www.youtube.com/watch?v=p4YirERTVF0",
+            target: "_blank",
+            class: "link",
+          },
+          "this video",
+        ),
+        ".",
       ),
       p(
         {},
         "In the simulation there are six classes of particles. ",
         "Particles from one of the classes apply a class-specific attractive or repulsive force " +
-          "to other particles."
+          "to other particles.",
       ),
       p(
         {},
-        "Using spatial partitioning and using multithreading more efficiently, I was able to " +
-          "simulate tens of thousands of particles while rarely exceeding 50ms of update rate !"
+        "Using spatial partitioning and multithreading, I was able to simulate tens " +
+          "of thousands of particles while rarely exceeding 50ms of update rate !",
       ),
-      p({}, "I had a lot of fun working on this."),
+      p(
+        {},
+        "I had a lot of fun working on this, so much that I made it the focus of my ",
+        a(
+          {
+            href: "https://fr.wikipedia.org/wiki/Travail_d%27initiative_personnelle_encadr%C3%A9",
+            target: "_blank",
+            class: "link",
+          },
+          "TIPE",
+        ),
+        " presentation in prépa.",
+      ),
     ].join(""),
     links: [
       {
@@ -49,11 +76,6 @@ const projects: {
         name: "Try it !",
         icon: "github",
       },
-      {
-        url: "https://github.com/ChevyRay/smarticles",
-        name: "Original Repository",
-        icon: "github",
-      },
     ],
     used: ["rust"],
   },
@@ -62,28 +84,35 @@ const projects: {
     description: [
       p(
         {},
-        "This is a very simple program that renders fractals using a parameter json file."
-      ),
-      p(
-        {},
-        "It includes different kinds of fractals among which are the Mandelbrot set and a " +
-          "(potentially new) type of fractal I came up with by using second- and third-order " +
-          "recursive sequences instead of the classic first-order recursive pattern used to " +
-          "draw the Mandelbrot set."
+        "A fractal rendering program with a simple gui. It offers various types of fractals to explore.",
       ),
       p(
         {},
         "I am very happy with this project because, I managed to generate some really cool " +
           "fractals (at least I think they are). If you want to check out some examples, feel " +
-          "free to head over to the project's github page ! (link below)"
+          "free to head over to the project's github page ! (link below)",
       ),
       p(
         {},
-        "I also tried to implement anti-aliasing and it works pretty well !"
-      ),
-      p(
-        {},
-        "Edit: the 2nd order recursive sequence was discovered already and it's called manowar."
+        "I also tried to implement anti-aliasing and thanks to ",
+        a(
+          {
+            href: "https://www.deviantart.com/lyc/gallery",
+            target: "_blank",
+            class: "link",
+          },
+          "lycium",
+        ),
+        " and ",
+        a(
+          {
+            href: "https://www.deviantart.com/rychveldir/",
+            target: "_blank",
+            class: "link",
+          },
+          "rychveldir",
+        ),
+        " it now works pretty well !",
       ),
     ].join(""),
     links: [
@@ -100,9 +129,9 @@ const projects: {
     description: [
       p(
         {},
-        "This is the website you're currently viewing. It was made using TypeScript and Vite.js. " +
+        "This is the website you're currently viewing. It was made using TypeScript and Vite.js." +
           "It has some cool utility functions and a hash router built from scratch, though some " +
-          "parts might not be the prettiest to look at..."
+          "parts might not be the prettiest to look at...",
       ),
       p({}, "(I'm pretty proud of it btw)"),
     ].join(""),
@@ -120,13 +149,13 @@ const projects: {
     description: [
       p(
         {},
-        "An unfinished crypto util cli program to encrypt and decrypt files and directories."
+        "An unfinished crypto util cli program to encrypt and decrypt files and directories.",
       ),
       p(
         {},
         "I first built it in typescript but decided to switch to Rust because typescript was " +
           "(really) not appropriate for this kind of project that requires working with io and " +
-          "crypto. I also wanted to try Rust and low-level programming."
+          "crypto. I also wanted to try Rust and low-level programming.",
       ),
     ].join(""),
     links: [
@@ -144,7 +173,7 @@ const projects: {
       p(
         {},
         "A simple pixel art game (if we can call it that). The game draws the pixels to the " +
-          "screen in the most inefficient way possible."
+          "screen in the most inefficient way possible.",
       ),
       p(
         {},
@@ -153,11 +182,11 @@ const projects: {
         " similar to the common Rust ",
         span({ class: "code" }, "Vec"),
         " but in two dimensions, it holds the pixels that will be displayed on the screen (yes, " +
-          "I know, it's just the worst way to do it) and can also be used to store textures/images."
+          "I know, it's just the worst way to do it) and can also be used to store textures/images.",
       ),
       p(
         {},
-        "But still, I've spent way too much time on this for a meh result..."
+        "But still, I've spent way too much time on this for a meh result...",
       ),
     ].join(""),
     links: [

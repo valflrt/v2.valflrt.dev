@@ -101,6 +101,10 @@ svg[role="img"] {
 
 // common
 
+.link {
+    text-decoration: underline;
+}
+
 .clickable {
     border: 1px solid var(--black-700);
     background-color: var(--black-400);
@@ -296,6 +300,14 @@ svg[role="img"] {
 
         .mobile & {
             font-size: 2rem;
+        }
+
+        .non-touch & {
+            transition: 200ms;
+
+            &:hover {
+                text-shadow: 0.025em 0.1em 0 var(--primary);
+            }
         }
     }
 

@@ -1,6 +1,16 @@
 import { Routes, navigate } from "./router";
 import { elapsedTime } from "./util";
-import { div, a, h1, p, span, img, code, button } from "./rendering";
+import {
+  div,
+  a,
+  h1,
+  p,
+  span,
+  img,
+  code,
+  button,
+  removeHtmlTags,
+} from "./rendering";
 
 import * as icons from "./assets/icons";
 
@@ -38,7 +48,7 @@ const routes: Routes = [
             { class: "header" },
             div({ class: "title code" }, `valflrt/${project.id}`),
             project.used &&
-              div({ class: "icons" }, ...project.used.map((v) => icons[v]))
+              div({ class: "icons" }, ...project.used.map((v) => icons[v])),
           ),
           div(
             { class: "description" },
@@ -46,9 +56,9 @@ const routes: Routes = [
               { class: "text" },
               typeof project.description == "string"
                 ? project.description
-                : project.description()
-            )
-          )
+                : project.description(),
+            ),
+          ),
         ),
         project.links &&
           div(
@@ -57,13 +67,13 @@ const routes: Routes = [
               a(
                 { href: l.url, class: "button clickable" },
                 l.name,
-                l.icon ? icons[l.icon] : icons.externalLink
-              )
+                l.icon ? icons[l.icon] : icons.externalLink,
+              ),
             ),
             a(
               { href: "#/projects", class: "button clickable" },
-              `Back to projects ${icons.list}`
-            )
+              `Back to projects ${icons.list}`,
+            ),
           ),
       ].join("");
     },
@@ -83,27 +93,29 @@ const routes: Routes = [
             div(
               { class: "header" },
               div({ class: "title code" }, `valflrt/${p.id}`),
-              p.used && div({ class: "icons" }, ...p.used.map((v) => icons[v]))
+              p.used && div({ class: "icons" }, ...p.used.map((v) => icons[v])),
             ),
             div(
               { class: "description" },
               div(
                 { class: "text" },
-                typeof p.description == "string"
-                  ? p.description
-                  : p.description()
+                removeHtmlTags(
+                  typeof p.description == "string"
+                    ? p.description
+                    : p.description(),
+                ),
               ),
-              span({ class: "underlined" }, "Read More")
-            )
-          )
-        )
+              span({ class: "underlined" }, "Read More"),
+            ),
+          ),
+        ),
       ),
       a(
         {
           href: "https://github.com/valflrt?tab=repositories",
           class: "button clickable",
         },
-        `See more on github ${icons.github}`
+        `See more on github ${icons.github}`,
       ),
     ].join(""),
   },
@@ -129,18 +141,18 @@ const routes: Routes = [
               {
                 class: "birthDate code",
                 title: `Alive for approximately ${elapsedTime(
-                  1108132680 * 1000
+                  1108132680 * 1000,
                 )}`,
               },
-              "1108132680"
+              "1108132680",
             ) +
-            "."
+            ".",
         ),
         p(
           {},
-          "Math+Physics wizard in progress... I like harsh-melodic music as well as hiking, sailing and swimming."
+          "Math+Physics wizard in progress... I like harsh-melodic music as well as hiking, sailing and swimming.",
         ),
-        p({}, "French and proud to be (oui oui baguette).")
+        p({}, "French and proud to be (oui oui baguette)."),
       ),
       div(
         {
@@ -151,15 +163,15 @@ const routes: Routes = [
             href: "#/projects",
             class: "button clickable",
           },
-          `Projects ${icons.list}`
+          `Projects ${icons.list}`,
         ),
         a(
           {
             href: "#/social",
             class: "button clickable",
           },
-          `Social ${icons.user}`
-        )
+          `Social ${icons.user}`,
+        ),
       ),
     ].join(""),
   },
@@ -177,36 +189,36 @@ const routes: Routes = [
             href: "https://github.com/valflrt",
             class: "button clickable",
           },
-          `Github ${icons.github}`
+          `Github ${icons.github}`,
         ),
         a(
           {
             href: "https://instagram.com/valflrt",
             class: "button clickable",
           },
-          `Instagram ${icons.instagram}`
+          `Instagram ${icons.instagram}`,
         ),
         button(
           {
             "data-copy": "valflrt",
             class: "button clickable copy",
           },
-          `Discord ${icons.discord}`
+          `Discord ${icons.discord}`,
         ),
         a(
           {
             href: "https://bsky.app/profile/valflrt.dev",
             class: "button clickable",
           },
-          `Bluesky ${icons.bluesky}`
+          `Bluesky ${icons.bluesky}`,
         ),
         button(
           {
             "data-copy": "valflrt@pm.me",
             class: "button clickable copy",
           },
-          `Email ${icons.atSign}`
-        )
+          `Email ${icons.atSign}`,
+        ),
       ),
     ].join(""),
   },

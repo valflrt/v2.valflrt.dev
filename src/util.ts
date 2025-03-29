@@ -2,8 +2,8 @@ export function addWindowEventListeners(
   events: (keyof WindowEventMap)[],
   listener: <K extends keyof WindowEventMap>(
     name: K,
-    v: WindowEventMap[K]
-  ) => unknown
+    v: WindowEventMap[K],
+  ) => unknown,
 ) {
   events.forEach((v) => {
     window.addEventListener(v, (eventObject) => listener(v, eventObject));
@@ -20,7 +20,7 @@ export function toggleClass(
   element: Element,
   condition: boolean,
   a: string,
-  b?: string
+  b?: string,
 ) {
   if (condition) {
     if (b) element.classList.remove(b);
@@ -38,7 +38,7 @@ export function toggleClass(
 export function replaceOrAddClass(
   element: Element,
   token: string | false | null | undefined,
-  newToken: string
+  newToken: string,
 ) {
   if (token && element.classList.contains(token))
     element.classList.replace(token, newToken);
@@ -78,7 +78,7 @@ export function elapsedTime(msDate: number) {
         .concat(" ")
         .concat(k)
         .concat(addS(v))
-        .concat(i === arr.length - 2 ? " and" : "")
+        .concat(i === arr.length - 2 ? " and" : ""),
     )
     .join(" ");
 }

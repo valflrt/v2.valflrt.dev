@@ -38,3 +38,8 @@ export const button = (
 
 export const img = (props: { [key: string]: string }, ...children: string[]) =>
   createElement("img", props, ...children);
+
+export function removeHtmlTags(html: string): string {
+  // Use a regular expression to match and remove HTML tags
+  return html.replace(/<[^>]*>/g, "");
+}
