@@ -187,6 +187,7 @@ const routes: Routes = [
         a(
           {
             href: "https://github.com/valflrt",
+            target: "_blank",
             class: "button clickable",
           },
           `Github ${icons.github}`,
@@ -194,6 +195,7 @@ const routes: Routes = [
         a(
           {
             href: "https://instagram.com/valflrt",
+            target: "_blank",
             class: "button clickable",
           },
           `Instagram ${icons.instagram}`,
@@ -207,7 +209,16 @@ const routes: Routes = [
         ),
         a(
           {
+            href: "https://www.deviantart.com/valflrt",
+            target: "_blank",
+            class: "button clickable",
+          },
+          `Deviant Art ${icons.deviantart}`,
+        ),
+        a(
+          {
             href: "https://bsky.app/profile/valflrt.dev",
+            target: "_blank",
             class: "button clickable",
           },
           `Bluesky ${icons.bluesky}`,
