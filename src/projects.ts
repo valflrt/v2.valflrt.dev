@@ -80,7 +80,7 @@ const projects: {
     used: ["rust"],
   },
   {
-    id: "fractal_renderer",
+    id: "fractal_rndr",
     description: [
       p(
         {},
@@ -106,20 +106,20 @@ const projects: {
         "I also tried to implement anti-aliasing and thanks to ",
         a(
           {
-            href: "https://www.deviantart.com/lyc/gallery",
-            target: "_blank",
-            class: "link",
-          },
-          "lycium",
-        ),
-        " and ",
-        a(
-          {
             href: "https://www.deviantart.com/rychveldir/",
             target: "_blank",
             class: "link",
           },
           "rychveldir",
+        ),
+        " and ",
+        a(
+          {
+            href: "https://www.deviantart.com/lyc/gallery",
+            target: "_blank",
+            class: "link",
+          },
+          "lycium",
         ),
         ", it is now working pretty well !",
       ),
