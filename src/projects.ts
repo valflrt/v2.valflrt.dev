@@ -1,7 +1,7 @@
 import * as icons from "./assets/icons";
-import { a, p } from "./rendering";
+import { a, join, p } from "./rendering";
 
-const projects: {
+interface Project {
   id: string;
   description: string | (() => string);
   links?: {
@@ -10,10 +10,12 @@ const projects: {
     icon?: keyof typeof icons;
   }[];
   used?: (keyof typeof icons)[];
-}[] = [
+}
+
+const projects: Project[] = [
   {
     id: "smarticles-fork",
-    description: [
+    description: join(
       p(
         {},
         "A particle simulation program forked from " +
@@ -64,7 +66,7 @@ const projects: {
         ),
         " presentation in prépa.",
       ),
-    ].join(""),
+    ),
     links: [
       {
         url: "https://github.com/valflrt/smarticles-fork",
@@ -81,7 +83,7 @@ const projects: {
   },
   {
     id: "fractal_rndr",
-    description: [
+    description: join(
       p(
         {},
         "This is a program for rendering fractals, it has a simple gui and offers various types of fractals to explore.",
@@ -123,7 +125,7 @@ const projects: {
         ),
         ", it is now working pretty well !",
       ),
-    ].join(""),
+    ),
     links: [
       {
         url: "https://github.com/valflrt/fractal_rndr",
@@ -135,7 +137,7 @@ const projects: {
   },
   {
     id: "v2.valflrt.dev",
-    description: [
+    description: join(
       p(
         {},
         "This is the website you're currently viewing. It was made using TypeScript and Vite.js." +
@@ -143,7 +145,7 @@ const projects: {
           "parts might not be the prettiest to look at...",
       ),
       p({}, "(I'm pretty proud of it btw)"),
-    ].join(""),
+    ),
     links: [
       {
         url: "https://github.com/valflrt/v2.valflrt.dev",
@@ -155,7 +157,7 @@ const projects: {
   },
   {
     id: "fencryption",
-    description: [
+    description: join(
       p(
         {},
         "An unfinished crypto util cli program to encrypt and decrypt files and directories.",
@@ -166,7 +168,7 @@ const projects: {
           "(really) not appropriate for this kind of project that requires working with io and " +
           "crypto. I also wanted to try Rust and low-level programming.",
       ),
-    ].join(""),
+    ),
     links: [
       {
         url: "https://github.com/valflrt/fencryption",
@@ -178,7 +180,7 @@ const projects: {
   },
   // {
   //   id: "pixel_game",
-  //   description: [
+  //   description: join(
   //     p(
   //       {},
   //       "A simple pixel art game (if we can call it that). The game draws the pixels to the " +
@@ -197,7 +199,7 @@ const projects: {
   //       {},
   //       "But still, I've spent way too much time on this for a meh result...",
   //     ),
-  //   ].join(""),
+  //   ),
   //   links: [
   //     {
   //       url: "https://github.com/valflrt/pixel_game",
@@ -209,7 +211,7 @@ const projects: {
   // },
   {
     id: "omega_mandelbrot",
-    description: [
+    description: join(
       p(
         {},
         "A native app for Omega on the Numworks calculator that lets you explore the Mandelbrot " +
@@ -222,7 +224,7 @@ const projects: {
           "slow, to say the least, and I wanted to speed it up. The solution I found was to " +
           "implement it as a native Omega app.",
       ),
-    ].join(""),
+    ),
     links: [
       {
         url: "https://github.com/valflrt/omega_mandelbrot",

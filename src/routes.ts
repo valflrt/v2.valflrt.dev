@@ -1,5 +1,5 @@
 import { Routes, navigate } from "./router";
-import { elapsedTime } from "./util";
+import { elapsedTime, shuffle as shuffle } from "./util";
 import {
   div,
   a,
@@ -10,6 +10,7 @@ import {
   code,
   button,
   removeHtmlTags,
+  join,
 } from "./rendering";
 
 import * as icons from "./assets/icons";
@@ -17,14 +18,15 @@ import * as icons from "./assets/icons";
 import logo256 from "./assets/logo/logo-3-256.png";
 
 import projects from "./projects";
+import { artists, songs } from "./music";
 
 /**
  * This is the route object, order is important since it is
- * used to animate correctly transitions between routes.
+ * used to correctly animate transitions between routes.
  *
  * Example: /projects is on the "left" of /home therefore
  * the transition from /projects to /home must be animated
- * from left to right (see index.ts at line 25).
+ * from left to right (see index.ts).
  */
 const routes: Routes = [
   {
@@ -41,7 +43,7 @@ const routes: Routes = [
 
       document.title = `${project.id} – valflrt.dev`;
 
-      return [
+      return join(
         div(
           { class: "card" },
           div(
@@ -75,14 +77,14 @@ const routes: Routes = [
               `Back to projects ${icons.list}`,
             ),
           ),
-      ].join("");
+      );
     },
   },
   {
     id: "projects",
     name: "Projects",
     path: "/projects",
-    render: [
+    render: join(
       h1({ class: "main-title" }, "Projects"),
       p({ class: "description" }, "Here are some of my favorite projects !"),
       div(
@@ -117,13 +119,13 @@ const routes: Routes = [
         },
         `See more on github ${icons.github}`,
       ),
-    ].join(""),
+    ),
   },
   {
     id: "home",
     name: "Home",
     path: "/",
-    render: [
+    render: join(
       img({
         class: "logo",
         src: logo256,
@@ -150,7 +152,14 @@ const routes: Routes = [
         ),
         p(
           {},
-          "Math+Physics wizard in progress... I like harsh-melodic music as well as hiking, sailing and swimming.",
+          "Math+Physics wizard in progress... I like harsh-melodic ",
+          a(
+            {
+              href: "#/music",
+            },
+            "music",
+          ),
+          " as well as hiking, sailing and swimming.",
         ),
         p({}, "French and proud to be (oui oui baguette)."),
       ),
@@ -173,13 +182,75 @@ const routes: Routes = [
           `Social ${icons.user}`,
         ),
       ),
-    ].join(""),
+    ),
+  },
+  {
+    id: "music",
+    name: "Music",
+    path: "/music",
+    render: () => {
+      return join(
+        h1({ class: "main-title" }, "Music"),
+
+        p({}, "Oh, so you found my secret music display..."),
+
+        p({}, "Some songs I really like:"),
+
+        div(
+          { class: "songs" },
+          ...shuffle(songs)
+            .slice(0, 5)
+            .map((song) =>
+              a(
+                {
+                  href: song.link,
+                  target: "_blank",
+                  class: "clickable button",
+                },
+                span(
+                  { class: "img-mask" },
+                  img({
+                    src: song.coverUrl,
+                  }),
+                ),
+                span({}, song.name, span({ class: "artist" }, song.artist)),
+              ),
+            ),
+        ),
+
+        p({}, "Here are some of my favorite artists:"),
+
+        div(
+          { class: "artists" },
+          ...shuffle(artists)
+            .slice(0, 6)
+            .map((artist) =>
+              a(
+                {
+                  href: artist.link,
+                  target: "_blank",
+                  class: "clickable button",
+                },
+                span(
+                  { class: "img-mask" },
+                  img({
+                    src: artist.ppUrl,
+                  }),
+                ),
+                span({}, artist.name),
+              ),
+            ),
+        ),
+
+        p({ class: "faded" }, "(randomized on page refresh)"),
+      );
+    },
   },
   {
     id: "social",
     name: "Social",
     path: "/social",
-    render: [
+    render: join(
       h1({ class: "main-title" }, "Social"),
       p({ class: "description" }, "Here are some of my online connections !"),
       div(
@@ -231,17 +302,17 @@ const routes: Routes = [
           `Email ${icons.atSign}`,
         ),
       ),
-    ].join(""),
+    ),
   },
   {
     id: "not_found",
     name: "404 Not Found",
     path: "/404",
-    render: [
+    render: join(
       h1({ class: "main-title forty-hundred-and-four" }, "404"),
       p({ class: "description" }, "There's nothing here !"),
       a({ href: "#/", class: "clickable button" }, "Back Home"),
-    ].join(""),
+    ),
   },
 ];
 
