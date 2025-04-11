@@ -108,20 +108,20 @@ const projects: Project[] = [
         "I also tried to implement anti-aliasing and thanks to ",
         a(
           {
-            href: "https://www.deviantart.com/rychveldir/",
-            target: "_blank",
-            class: "link",
-          },
-          "rychveldir",
-        ),
-        " and ",
-        a(
-          {
             href: "https://www.deviantart.com/lyc/gallery",
             target: "_blank",
             class: "link",
           },
           "lycium",
+        ),
+        " and ",
+        a(
+          {
+            href: "https://www.deviantart.com/rychveldir/",
+            target: "_blank",
+            class: "link",
+          },
+          "rychveldir",
         ),
         ", it is now working pretty well !",
       ),
