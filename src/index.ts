@@ -1,6 +1,7 @@
-import { createRouter, navigate } from "./router";
+import { createRouter, getCurrentRoute, navigate } from "./router";
 import {
   addWindowEventListeners,
+  removeClasses,
   replaceOrAddClass,
   toggleClass,
   wait,
@@ -14,6 +15,8 @@ const mainEl = document.getElementById("main")!;
 
 let prevRouteIndex: number | null = null;
 let prevRouteId: string | null = null;
+let prevRouteAltPos: string | null =
+  getCurrentRoute(routes)?.altPosition ?? null;
 
 let router = createRouter(routes, async (route, details) => {
   console.log(route, details);
@@ -22,7 +25,27 @@ let router = createRouter(routes, async (route, details) => {
     if (prevRouteIndex != null && prevRouteId != route.id) {
       let d = details.index - prevRouteIndex;
       mainEl.classList.add("disappearing");
-      toggleClass(mainEl, d >= 0, "move-left", "move-right");
+
+      removeClasses(mainEl, "move-left", "move-right", "move-up", "move-down");
+
+      if (route.altPosition == "down" || prevRouteAltPos == "up") {
+        mainEl.classList.add("move-down");
+        if (!route.altPosition) prevRouteAltPos = null;
+        else prevRouteAltPos = "down";
+      } else if (route.altPosition == "up" || prevRouteAltPos == "down") {
+        mainEl.classList.add("move-up");
+
+        if (!route.altPosition) prevRouteAltPos = null;
+        else prevRouteAltPos = "up";
+      } else {
+        if (d >= 0) {
+          mainEl.classList.add("move-left");
+        } else {
+          mainEl.classList.add("move-right");
+        }
+      }
+
+      // toggleClass(mainEl, d >= 0, "move-left", "move-right");
       await wait(480);
     }
 

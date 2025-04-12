@@ -377,6 +377,34 @@ svg[role="img"] {
                 }
             }
         }
+        &.move-down {
+            animation: page-moving-down 500ms 1 ease;
+
+            @keyframes page-moving-down {
+                0% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-60px);
+                    opacity: 0;
+                }
+            }
+        }
+        &.move-up {
+            animation: page-moving-up 500ms 1 ease;
+
+            @keyframes page-moving-up {
+                0% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(60px);
+                    opacity: 0;
+                }
+            }
+        }
     }
 
     .links {

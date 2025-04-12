@@ -188,6 +188,7 @@ const routes: Routes = [
     id: "music",
     name: "Music",
     path: "/music",
+    altPosition: "up",
     render: () => {
       return join(
         h1({ class: "main-title" }, "Music"),

@@ -4,6 +4,8 @@ export interface Route {
   path: string;
   update?: (routeDetails: RouteDetails) => unknown;
   render: string | ((routeDetails: RouteDetails) => string);
+
+  altPosition?: "up" | "down";
 }
 export type Routes = Route[];
 
@@ -41,9 +43,15 @@ export function getRouteIndex(path: string[], routes: Routes) {
 export function getPathParams(templatePath: string[], path: string[]) {
   let params: { [key: string]: string } = {};
   templatePath.forEach(
-    (v, i) => v.startsWith(":") && (params[v.slice(1)] = path[i])
+    (v, i) => v.startsWith(":") && (params[v.slice(1)] = path[i]),
   );
   return params;
+}
+
+export function getCurrentRoute(routes: Routes) {
+  let currentPath = getPath().split("/").slice(1) ?? [];
+  let index = getRouteIndex(currentPath, routes);
+  return index != -1 ? routes[index] : null;
 }
 
 /**
@@ -55,7 +63,7 @@ export function getPathParams(templatePath: string[], path: string[]) {
  */
 export function createRouter(
   routes: Routes,
-  callback: (route?: Route, routeDetails?: RouteDetails) => Promise<unknown>
+  callback: (route?: Route, routeDetails?: RouteDetails) => Promise<unknown>,
 ) {
   return async () => {
     let currentPath = getPath().split("/").slice(1) ?? [];
