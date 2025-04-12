@@ -24,7 +24,7 @@ const routes: Route[] = [
   {
     id: "project",
     path: "/project/:id",
-    pos: { x: -2, y: 0 },
+    pos: { x: -2, y: -1 },
     render: (_, params) => {
       let id = params?.id;
       let project = projects.find((p) => p.id === id);
@@ -77,7 +77,7 @@ const routes: Route[] = [
     id: "projects",
     name: "Projects",
     path: "/projects",
-    pos: { x: -1, y: 0 },
+    pos: { x: -1, y: -0.5 },
     render: join(
       h1({ class: "main-title" }, "Projects"),
       p({ class: "description" }, "Here are some of my favorite projects !"),
@@ -246,7 +246,7 @@ const routes: Route[] = [
     id: "social",
     name: "Social",
     path: "/social",
-    pos: { x: 1, y: 0 },
+    pos: { x: 1, y: -0.5 },
     render: join(
       h1({ class: "main-title" }, "Social"),
       p({ class: "description" }, "Here are some of my online connections !"),
@@ -305,7 +305,7 @@ const routes: Route[] = [
     id: "not_found",
     name: "404 Not Found",
     path: "/404",
-    pos: { x: 0, y: 2.5 },
+    pos: { x: 0, y: -2 },
     render: join(
       h1({ class: "main-title forty-hundred-and-four" }, "404"),
       p({ class: "description" }, "There's nothing here !"),
