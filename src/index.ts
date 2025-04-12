@@ -13,49 +13,51 @@ import { toast } from "./toaster";
 const layoutEl = document.getElementById("layout")!;
 const mainEl = document.getElementById("main")!;
 
-let prevRouteIndex: number | null = null;
+const animationDuration = 480;
+
+let prevRoutePos = getCurrentRoute(routes)?.pos ?? null;
 let prevRouteId: string | null = null;
-let prevRouteAltPos: string | null =
-  getCurrentRoute(routes)?.altPosition ?? null;
 
-let router = createRouter(routes, async (route, details) => {
-  console.log(route, details);
+let router = createRouter(routes, async (route, params) => {
+  console.log("route:", route?.path, route?.id, route?.name, route?.pos);
+  console.log("params:", params);
 
-  if (route && details) {
-    if (prevRouteIndex != null && prevRouteId != route.id) {
-      let d = details.index - prevRouteIndex;
+  if (!route) navigate("/404", true);
+  else {
+    if (prevRouteId != route.id) {
+      // If the page changed do ...
+
       mainEl.classList.add("disappearing");
 
       removeClasses(mainEl, "move-left", "move-right", "move-up", "move-down");
 
-      if (route.altPosition == "down" || prevRouteAltPos == "up") {
-        mainEl.classList.add("move-down");
-        if (!route.altPosition) prevRouteAltPos = null;
-        else prevRouteAltPos = "down";
-      } else if (route.altPosition == "up" || prevRouteAltPos == "down") {
-        mainEl.classList.add("move-up");
+      if (!!prevRoutePos) {
+        let dx = prevRoutePos.x - route.pos.x;
+        let dy = prevRoutePos.y - route.pos.y;
 
-        if (!route.altPosition) prevRouteAltPos = null;
-        else prevRouteAltPos = "up";
-      } else {
-        if (d >= 0) {
-          mainEl.classList.add("move-left");
-        } else {
-          mainEl.classList.add("move-right");
-        }
+        let angle = Math.atan2(dy, dx);
+
+        mainEl.style.setProperty("--angle", `${angle}rad`);
+        mainEl.classList.add("move");
+
+        prevRoutePos = route.pos;
       }
 
-      // toggleClass(mainEl, d >= 0, "move-left", "move-right");
-      await wait(480);
+      await wait(animationDuration);
     }
 
-    if (route.name) document.title = `${route.name} – valflrt.dev`;
+    if (!!route.name) document.title = `${route.name} – valflrt.dev`;
 
-    if (route.update) route.update(details);
+    if (!!route.update) route.update(route, params);
+
     mainEl.innerHTML =
-      typeof route.render === "string" ? route.render : route.render(details);
+      typeof route.render === "string"
+        ? route.render
+        : route.render(route, params);
 
     replaceOrAddClass(mainEl, prevRouteId, route.id);
+
+    // Menu tab coloring
     document
       .querySelectorAll<HTMLAnchorElement>("#menu > a")
       .forEach((e) =>
@@ -63,9 +65,6 @@ let router = createRouter(routes, async (route, details) => {
       );
 
     prevRouteId = route.id;
-    prevRouteIndex = details.index;
-  } else {
-    navigate("/404", true);
   }
 
   mainEl.classList.remove("disappearing", "move-left", "move-right");

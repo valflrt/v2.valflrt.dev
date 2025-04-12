@@ -2,17 +2,13 @@ export interface Route {
   id: string;
   name?: string;
   path: string;
-  update?: (routeDetails: RouteDetails) => unknown;
-  render: string | ((routeDetails: RouteDetails) => string);
+  update?: (route: Route, params?: RouteParams) => unknown;
+  render: string | ((route: Route, params?: RouteParams) => string);
 
-  altPosition?: "up" | "down";
+  pos: { x: number; y: number };
 }
-export type Routes = Route[];
 
-export interface RouteDetails {
-  index: number;
-  params: { [key: string]: string };
-}
+type RouteParams = { [key: string]: string };
 
 export function navigate(path: string, replace?: boolean) {
   if (!replace) window.location.hash = "#".concat(path);
@@ -30,7 +26,7 @@ export function getPath() {
     : "/";
 }
 
-export function getRouteIndex(path: string[], routes: Routes) {
+export function getRouteIndex(path: string[], routes: Route[]) {
   return routes.findIndex(({ path: v }) => {
     let p = v.split("/").slice(1);
     return (
@@ -48,7 +44,7 @@ export function getPathParams(templatePath: string[], path: string[]) {
   return params;
 }
 
-export function getCurrentRoute(routes: Routes) {
+export function getCurrentRoute(routes: Route[]) {
   let currentPath = getPath().split("/").slice(1) ?? [];
   let index = getRouteIndex(currentPath, routes);
   return index != -1 ? routes[index] : null;
@@ -62,21 +58,20 @@ export function getCurrentRoute(routes: Routes) {
  * @returns a function that must be called on hashchange
  */
 export function createRouter(
-  routes: Routes,
-  callback: (route?: Route, routeDetails?: RouteDetails) => Promise<unknown>,
+  routes: Route[],
+  callback: (
+    route?: Route,
+    params?: { [key: string]: string },
+  ) => Promise<unknown>,
 ) {
   return async () => {
     let currentPath = getPath().split("/").slice(1) ?? [];
 
-    let index = getRouteIndex(currentPath, routes);
+    let route = getCurrentRoute(routes);
 
-    if (index != -1) {
-      let route = routes[index];
-      let details = {
-        index,
-        params: getPathParams(route.path.split("/").slice(1), currentPath),
-      };
-      await callback(route, details);
+    if (!!route) {
+      let params = getPathParams(route.path.split("/").slice(1), currentPath);
+      await callback(route, params);
     } else {
       await callback();
     }

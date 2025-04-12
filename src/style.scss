@@ -349,58 +349,20 @@ svg[role="img"] {
     }
 
     &.disappearing {
-        &.move-left {
+        &.move {
             animation: page-moving-left 500ms 1 ease;
 
+            /* --angle: 0rad; */
             @keyframes page-moving-left {
                 0% {
-                    transform: translateX(0);
+                    transform: translate(0, 0);
                     opacity: 1;
                 }
                 100% {
-                    transform: translateX(-60px);
-                    opacity: 0;
-                }
-            }
-        }
-        &.move-right {
-            animation: page-moving-right 500ms 1 ease;
-
-            @keyframes page-moving-right {
-                0% {
-                    transform: translateX(0);
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateX(60px);
-                    opacity: 0;
-                }
-            }
-        }
-        &.move-down {
-            animation: page-moving-down 500ms 1 ease;
-
-            @keyframes page-moving-down {
-                0% {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(-60px);
-                    opacity: 0;
-                }
-            }
-        }
-        &.move-up {
-            animation: page-moving-up 500ms 1 ease;
-
-            @keyframes page-moving-up {
-                0% {
-                    transform: translateY(0);
-                    opacity: 1;
-                }
-                100% {
-                    transform: translateY(60px);
+                    transform: translate(
+                        calc(60px * cos(var(--angle))),
+                        calc(60px * sin(var(--angle)))
+                    );
                     opacity: 0;
                 }
             }

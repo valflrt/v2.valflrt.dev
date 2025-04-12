@@ -1,4 +1,4 @@
-import { Routes, navigate } from "./router";
+import { Route, navigate } from "./router";
 import { elapsedTime, shuffle as shuffle } from "./util";
 import {
   div,
@@ -20,20 +20,13 @@ import logo256 from "./assets/logo/logo-3-256.png";
 import projects from "./projects";
 import { artists, songs } from "./music";
 
-/**
- * This is the route object, order is important since it is
- * used to correctly animate transitions between routes.
- *
- * Example: /projects is on the "left" of /home therefore
- * the transition from /projects to /home must be animated
- * from left to right (see index.ts).
- */
-const routes: Routes = [
+const routes: Route[] = [
   {
     id: "project",
     path: "/project/:id",
-    render: ({ params }) => {
-      let id = params.id;
+    pos: { x: -2, y: 0 },
+    render: (_, params) => {
+      let id = params?.id;
       let project = projects.find((p) => p.id === id);
 
       if (!id || !project) {
@@ -84,6 +77,7 @@ const routes: Routes = [
     id: "projects",
     name: "Projects",
     path: "/projects",
+    pos: { x: -1, y: 0 },
     render: join(
       h1({ class: "main-title" }, "Projects"),
       p({ class: "description" }, "Here are some of my favorite projects !"),
@@ -125,6 +119,7 @@ const routes: Routes = [
     id: "home",
     name: "Home",
     path: "/",
+    pos: { x: 0, y: 0 },
     render: join(
       img({
         class: "logo",
@@ -188,7 +183,7 @@ const routes: Routes = [
     id: "music",
     name: "Music",
     path: "/music",
-    altPosition: "up",
+    pos: { x: 0, y: 2.5 },
     render: () => {
       return join(
         h1({ class: "main-title" }, "Music"),
@@ -251,6 +246,7 @@ const routes: Routes = [
     id: "social",
     name: "Social",
     path: "/social",
+    pos: { x: 1, y: 0 },
     render: join(
       h1({ class: "main-title" }, "Social"),
       p({ class: "description" }, "Here are some of my online connections !"),
@@ -279,14 +275,14 @@ const routes: Routes = [
           },
           `Discord ${icons.discord}`,
         ),
-        a(
-          {
-            href: "https://www.deviantart.com/valflrt",
-            target: "_blank",
-            class: "button clickable",
-          },
-          `Deviant Art ${icons.deviantart}`,
-        ),
+        // a(
+        //   {
+        //     href: "https://www.deviantart.com/valflrt",
+        //     target: "_blank",
+        //     class: "button clickable",
+        //   },
+        //   `Deviant Art ${icons.deviantart}`,
+        // ),
         a(
           {
             href: "https://bsky.app/profile/valflrt.dev",
@@ -309,6 +305,7 @@ const routes: Routes = [
     id: "not_found",
     name: "404 Not Found",
     path: "/404",
+    pos: { x: 0, y: 2.5 },
     render: join(
       h1({ class: "main-title forty-hundred-and-four" }, "404"),
       p({ class: "description" }, "There's nothing here !"),
