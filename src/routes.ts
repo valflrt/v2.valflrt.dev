@@ -188,9 +188,9 @@ const routes: Route[] = [
       return join(
         h1({ class: "main-title" }, "Music"),
 
-        p({}, "Oh, so you found my secret music display..."),
+        p({}, "Oh... So you found my secret music display..."),
 
-        p({}, "Some songs I really like:"),
+        p({}, "Those are some songs I really like:"),
 
         div(
           { class: "songs" },
