@@ -2,8 +2,7 @@ export interface Route {
   id: string;
   name?: string;
   path: string;
-  update?: (route: Route, params?: RouteParams) => unknown;
-  render: string | ((route: Route, params?: RouteParams) => string);
+  content: string | ((route: Route, params?: RouteParams) => string);
 
   pos: { x: number; y: number };
 }
@@ -44,10 +43,10 @@ export function getPathParams(templatePath: string[], path: string[]) {
   return params;
 }
 
-export function getCurrentRoute(routes: Route[]) {
+export function getCurrentRoute(routes: Route[]): Route {
   let currentPath = getPath().split("/").slice(1) ?? [];
   let index = getRouteIndex(currentPath, routes);
-  return index != -1 ? routes[index] : null;
+  return routes[index];
 }
 
 /**

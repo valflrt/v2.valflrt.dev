@@ -1,4 +1,4 @@
-import { createRouter, getCurrentRoute, navigate } from "./router";
+import { createRouter, getCurrentRoute, navigate, Route } from "./router";
 import {
   addWindowEventListeners,
   replaceOrAddClass,
@@ -14,9 +14,7 @@ const mainEl = document.getElementById("main")!;
 
 const animationDuration = 380;
 
-let prevRoutePos = getCurrentRoute(routes)?.pos ?? null;
-let prevRouteId: string | null = null;
-
+let prevRoute: Route = getCurrentRoute(routes);
 let firstLoad = true;
 
 let router = createRouter(routes, async (route, params) => {
@@ -25,77 +23,80 @@ let router = createRouter(routes, async (route, params) => {
 
   if (!route) navigate("/404", true);
   else {
-    if (prevRouteId != route.id) {
-      // If the page changed do ...
+    // Animate page transition
+    if (prevRoute.id != route.id) {
+      if (!!prevRoute?.pos) {
+        mainEl.classList.remove("move-in");
 
-      mainEl.classList.remove("move-in");
-
-      if (!!prevRoutePos) {
-        let dx = prevRoutePos.x - route.pos.x;
-        let dy = prevRoutePos.y - route.pos.y;
+        let dx = prevRoute.pos.x - route.pos.x;
+        let dy = prevRoute.pos.y - route.pos.y;
 
         let angle = Math.atan2(dy, dx);
 
         mainEl.style.setProperty("--angle", `${angle}rad`);
         mainEl.classList.add("move-out");
-
-        prevRoutePos = route.pos;
       }
 
       await wait(animationDuration);
     }
 
-    if (!!route.name) document.title = `${route.name} – valflrt.dev`;
+    // Update content on first load or on page change
+    if (firstLoad || prevRoute.id != route.id) {
+      // Set page title
+      if (!!route.name) document.title = `${route.name} – valflrt.dev`;
 
-    if (!!route.update) route.update(route, params);
+      // Update content (inside #main)
+      mainEl.innerHTML =
+        typeof route.content === "string"
+          ? route.content
+          : route.content(route, params);
 
-    mainEl.innerHTML =
-      typeof route.render === "string"
-        ? route.render
-        : route.render(route, params);
+      // Add page specific class to #main for custom styling
+      replaceOrAddClass(mainEl, prevRoute?.id, route.id);
 
-    replaceOrAddClass(mainEl, prevRouteId, route.id);
+      // Menu tab coloring
+      document
+        .querySelectorAll<HTMLAnchorElement>("#menu > a")
+        .forEach((e) =>
+          toggleClass(
+            e,
+            new URL(e.href).hash.slice(1) === route.path,
+            "active",
+          ),
+        );
 
-    // Menu tab coloring
-    document
-      .querySelectorAll<HTMLAnchorElement>("#menu > a")
-      .forEach((e) =>
-        toggleClass(e, new URL(e.href).hash.slice(1) === route.path, "active"),
-      );
+      // Add listeners for copy buttons
 
-    prevRouteId = route.id;
+      prevRoute = route;
+      if (prevRoute.id != route.id) firstLoad = false;
+    }
   }
 
   mainEl.classList.remove("move-out");
-  if (firstLoad) {
-    mainEl.classList.add("spawn");
-    firstLoad = false;
-  } else {
+  if (!firstLoad) {
     mainEl.classList.remove("spawn");
     mainEl.classList.add("move-in");
   }
 });
 
-addWindowEventListeners(["load", "hashchange"], async () => {
-  await router();
+addWindowEventListeners(["load", "hashchange"], router);
 
-  // apparently this needs to be here because it needs to be
-  // applied each time the hash changes (idk why...)
-  document
-    .querySelectorAll<HTMLElement>(".copy[data-copy]:not(.activated)")
-    .forEach((e) => {
-      e.classList.add("activated");
-      e.addEventListener("click", () => {
+addWindowEventListeners(["load"], () => {
+  document.addEventListener("click", (e) => {
+    if (!!e.target) {
+      let target = e.target as HTMLElement;
+      if (target.matches(".copy[data-copy]:not(.activated)")) {
         navigator.clipboard
-          .writeText(e.dataset.copy ?? "")
+          .writeText(target.dataset.copy ?? "")
           .then(() => {
             toast("Copied !", "highlight");
           })
           .catch(() => {
             toast("Failed to copy", "error");
           });
-      });
-    });
+      }
+    }
+  });
 });
 
 addWindowEventListeners(["load", "resize"], () => {

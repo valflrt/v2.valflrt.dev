@@ -25,7 +25,7 @@ const routes: Route[] = [
     id: "project",
     path: "/project/:id",
     pos: { x: -2, y: 0 },
-    render: (_, params) => {
+    content: (_, params) => {
       let id = params?.id;
       let project = projects.find((p) => p.id === id);
 
@@ -78,7 +78,7 @@ const routes: Route[] = [
     name: "Projects",
     path: "/projects",
     pos: { x: -1, y: -0.2 },
-    render: join(
+    content: join(
       h1({ class: "main-title" }, "Projects"),
       p({ class: "description" }, "Here are some of my favorite projects !"),
       div(
@@ -120,7 +120,7 @@ const routes: Route[] = [
     name: "Home",
     path: "/",
     pos: { x: 0, y: 0 },
-    render: join(
+    content: join(
       img({
         class: "logo",
         src: logo256,
@@ -184,7 +184,7 @@ const routes: Route[] = [
     name: "Music",
     path: "/music",
     pos: { x: 0, y: 2.5 },
-    render: () => {
+    content: () => {
       return join(
         h1({ class: "main-title" }, "Music"),
 
@@ -247,7 +247,7 @@ const routes: Route[] = [
     name: "Social",
     path: "/social",
     pos: { x: 1, y: -0.2 },
-    render: join(
+    content: join(
       h1({ class: "main-title" }, "Social"),
       p({ class: "description" }, "Here are some of my online connections !"),
       div(
@@ -306,7 +306,7 @@ const routes: Route[] = [
     name: "404 Not Found",
     path: "/404",
     pos: { x: 0, y: -2 },
-    render: join(
+    content: join(
       h1({ class: "main-title forty-hundred-and-four" }, "404"),
       p({ class: "description" }, "There's nothing here !"),
       a({ href: "#/", class: "clickable button" }, "Back Home"),
