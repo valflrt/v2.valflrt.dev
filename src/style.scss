@@ -359,8 +359,8 @@ svg[role="img"] {
             }
             100% {
                 transform: translate(
-                    calc(100px * cos(var(--angle))),
-                    calc(100px * sin(var(--angle)))
+                    calc(60px * cos(var(--angle))),
+                    calc(60px * sin(var(--angle)))
                 );
                 opacity: 0;
             }
@@ -372,8 +372,8 @@ svg[role="img"] {
         @keyframes move-in {
             0% {
                 transform: translate(
-                    calc(-100px * cos(var(--angle))),
-                    calc(-100px * sin(var(--angle)))
+                    calc(-60px * cos(var(--angle))),
+                    calc(-60px * sin(var(--angle)))
                 );
                 opacity: 0;
             }
