@@ -12,7 +12,7 @@ import { toast } from "./toaster";
 const layoutEl = document.getElementById("layout")!;
 const mainEl = document.getElementById("main")!;
 
-const animationDuration = 380;
+const animationDuration = 340;
 
 let prevRoutePos = getCurrentRoute(routes)?.pos ?? null;
 let prevRouteId: string | null = null;
