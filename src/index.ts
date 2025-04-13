@@ -67,8 +67,8 @@ let router = createRouter(routes, async (route, params) => {
 
       // Add listeners for copy buttons
 
-      prevRoute = route;
       if (prevRoute.id != route.id) firstLoad = false;
+      prevRoute = route;
     }
   }
 
@@ -80,25 +80,6 @@ let router = createRouter(routes, async (route, params) => {
 });
 
 addWindowEventListeners(["load", "hashchange"], router);
-
-addWindowEventListeners(["load"], () => {
-  document.addEventListener("click", (e) => {
-    if (!!e.target) {
-      let target = e.target as HTMLElement;
-      if (target.matches(".copy[data-copy]:not(.activated)")) {
-        navigator.clipboard
-          .writeText(target.dataset.copy ?? "")
-          .then(() => {
-            toast("Copied !", "highlight");
-          })
-          .catch(() => {
-            toast("Failed to copy", "error");
-          });
-      }
-    }
-  });
-});
-
 addWindowEventListeners(["load", "resize"], () => {
   toggleClass(
     layoutEl,
@@ -107,4 +88,20 @@ addWindowEventListeners(["load", "resize"], () => {
     "non-touch",
   );
   toggleClass(layoutEl, window.innerWidth < 750, "mobile", "desktop");
+});
+
+document.addEventListener("click", (e) => {
+  if (!!e.target) {
+    let target = e.target as HTMLElement;
+    if (target.matches(".copy[data-copy]:not(.activated)")) {
+      navigator.clipboard
+        .writeText(target.dataset.copy ?? "")
+        .then(() => {
+          toast("Copied !", "highlight");
+        })
+        .catch(() => {
+          toast("Failed to copy", "error");
+        });
+    }
+  }
 });
