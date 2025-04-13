@@ -11,13 +11,6 @@ export function addWindowEventListeners(
 }
 
 /**
- * Removes given classnames from an element's classlist
- */
-export function removeClasses(element: Element, ...classnames: string[]) {
-  classnames.forEach((c) => element.classList.remove(c));
-}
-
-/**
  * Toggles `a` and `b` depending on `condition` (when
  * `condition` is `true`, `a` is enabled and `b` disabled if
  * present and when it is `false`, `a` is disabled and `b`

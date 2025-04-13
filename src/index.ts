@@ -1,7 +1,6 @@
 import { createRouter, getCurrentRoute, navigate } from "./router";
 import {
   addWindowEventListeners,
-  removeClasses,
   replaceOrAddClass,
   toggleClass,
   wait,
@@ -13,10 +12,12 @@ import { toast } from "./toaster";
 const layoutEl = document.getElementById("layout")!;
 const mainEl = document.getElementById("main")!;
 
-const animationDuration = 480;
+const animationDuration = 380;
 
 let prevRoutePos = getCurrentRoute(routes)?.pos ?? null;
 let prevRouteId: string | null = null;
+
+let firstLoad = true;
 
 let router = createRouter(routes, async (route, params) => {
   console.log("route:", route?.path, route?.id, route?.name, route?.pos);
@@ -27,9 +28,7 @@ let router = createRouter(routes, async (route, params) => {
     if (prevRouteId != route.id) {
       // If the page changed do ...
 
-      mainEl.classList.add("disappearing");
-
-      removeClasses(mainEl, "move-left", "move-right", "move-up", "move-down");
+      mainEl.classList.remove("move-in");
 
       if (!!prevRoutePos) {
         let dx = prevRoutePos.x - route.pos.x;
@@ -38,7 +37,7 @@ let router = createRouter(routes, async (route, params) => {
         let angle = Math.atan2(dy, dx);
 
         mainEl.style.setProperty("--angle", `${angle}rad`);
-        mainEl.classList.add("move");
+        mainEl.classList.add("move-out");
 
         prevRoutePos = route.pos;
       }
@@ -67,7 +66,14 @@ let router = createRouter(routes, async (route, params) => {
     prevRouteId = route.id;
   }
 
-  mainEl.classList.remove("disappearing", "move-left", "move-right");
+  mainEl.classList.remove("move-out");
+  if (firstLoad) {
+    mainEl.classList.add("spawn");
+    firstLoad = false;
+  } else {
+    mainEl.classList.remove("spawn");
+    mainEl.classList.add("move-in");
+  }
 });
 
 addWindowEventListeners(["load", "hashchange"], async () => {
