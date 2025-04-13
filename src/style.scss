@@ -336,7 +336,7 @@ svg[role="img"] {
     }
 
     &.spawn {
-        animation: page-spawn 500ms 1 cubic-bezier(0, 0, 0.25, 1.25);
+        animation: page-spawn 400ms 1 cubic-bezier(0, 0, 0.25, 1.25);
 
         @keyframes page-spawn {
             0% {
@@ -350,7 +350,7 @@ svg[role="img"] {
         }
     }
     &.move-out {
-        animation: move-out 400ms 1 ease-in;
+        animation: move-out 360ms 1 ease-in;
 
         @keyframes move-out {
             0% {
@@ -367,7 +367,7 @@ svg[role="img"] {
         }
     }
     &.move-in {
-        animation: move-in 400ms 1 ease;
+        animation: move-in 360ms 1 ease;
 
         @keyframes move-in {
             0% {
