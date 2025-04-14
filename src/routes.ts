@@ -24,7 +24,7 @@ const routes: Route[] = [
   {
     id: "project",
     path: "/project/:id",
-    pos: { x: -2, y: 0 },
+    pos: { x: -2, y: 0.2 },
     content: (_, params) => {
       let id = params?.id;
       let project = projects.find((p) => p.id === id);
