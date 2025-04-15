@@ -349,8 +349,11 @@ svg[role="img"] {
             }
         }
     }
+
+    $transition-duration: 360ms;
     &.move-out {
-        animation: move-out 360ms 1 ease-in;
+        opacity: 0;
+        animation: move-out $transition-duration 1 ease-in;
 
         @keyframes move-out {
             0% {
@@ -367,7 +370,7 @@ svg[role="img"] {
         }
     }
     &.move-in {
-        animation: move-in 360ms 1 ease;
+        animation: move-in $transition-duration 1 ease;
 
         @keyframes move-in {
             0% {
