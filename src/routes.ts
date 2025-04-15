@@ -60,7 +60,7 @@ const routes: Route[] = [
             { class: "container row wrap center-stretch" },
             ...project.links.map((l) =>
               a(
-                { href: l.url, class: "button clickable" },
+                { href: l.url, class: "button clickable", target: "_blank" },
                 l.name,
                 l.icon ? icons[l.icon] : icons.externalLink,
               ),
