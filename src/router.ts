@@ -2,7 +2,7 @@ export interface Route {
   id: string;
   name?: string;
   path: string;
-  content: string | ((route: Route, params?: RouteParams) => string);
+  content: (route: Route, params?: RouteParams) => DocumentFragment;
 
   pos: { x: number; y: number };
 }

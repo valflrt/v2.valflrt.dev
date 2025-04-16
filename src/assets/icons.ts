@@ -15,7 +15,12 @@ import vite from "./icons/vite.svg?raw";
 
 // icons from https://simpleicons.org/
 
-export {
+export function parseSvg(svgString: string): HTMLElement {
+  let parser = new DOMParser();
+  return parser.parseFromString(svgString, "image/svg+xml").documentElement;
+}
+
+export const icons = {
   atSign,
   bluesky,
   cplusplus,

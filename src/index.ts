@@ -46,10 +46,7 @@ let router = createRouter(routes, async (route, params) => {
       if (!!route.name) document.title = `${route.name} – valflrt.dev`;
 
       // Update content (inside #main)
-      mainEl.innerHTML =
-        typeof route.content === "string"
-          ? route.content
-          : route.content(route, params);
+      mainEl.replaceChildren(route.content(route, params));
 
       // Add page specific class to #main for custom styling
       replaceOrAddClass(mainEl, prevRoute?.id, route.id);
