@@ -2,13 +2,7 @@ type TagPropsMap = {
   [K in keyof HTMLElementTagNameMap]: Partial<HTMLElementTagNameMap[K]>;
 };
 
-type ToHTML =
-  | HTMLElement
-  | DocumentFragment
-  | string
-  | false
-  | null
-  | undefined;
+type ToHTML = Node | string | false | null | undefined;
 
 /**
  * Creates an HTML element.
@@ -29,7 +23,7 @@ export function createElement<K extends keyof HTMLElementTagNameMap>(
     .filter((v) => !!v)
     .forEach((child) => {
       if (typeof child === "string") {
-        element.appendChild(document.createTextNode(child.toString()));
+        element.appendChild(document.createTextNode(child));
       } else {
         element.appendChild(child as Node);
       }

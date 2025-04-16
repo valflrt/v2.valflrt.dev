@@ -19,16 +19,16 @@ const projects: Project[] = [
       unit(
         p(
           {},
-          "A particle simulation program forked from " +
-            a(
-              {
-                href: "https://github.com/ChevyRay/smarticles",
-                target: "_blank",
-                class: "code link",
-              },
-              "ChevyRay/smarticles",
-            ) +
-            ", to which I added some optimizations (I think ?) and features.",
+          "A particle simulation program forked from ",
+          a(
+            {
+              href: "https://github.com/ChevyRay/smarticles",
+              target: "_blank",
+              class: "code link",
+            },
+            "ChevyRay/smarticles",
+          ),
+          ", to which I added some optimizations (I think ?) and features.",
         ),
         p(
           {},
@@ -46,13 +46,13 @@ const projects: Project[] = [
         p(
           {},
           "In the simulation there are six classes of particles. ",
-          "Particles from one of the classes apply a class-specific attractive or repulsive force " +
-            "to other particles.",
+          "Particles from one of the classes apply a class-specific attractive or repulsive force ",
+          "to other particles.",
         ),
         p(
           {},
-          "Using spatial partitioning and multithreading, I was able to simulate tens " +
-            "of thousands of particles while rarely exceeding 50ms of update rate !",
+          "Using spatial partitioning and multithreading, I was able to simulate tens ",
+          "of thousands of particles while rarely exceeding 50ms of update rate !",
         ),
         p(
           {},
@@ -88,13 +88,14 @@ const projects: Project[] = [
       unit(
         p(
           {},
-          "This is a program for rendering fractals, it has a simple gui and offers various types of fractals to explore.",
+          "This is a program for rendering fractals, it has a simple gui and offers various types ",
+          "of fractals to explore.",
         ),
         p(
           {},
-          "I am very happy with this project because I managed to generate some really cool " +
-            "fractals (at least I think they are). If you want to check out some examples, feel " +
-            "free to head over to the ",
+          "I am very happy with this project because I managed to generate some really cool ",
+          "fractals (at least I think they are). If you want to check out some examples, feel ",
+          "free to head over to the ",
           a(
             {
               href: "https://github.com/valflrt/fractal_rndr",
@@ -143,9 +144,13 @@ const projects: Project[] = [
       unit(
         p(
           {},
-          "This is the website you're currently viewing. It was made using TypeScript and Vite.js." +
-            "It has some cool utility functions and a hash router built from scratch, though some " +
-            "parts might not be the prettiest to look at...",
+          "This is the website you're currently viewing. It was made using TypeScript and Vite.js. ",
+          "It has some cool utility functions and a hash router built from scratch, though some ",
+          "parts might not be the prettiest to look at...",
+        ),
+        p(
+          {},
+          "It also includes a simple DOM manipulation utility I made which is, in my opinion, quite handy.",
         ),
         p({}, "(I'm pretty proud of it btw)"),
       ),
@@ -168,9 +173,9 @@ const projects: Project[] = [
         ),
         p(
           {},
-          "I first built it in typescript but decided to switch to Rust because typescript was " +
-            "(really) not appropriate for this kind of project that requires working with io and " +
-            "crypto. I also wanted to try Rust and low-level programming.",
+          "I first built it in typescript but decided to switch to Rust because typescript was ",
+          "(really) not appropriate for this kind of project that requires working with io and ",
+          "crypto. I also wanted to try Rust and low-level programming.",
         ),
       ),
     links: [
@@ -188,8 +193,8 @@ const projects: Project[] = [
   //     unit(
   //       p(
   //         {},
-  //         "A simple pixel art game (if we can call it that). The game draws the pixels to the " +
-  //           "screen in the most inefficient way possible.",
+  //         "A simple pixel art game (if we can call it that). The game draws the pixels to the ",
+  //         "screen in the most inefficient way possible.",
   //       ),
   //       p(
   //         {},
@@ -197,8 +202,8 @@ const projects: Project[] = [
   //         span({ class: "code" }, "Mat"),
   //         " similar to the common Rust ",
   //         span({ class: "code" }, "Vec"),
-  //         " but in two dimensions, it holds the pixels that will be displayed on the screen (yes, " +
-  //           "I know, it's just the worst way to do it) and can also be used to store textures/images.",
+  //         " but in two dimensions, it holds the pixels that will be displayed on the screen (yes, ",
+  //         "I know, it's just the worst way to do it) and can also be used to store textures/images.",
   //       ),
   //       p(
   //         {},
@@ -220,15 +225,15 @@ const projects: Project[] = [
       unit(
         p(
           {},
-          "A native app for Omega on the Numworks calculator that lets you explore the Mandelbrot " +
-            "set with a reasonable maximum depth.",
+          "A native app for Omega on the Numworks calculator that lets you explore the Mandelbrot ",
+          "set with a reasonable maximum depth.",
         ),
         p(
           {},
-          "I also included the original python script, which I wrote entirely on my calculator, " +
-            "starting from the basic Mandelbrot script included by default (took ages). This script was very " +
-            "slow, to say the least, and I wanted to speed it up. The solution I found was to " +
-            "implement it as a native Omega app.",
+          "I also included the original python script, which I wrote entirely on my calculator, ",
+          "starting from the basic Mandelbrot script included by default (took ages). This script ",
+          "was very slow, to say the least, and I wanted to speed it up. The solution I found ",
+          "was to implement it as a native Omega app.",
         ),
       ),
     links: [
