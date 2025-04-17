@@ -71,7 +71,6 @@ let router = createRouter(routes, async (route, params) => {
 
   mainEl.classList.remove("move-out");
   if (!firstLoad) {
-    mainEl.classList.remove("spawn");
     mainEl.classList.add("move-in");
   }
 });
