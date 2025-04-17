@@ -441,8 +441,6 @@ svg[role="img"] {
             background-color: var(--black-400);
             border-radius: 16px;
 
-            transition: 200ms;
-
             .header {
                 display: flex;
                 align-items: center;
@@ -491,9 +489,15 @@ svg[role="img"] {
                 }
             }
 
+            .non-touch &,
+            & .title {
+                transition:
+                    200ms background-color,
+                    200ms border-color;
+            }
             .non-touch &:hover {
-                border-color: var(--black-400);
                 background-color: var(--black-700);
+                border-color: var(--black-400);
 
                 .title {
                     background-color: var(--black-500);
