@@ -2,7 +2,7 @@ import { Route, navigate } from "./router";
 import { elapsedTime, shuffle as shuffle } from "./util";
 import { div, a, h1, p, span, img, code, button, unit, br } from "./html";
 
-import logo256 from "./assets/logo/logo-256.jpg";
+import logo from "./assets/logo/logo-128.jpg";
 
 import projects from "./projects";
 import { artists, songs } from "./music";
@@ -110,7 +110,7 @@ const routes: Route[] = [
       unit(
         img({
           class: "logo",
-          src: logo256,
+          src: logo,
           alt: "valflrt's profile picture",
           width: "128",
           height: "128",
