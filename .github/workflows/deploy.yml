@@ -29,9 +29,9 @@ jobs:
       - name: install minification dependencies
         run: npm install -g terser postcss-cli cssnano
       - name: minify javascript
-        run: terser index.js -o public/index.js --compress --mangle
+        run: terser public/index.js -o public/index.js --compress --mangle
       - name: minify css
-        run: postcss styles.css -o styles.min.css --use cssnano
+        run: postcss public/index.css -o public/index.css --use cssnano
       - name: upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
