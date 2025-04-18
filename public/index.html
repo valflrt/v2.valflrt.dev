@@ -23,7 +23,7 @@
         <meta property="og:url" content="https://valflrt.dev" />
 
         <!-- css -->
-        <link rel="stylesheet" href="./src/style.scss" />
+        <link rel="stylesheet" href="/index.css" />
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,14 +42,10 @@
         </noscript>
 
         <!-- favicons -->
-        <link
-            rel="icon"
-            href="./src/assets/logo/logo-64.ico"
-            type="image/x-icon"
-        />
+        <link rel="icon" href="/logo/logo-64.ico" type="image/x-icon" />
         <link
             rel="shortcut icon"
-            href="./src/assets/logo/logo-64.ico"
+            href="/logo/logo-64.ico"
             type="image/x-icon"
         />
 
@@ -61,7 +57,7 @@
     <body>
         <div id="root">
             <div id="layout" class="layout">
-                <div class="menu-wrapper">
+                <div class="menu_c">
                     <nav class="menu" id="menu">
                         <a href="#/projects" class="clickable button"
                             >Projects</a
@@ -71,7 +67,7 @@
                     </nav>
                 </div>
                 <div id="main"></div>
-                <div class="toaster-wrapper">
+                <div class="toast_c">
                     <div id="toast"></div>
                 </div>
             </div>
@@ -90,6 +86,6 @@
             </noscript>
         </div>
 
-        <script src="/src/index.ts" type="module"></script>
+        <script src="/index.js"></script>
     </body>
 </html>
