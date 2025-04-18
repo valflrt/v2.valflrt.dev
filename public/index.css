@@ -505,7 +505,7 @@ svg[role="img"] path {
   padding: 8px 4px 0 4px;
 }
 
-#main.project > .card > .description > p:not(:last-child) {
+#main.project > .card > .description > .text > p:not(:last-child) {
   margin-bottom: 8px;
 }
 
