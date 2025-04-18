@@ -675,7 +675,7 @@ const projects = [
       unit(
         p(
           {},
-          "This is the website you're currently viewing. At first, I used TypeScript and Vite.js, but it is now 100% pure html/js/css !",
+          "This is the website you're currently viewing. At first, I used TypeScript and Vite.js, but it is now 100% pure html+js+css !",
         ),
         p(
           {},
