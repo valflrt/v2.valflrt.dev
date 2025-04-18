@@ -343,7 +343,7 @@ const routes = [
       unit(
         img({
           class: "logo",
-          src: "logo/logo-256.jpg",
+          src: "logo/logo-256.webp",
           alt: "valflrt's profile picture",
           width: "128",
           height: "128",
