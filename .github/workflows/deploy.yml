@@ -31,7 +31,7 @@ jobs:
       - name: minify javascript
         run: terser public/index.js -o public/index.js --compress --mangle
       - name: minify css
-        run: postcss public/index.css -o public/index.css --use cssnano
+        run: postcss public/index.css -o public/index.css --no-map --use cssnano
       - name: upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
