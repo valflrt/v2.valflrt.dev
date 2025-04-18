@@ -1,7 +1,6 @@
-name: build vite website and deploy
+name: minify and deploy to github pages
 
 on:
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -23,16 +22,20 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v4
-      - name: Setup Pages
+      - name: setup pages
         uses: actions/configure-pages@v5
-      - name: Minify JavaScript using Terser
-        run: npm install -g terser && terser index.js -o index.js --compress --mangle
-      - name: Upload artifact
+      - name: install minification dependencies
+        run: npm install -g terser postcss-cli cssnano
+      - name: minify javascript
+        run: terser index.js -o index.js --compress --mangle
+      - name: minify css
+        run: postcss styles.css -o styles.min.css --use cssnano
+      - name: upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./public/"
-      - name: Deploy to GitHub Pages
+      - name: deploy to gitHub pages
         id: deployment
         uses: actions/deploy-pages@v4
