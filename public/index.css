@@ -1,0 +1,645 @@
+/*
+my css convention
+- naming
+  - container class end with "_c"
+- nested selectors
+  - use `selector nested` when needed only, otherwise default
+    to `selector > nested`
+
+*/
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(161, 159, 168, 0.4);
+}
+
+*:focus-visible {
+  outline-color: var(--text-color);
+}
+
+::selection {
+  color: var(--text-color);
+  background-color: rgba(161, 159, 168, 0.4);
+}
+
+::-moz-selection {
+  color: var(--text-color);
+  background-color: rgba(161, 159, 168, 0.4);
+}
+
+:root {
+  --primary: #6053c6;
+  --success: #28e460;
+  --error: #e42851;
+  --text-color: #ffffff;
+  --black-400: #28272b;
+  --black-500: #323036;
+  --black-700: #46444b;
+  --black-800: #504e56;
+  --black-900: #5a5760;
+  --white-200: #aba9b1;
+  --white-500: #cbc9cf;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  color: var(--text-color);
+  background-color: var(--black-400);
+  font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  overflow: hidden auto;
+  scroll-behavior: smooth;
+}
+
+/* ----- common --------------- */
+
+h1,
+p,
+ul {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  background: inherit;
+  border: inherit;
+}
+
+svg[role="img"] {
+  width: 22px;
+  height: 22px;
+}
+
+svg[role="img"] path {
+  fill: var(--text-color);
+}
+
+.link {
+  text-decoration: underline;
+}
+
+.clickable {
+  border: 1px solid var(--black-700);
+  background-color: var(--black-400);
+  transition: 200ms;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.button.clickable {
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 12px;
+}
+
+.non_touch .button.clickable:hover {
+  border-color: var(--black-400);
+  background-color: var(--black-700);
+}
+
+.code {
+  padding: 2px 6px;
+  border-radius: 8px;
+  background-color: var(--black-800);
+  font-family: "Roboto Mono";
+  font-size: 13.5px;
+}
+
+.faded {
+  color: var(--white-200);
+}
+
+/* ----- layout --------------- */
+
+.layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+/* .layout .copyright {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.layout .copyright p {
+  font-size: 14px;
+  opacity: 0.25;
+  cursor: default;
+} */
+
+/* ----- toast --------------- */
+
+.toast_c {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 12px;
+  display: flex;
+  justify-content: end;
+  pointer-events: none;
+}
+
+.toast_c #toast {
+  height: 36px;
+  padding: 0 18px;
+  background-color: var(--black-400);
+  border: 1px solid var(--black-700);
+  border-radius: 12px;
+  transition: 200ms;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform-origin: bottom;
+}
+
+.toast_c #toast.color-highlight {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.toast_c #toast.color-success {
+  border-color: var(--success);
+  background-color: var(--success);
+}
+
+.toast_c #toast.color-error {
+  border-color: var(--error);
+  background-color: var(--error);
+}
+
+.toast_c #toast.hidden {
+  animation: toast-disappearing 200ms ease 1;
+}
+@keyframes toast-disappearing {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8) translateY(60px);
+  }
+}
+
+.toast_c #toast.visible {
+  animation: toast-appearing 200ms ease-in-out 1;
+  opacity: 1;
+}
+@keyframes toast-appearing {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ----- main --------------- */
+
+#main {
+  max-width: 400px;
+  max-height: 100%;
+  padding: 0 20px;
+  margin: auto;
+  cursor: default;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+#main > h1.title {
+  text-align: center;
+  font-size: 2.6rem;
+  font-family: "Lobster";
+  letter-spacing: 1px;
+  text-shadow: 0.025em 0.1em 0 var(--black-900);
+  margin: 0;
+}
+
+.mobile #main > h1.title {
+  font-size: 2rem;
+}
+
+.non_touch #main > h1.title {
+  transition: 200ms;
+}
+
+.non_touch #main > h1.title:hover {
+  text-shadow: 0.025em 0.1em 0 var(--primary);
+}
+
+#main > p.description {
+  text-align: center;
+  line-height: 22px;
+  margin: 0;
+  inline-size: auto;
+  writing-mode: horizontal-tb;
+}
+
+/* #main ul {
+    padding-left: 20px;
+    padding-right: 2px;
+    list-style-position: outside;
+}
+
+#main ul li {
+    margin-bottom: 4px;
+}
+
+#main ul li:last-child {
+    padding-bottom: 0;
+} */
+
+#main.move_out {
+  opacity: 0;
+  animation: move_out 360ms 1 ease-in;
+}
+@keyframes move_out {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc(100px * cos(var(--angle))),
+      calc(100px * sin(var(--angle)))
+    );
+    opacity: 0;
+  }
+}
+
+#main.move_in {
+  animation: move_in 360ms 1 ease;
+}
+@keyframes move_in {
+  0% {
+    transform: translate(
+      calc(-100px * cos(var(--angle))),
+      calc(-100px * sin(var(--angle)))
+    );
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+#main > .links {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: center;
+
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+}
+
+.mobile #main > .links {
+  gap: 12px;
+}
+
+/* ----- #main.home --------------- */
+
+#main.home {
+  max-width: 460px;
+}
+
+.mobile #main.home {
+  padding: 58px 16px;
+}
+
+#main.home > img.logo {
+  margin-bottom: 12px;
+  border-radius: 64px;
+}
+
+#main.home > .description {
+  text-align: center;
+}
+
+/* ----- #main.social --------------- */
+
+#main.social {
+  max-width: 500px;
+}
+
+/* ----- #main.projects --------------- */
+
+#main.projects {
+  max-width: 800px;
+}
+
+.mobile #main.projects {
+  padding: 2px;
+  max-width: 400px;
+}
+
+#main.projects > .list {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+}
+
+#main.projects > .list > .card {
+  width: 350px;
+  padding: 16px;
+  border: 1px solid var(--black-700);
+  background-color: var(--black-400);
+  border-radius: 16px;
+}
+
+#main.projects > .list > .card > .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#main.projects > .list > .card > .header > .icons {
+  display: flex;
+  gap: 4px;
+}
+
+#main.projects > .list > .card > .header > .title {
+  display: inline-block;
+}
+
+.mobile #main.projects > .list > .card {
+  padding: 12px;
+}
+
+#main.projects > .list > .card > .description {
+  padding: 12px 8px 0 8px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+#main.projects > .list > .card > .description * {
+  white-space: nowrap;
+}
+
+.mobile #main.projects > .list > .card > .description {
+  padding: 8px 4px 0 4px;
+}
+
+#main.projects > .list > .card > .description > .text {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#main.projects > .list > .card > .description > .text * {
+  display: inline;
+}
+
+.non_touch #main.projects > .list > .card,
+.non_touch #main.projects > .list > .card .title {
+  transition:
+    200ms background-color,
+    200ms border-color;
+}
+
+.non_touch #main.projects > .list > .card:hover {
+  background-color: var(--black-700);
+  border-color: var(--black-400);
+}
+
+.non_touch #main.projects > .list > .card:hover > .title {
+  background-color: var(--black-500);
+}
+
+/* ----- #main.project --------------- */
+
+#main.project {
+  padding: 0;
+}
+
+#main.project > .card {
+  width: 520px;
+  padding: 16px;
+  border: 1px solid var(--black-700);
+  background-color: var(--black-400);
+  border-radius: 16px;
+}
+
+.mobile #main.project > .card {
+  width: 350px;
+  padding: 12px;
+}
+
+#main.project > .card > .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#main.project > .card > .header > .icons {
+  display: flex;
+  gap: 4px;
+}
+
+#main.project > .card > .description {
+  width: 100%;
+  padding: 12px 8px 0 8px;
+  font-size: 15px;
+  line-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.mobile #main.project > .card > .description {
+  padding: 8px 4px 0 4px;
+}
+
+#main.project > .card > .description > p:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+/* ----- #main.music --------------- */
+
+#main.music {
+  max-width: 560px;
+  gap: 10px;
+}
+
+.mobile #main.music {
+  max-width: 420px;
+}
+
+#main.music > p {
+  text-align: center;
+}
+
+#main.music > .songs,
+#main.music > .artists {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+#main.music > .songs > a,
+#main.music > .artists > a {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#main.music > .songs > a > .img-mask,
+#main.music > .artists > a > .img-mask {
+  display: inline-block;
+  width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#main.music > .songs > a > .img-mask > img,
+#main.music > .artists > a > .img-mask > img {
+  max-width: 100%;
+}
+
+#main.music > .songs > a {
+  height: 52px;
+}
+
+#main.music > .songs > a > span {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+#main.music > .songs > a > span > .artist {
+  font-size: 12px;
+  color: var(--white-200);
+}
+
+#main.music > .songs > a > .img-mask {
+  width: 32px;
+  max-height: 32px;
+}
+
+#main.music > .artists > a > .img-mask {
+  width: 24px;
+  max-height: 24px;
+}
+
+/* ----- #main.not_found --------------- */
+
+#main.not_found > h1.404 {
+  font-size: 64px;
+  animation: glitch404 500ms infinite;
+}
+@keyframes glitch404 {
+  0% {
+    text-shadow:
+      -2px -2px 0 #ec2794cc,
+      2px 2px 0 #26ececcc;
+  }
+  20% {
+    text-shadow:
+      -1px -2px 0 #ec2693cc,
+      2px 1px 0 #26ececcc;
+  }
+  40% {
+    text-shadow:
+      -2px -1px 0 #ec2693cc,
+      2px 1px 0 #26ececcc;
+  }
+  60% {
+    text-shadow:
+      -1px -1px 0 #ec2693cc,
+      1px 2px 0 #26ececcc;
+  }
+  80% {
+    text-shadow:
+      -1px -2px 0 #ec2693cc,
+      2px 1px 0 #26ececcc;
+  }
+}
+
+.menu_c {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu_c > #menu {
+  pointer-events: auto;
+  padding: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile .menu_c > #menu {
+  gap: 6px;
+}
+
+.menu_c > #menu .clickable.button.active {
+  background: var(--primary);
+  border-color: var(--primary);
+}

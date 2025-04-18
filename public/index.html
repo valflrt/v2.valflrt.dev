@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=5"
+        />
+
+        <title>valflrt.dev</title>
+        <meta name="description" content="valflrt's portfolio" />
+        <meta
+            name="keywords"
+            content="valflrt, valentin fleurit, portfolio, programming, programmation"
+        />
+        <meta name="author" content="valflrt (Valentin Fleurit)" />
+
+        <!-- og meta tags -->
+        <meta property="og:title" content="valflrt" />
+        <meta property="og:description" content="valflrt's portfolio" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://valflrt.dev" />
+
+        <!-- css -->
+        <link rel="stylesheet" href="/index.css" />
+
+        <!-- fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:wght@500&family=Roboto+Mono&display=swap"
+            as="style"
+            onload="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito:wght@500&family=Roboto+Mono&display=swap"
+                rel="stylesheet"
+            />
+        </noscript>
+
+        <!-- favicons -->
+        <link rel="icon" href="/logo/logo-64.ico" type="image/x-icon" />
+        <link
+            rel="shortcut icon"
+            href="/logo/logo-64.ico"
+            type="image/x-icon"
+        />
+
+        <!-- color theme -->
+        <meta name="theme-color" content="#28272b" />
+        <meta name="msapplication-navbutton-color" content="#28272b" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#28272b" />
+    </head>
+    <body>
+        <div id="root">
+            <div id="layout" class="layout">
+                <div class="menu_c">
+                    <nav class="menu" id="menu">
+                        <a href="#/projects" class="clickable button"
+                            >Projects</a
+                        >
+                        <a href="#/" class="clickable button">Home</a>
+                        <a href="#/social" class="clickable button">Social</a>
+                    </nav>
+                </div>
+                <div id="main"></div>
+                <div class="toast_c">
+                    <div id="toast"></div>
+                </div>
+            </div>
+
+            <noscript>
+                <div class="layout">
+                    You absolutely need to enable javascript in your navigator
+                    if you want this page to work !
+                    <a
+                        href="https://www.enablejavascript.io/en"
+                        class="link underlined"
+                    >
+                        Learn How
+                    </a>
+                </div>
+            </noscript>
+        </div>
+
+        <script src="/index.js"></script>
+    </body>
+</html>
