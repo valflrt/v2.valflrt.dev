@@ -147,20 +147,7 @@ declare const br: () => HTMLBRElement;
 
 declare function parseSvg(svgString: string): HTMLElement;
 declare const icons: {
-  atSign: string;
-  bluesky: string;
-  cplusplus: string;
-  deviantart: string;
-  discord: string;
-  externalLink: string;
-  github: string;
-  instagram: string;
-  list: string;
-  python: string;
-  rust: string;
-  typescript: string;
-  user: string;
-  vite: string;
+  [key: string]: string;
 };
 
 // ----- routes ---------------
@@ -214,18 +201,3 @@ declare const animationDuration = 365;
 declare let prevRoute: Route;
 declare let firstLoad: boolean;
 declare let router: () => Promise<void>;
-declare module "music" {
-  interface Artist {
-    name: string;
-    link: string;
-    ppUrl: string;
-  }
-  export const artists: Artist[];
-  interface Song {
-    name: string;
-    artist: string;
-    link: string;
-    coverUrl: string;
-  }
-  export const songs: Song[];
-}
