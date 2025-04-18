@@ -66,11 +66,6 @@ export const artists: Artist[] = [
     ppUrl: "https://i.scdn.co/image/ab67616100005174af9c2fbecf7ee2c8afad6583",
   },
   {
-    name: "RIOT",
-    link: "https://open.spotify.com/artist/0qPGd8tOMHlFZt8EA1uLFY",
-    ppUrl: "https://i.scdn.co/image/ab6761610000517433b1d3113a07673039c86cc7",
-  },
-  {
     name: "Underscore",
     link: "https://open.spotify.com/artist/4Q1v2fy0yGaXQ6NueV7KN1",
     ppUrl: "https://i.scdn.co/image/ab6761610000517426699f59a197d57cf2131d92",
@@ -79,11 +74,6 @@ export const artists: Artist[] = [
     name: "Wisp X",
     link: "https://open.spotify.com/artist/6qxhZqIAvYzDVKIyyYtVlX",
     ppUrl: "https://i.scdn.co/image/ab6761610000517486c9be7e93f8c1eabd65cc85",
-  },
-  {
-    name: "Zekk",
-    link: "https://open.spotify.com/artist/6ImFfiM17Sg4T56akzOnu1",
-    ppUrl: "https://i.scdn.co/image/ab67616100005174f48272a5a973f0eba21cab0c",
   },
 ];
 
