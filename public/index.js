@@ -2,19 +2,28 @@
 
 // ----- utility ---------------
 
+/**
+ * Adds a listener to
+ * @param {string[]} events
+ * @param {<K extends keyof WindowEventMap>(name: K, e: WindowEventMap[K]) => unknown} listener
+ */
 function addWindowEventListeners(events, listener) {
   events.forEach((v) => {
-    window.addEventListener(v, (eventObject) => listener(v, eventObject));
+    window.addEventListener(v, (e) => listener(v, e));
   });
 }
 
 /**
- * Toggles `a` and `b` depending on `condition` (when
- * `condition` is `true`, `a` is enabled and `b` disabled if
- * present and when it is `false`, `a` is disabled and `b`
- * enabled if present).
+ * Toggles classnames `a` and `b` depending on `condition`
+ * (when `condition` is `true`, `a` is added and `b` removed
+ * and when it is `false`, `a` is removed and `b` added)
+ * added).
+ * @param {Element} element
+ * @param {bool} condition
+ * @param {string} a
+ * @param {string} b
  */
-function toggleClass(element, condition, a, b) {
+function conditionalClass(element, condition, a, b) {
   if (condition) {
     if (b) element.classList.remove(b);
     element.classList.add(a);
@@ -27,6 +36,9 @@ function toggleClass(element, condition, a, b) {
 /**
  * Replace `token` with `newToken` or add `newToken` to
  * classList.
+ * @param {HTMLElement} element
+ * @param {StringOrFalsy} token
+ * @param {string} newToken
  */
 function replaceOrAddClass(element, token, newToken) {
   if (token && element.classList.contains(token))
@@ -34,11 +46,21 @@ function replaceOrAddClass(element, token, newToken) {
   else element.classList.add(newToken);
 }
 
+/**
+ * Creates a promise that resolves after `ms` milliseconds.
+ * @param {number} ms
+ * @returns {Promise<unknown>}
+ */
 function wait(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-function elapsedTime(msDate) {
+/**
+ * Displays human-readable elapsed time.
+ * @param {number} ms
+ * @returns {string}
+ */
+function elapsedTime(ms) {
   function addS(n) {
     return n > 1 ? "s" : "";
   }
@@ -46,7 +68,7 @@ function elapsedTime(msDate) {
     return [Math.floor(n / d), Math.floor(n % d)];
   }
 
-  let elapsed = (Date.now() - msDate) / 1000;
+  let elapsed = (Date.now() - ms) / 1000;
 
   let [years, yearsRemaining] = compute(elapsed, 60 * 60 * 24 * 365.24);
   let [days, daysRemaining] = compute(yearsRemaining, 60 * 60 * 24);
@@ -72,6 +94,12 @@ function elapsedTime(msDate) {
     .join(" ");
 }
 
+/**
+ * Shuffles an array.
+ * @template T
+ * @param {T} array
+ * @returns {T[]}
+ */
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -82,6 +110,21 @@ function shuffle(array) {
 
 // ----- router ---------------
 
+/**
+ * Returns the current path.
+ * @returns {string} string
+ */
+function getPath() {
+  return window.location.hash.startsWith("#/")
+    ? window.location.hash.slice(1)
+    : "/";
+}
+
+/**
+ * Navigate to given path.
+ * @param {string} path
+ * @param {bool} replace Replace the previous location in history.
+ */
 function navigate(path, replace) {
   if (!replace) window.location.hash = "#".concat(path);
   else {
@@ -92,12 +135,12 @@ function navigate(path, replace) {
   }
 }
 
-function getPath() {
-  return window.location.hash.startsWith("#/")
-    ? window.location.hash.slice(1)
-    : "/";
-}
-
+/**
+ * Returns the route id associated with the current path.
+ * @param {string} path
+ * @param {Route[]} routes
+ * @returns {string}
+ */
 function getRouteIndex(path, routes) {
   return routes.findIndex(({ path: v }) => {
     let p = v.split("/").slice(1);
@@ -108,6 +151,14 @@ function getRouteIndex(path, routes) {
   });
 }
 
+/**
+ * Gets the route params from the path.
+ * Example: if `templatePath` is "/project/:id" and `path` is "/project/helloworld",
+ * then this function will return `{ id: "helloworld" }`.
+ * @param {string[]} templatePath
+ * @param {string[]} path
+ * @returns {{ key: string]: string; }}
+ */
 function getPathParams(templatePath, path) {
   let params = {};
   templatePath.forEach(
@@ -116,6 +167,11 @@ function getPathParams(templatePath, path) {
   return params;
 }
 
+/**
+ * Returns the Route object associated with the current route.
+ * @param {Route[]} routes
+ * @returns {Route}
+ */
 function getCurrentRoute(routes) {
   let currentPath = getPath().split("/").slice(1) ?? [];
   let index = getRouteIndex(currentPath, routes);
@@ -123,11 +179,10 @@ function getCurrentRoute(routes) {
 }
 
 /**
- * Creates a router
- * @param routes routes...
- * @param callback a custom function that will be executed
- * every time the route changes
- * @returns a function that must be called on hashchange
+ * Creates a router.
+ * @param {Route[]} routes
+ * @param {(route?: Route, params?: { [key: string]: string; }) => Promise<unknown>} callback executed on path change
+ * @returns {() => Promise<unknown>} a function that must be called on hashchange
  */
 function createRouter(routes, callback) {
   return async () => {
@@ -147,7 +202,12 @@ function createRouter(routes, callback) {
 // ----- html ---------------
 
 /**
- * Creates an HTML element.
+ * Creates a DOM element.
+ * @template {keyof HTMLElementTagNameMap} K
+ * @param {K} tag
+ * @param {TagPropsMap[K]} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLElementTagNameMap[K]}
  */
 function createElement(tag, props, ...children) {
   let element = document.createElement(tag);
@@ -173,6 +233,8 @@ function createElement(tag, props, ...children) {
 /**
  * Unit element: acts like a container for other elements.
  * Similar to `<></>` in react.
+ * @param  {...NodeOrFalsy} children
+ * @returns {DocumentFragment}
  */
 function unit(...children) {
   let fragment = document.createDocumentFragment();
@@ -190,30 +252,90 @@ function unit(...children) {
   return fragment;
 }
 
+/**
+ * Creates a div element.
+ * @param {HTMLDivElement} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLDivElement}
+ */
 const div = (props, ...children) => createElement("div", props, ...children);
+/**
+ * Creates a span element.
+ * @param {HTMLSpanElement} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLSpanElement}
+ */
 const span = (props, ...children) => createElement("span", props, ...children);
 
+/**
+ * Creates a h1 element.
+ * @param {HTMLHeadingElement} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLHeadingElement}
+ */
 const h1 = (props, ...children) => createElement("h1", props, ...children);
+/**
+ * Creates a p element.
+ * @param {HTMLParagraphElement} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLParagraphElement}
+ */
 const p = (props, ...children) => createElement("p", props, ...children);
+/**
+ * Creates a code element.
+ * @param {HTMLElement} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLElement}
+ */
 const code = (props, ...children) => createElement("code", props, ...children);
 
+/**
+ * Creates a a element.
+ * @param {HTMLAnchorElement} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLAnchorElement}
+ */
 const a = (props, ...children) => createElement("a", props, ...children);
+/**
+ * Creates a button element.
+ * @param {HTMLButtonElement} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLButtonElement}
+ */
 const button = (props, ...children) =>
   createElement("button", props, ...children);
 
+/**
+ * Creates a img element.
+ * @param {HTMLImageElement} props
+ * @param  {...NodeOrFalsy} children
+ * @returns {HTMLImageElement}
+ */
 const img = (props, ...children) => createElement("img", props, ...children);
 
+/**
+ * Creates a br element.
+ * @returns {HTMLBRElement}
+ */
 const br = () => createElement("br", {});
 
 // ----- icons ---------------
 
 // icons from https://simpleicons.org and https://feathericons.com/
 
+/**
+ * Parse a svg string to a HTMLElement.
+ * @param {string} svgString
+ * @returns {HTMLElement}
+ */
 function parseSvg(svgString) {
   let parser = new DOMParser();
   return parser.parseFromString(svgString, "image/svg+xml").documentElement;
 }
 
+/**
+ * @type {{ [key: string]: string; }}
+ */
 const icons = {
   atSign:
     '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-at-sign"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>',
@@ -243,6 +365,9 @@ const icons = {
 
 // ----- routes ---------------
 
+/**
+ * @type {Route[]}
+ */
 const routes = [
   {
     id: "project",
@@ -549,6 +674,9 @@ const routes = [
 
 // ----- projects ---------------
 
+/**
+ * @type {Project[]}
+ */
 const projects = [
   {
     id: "smarticles-fork",
@@ -773,79 +901,9 @@ const projects = [
 
 // ----- music ---------------
 
-const artists = [
-  {
-    name: "633397",
-    link: "https://open.spotify.com/artist/5k0oBNr9sJYxH36FQHkHzB",
-    ppUrl: "https://i.scdn.co/image/ab67616100005174ad7981136d44370cd27eb413",
-  },
-  {
-    name: "Bring Me The Horizon",
-    link: "https://open.spotify.com/artist/1Ffb6ejR6Fe5IamqA5oRUF",
-    ppUrl: "https://i.scdn.co/image/ab67616100005174e7c9399d0b5d813c20cbec65",
-  },
-  {
-    name: "Camellia",
-    link: "https://open.spotify.com/artist/4bwIf0yXJf0F9AmOl2J78M",
-    ppUrl: "https://i.scdn.co/image/ab67616100005174264c4769a9b0920d70b1c947",
-  },
-  {
-    name: "Daeya",
-    link: "https://open.spotify.com/artist/0mbYVz9eUusAiuRotLpKQL",
-    ppUrl: "https://i.scdn.co/image/ab676161000051749b5d2786d482a0e75f594620",
-  },
-  {
-    name: "Fractal Dreamers",
-    link: "https://open.spotify.com/artist/330CrlhCaxON7pZwIZsnXR",
-    ppUrl: "https://i.scdn.co/image/ab67616d00001e02bb6fa55ca97d9b7afa202ba3",
-  },
-  {
-    name: "I-YU",
-    link: "https://open.spotify.com/artist/3aoCmSBmN08hyyHGjfTiRr",
-    ppUrl: "https://i.scdn.co/image/ab67616100005174d1e885880238f3054d3e9c7f",
-  },
-  {
-    name: "Kobaryo",
-    link: "https://open.spotify.com/artist/1Y81Ch90opScfpMfN17lZb",
-    ppUrl: "https://i.scdn.co/image/ab67616100005174f2fb9febceb0ab623cba68df",
-  },
-  {
-    name: "Kotori",
-    link: "https://open.spotify.com/artist/20UYCAvAHJ1WqrCElptD7O",
-    ppUrl: "https://i.scdn.co/image/ab6761610000517430b3616873c8f1684a72b906",
-  },
-  {
-    name: "Laur",
-    link: "https://open.spotify.com/artist/5fxJUmn4RTMzD0XPkTUpK3",
-    ppUrl: "https://i.scdn.co/image/ab6761610000517476df08a9224db83a4981d25d",
-  },
-  {
-    name: "Ludicin",
-    link: "https://open.spotify.com/artist/5lvLarHbnOXeRBrRlzUaak",
-    ppUrl: "https://i.scdn.co/image/ab676161000051740ad6a0f927259608ac6a651e",
-  },
-  {
-    name: "MUST DIE!",
-    link: "https://open.spotify.com/artist/4aBx7mA6lUOVhEsjokZrXb",
-    ppUrl: "https://i.scdn.co/image/ab67616100005174ff3f8c844a503e1ba7218810",
-  },
-  {
-    name: "Reol",
-    link: "https://open.spotify.com/artist/7rpKUJ0AnklJ8q9nIPVSpZ",
-    ppUrl: "https://i.scdn.co/image/ab67616100005174af9c2fbecf7ee2c8afad6583",
-  },
-  {
-    name: "Underscore",
-    link: "https://open.spotify.com/artist/4Q1v2fy0yGaXQ6NueV7KN1",
-    ppUrl: "https://i.scdn.co/image/ab6761610000517426699f59a197d57cf2131d92",
-  },
-  {
-    name: "Wisp X",
-    link: "https://open.spotify.com/artist/6qxhZqIAvYzDVKIyyYtVlX",
-    ppUrl: "https://i.scdn.co/image/ab6761610000517486c9be7e93f8c1eabd65cc85",
-  },
-];
-
+/**
+ * @type {Song[]}
+ */
 const songs = [
   {
     name: "2025 BPM CANNOT SAVE YOU",
@@ -1003,32 +1061,120 @@ const songs = [
   },
 ];
 
+/**
+ * @type {Artist[]}
+ */
+const artists = [
+  {
+    name: "633397",
+    link: "https://open.spotify.com/artist/5k0oBNr9sJYxH36FQHkHzB",
+    ppUrl: "https://i.scdn.co/image/ab67616100005174ad7981136d44370cd27eb413",
+  },
+  {
+    name: "Bring Me The Horizon",
+    link: "https://open.spotify.com/artist/1Ffb6ejR6Fe5IamqA5oRUF",
+    ppUrl: "https://i.scdn.co/image/ab67616100005174e7c9399d0b5d813c20cbec65",
+  },
+  {
+    name: "Camellia",
+    link: "https://open.spotify.com/artist/4bwIf0yXJf0F9AmOl2J78M",
+    ppUrl: "https://i.scdn.co/image/ab67616100005174264c4769a9b0920d70b1c947",
+  },
+  {
+    name: "Daeya",
+    link: "https://open.spotify.com/artist/0mbYVz9eUusAiuRotLpKQL",
+    ppUrl: "https://i.scdn.co/image/ab676161000051749b5d2786d482a0e75f594620",
+  },
+  {
+    name: "Fractal Dreamers",
+    link: "https://open.spotify.com/artist/330CrlhCaxON7pZwIZsnXR",
+    ppUrl: "https://i.scdn.co/image/ab67616d00001e02bb6fa55ca97d9b7afa202ba3",
+  },
+  {
+    name: "I-YU",
+    link: "https://open.spotify.com/artist/3aoCmSBmN08hyyHGjfTiRr",
+    ppUrl: "https://i.scdn.co/image/ab67616100005174d1e885880238f3054d3e9c7f",
+  },
+  {
+    name: "Kobaryo",
+    link: "https://open.spotify.com/artist/1Y81Ch90opScfpMfN17lZb",
+    ppUrl: "https://i.scdn.co/image/ab67616100005174f2fb9febceb0ab623cba68df",
+  },
+  {
+    name: "Kotori",
+    link: "https://open.spotify.com/artist/20UYCAvAHJ1WqrCElptD7O",
+    ppUrl: "https://i.scdn.co/image/ab6761610000517430b3616873c8f1684a72b906",
+  },
+  {
+    name: "Laur",
+    link: "https://open.spotify.com/artist/5fxJUmn4RTMzD0XPkTUpK3",
+    ppUrl: "https://i.scdn.co/image/ab6761610000517476df08a9224db83a4981d25d",
+  },
+  {
+    name: "Ludicin",
+    link: "https://open.spotify.com/artist/5lvLarHbnOXeRBrRlzUaak",
+    ppUrl: "https://i.scdn.co/image/ab676161000051740ad6a0f927259608ac6a651e",
+  },
+  {
+    name: "MUST DIE!",
+    link: "https://open.spotify.com/artist/4aBx7mA6lUOVhEsjokZrXb",
+    ppUrl: "https://i.scdn.co/image/ab67616100005174ff3f8c844a503e1ba7218810",
+  },
+  {
+    name: "Reol",
+    link: "https://open.spotify.com/artist/7rpKUJ0AnklJ8q9nIPVSpZ",
+    ppUrl: "https://i.scdn.co/image/ab67616100005174af9c2fbecf7ee2c8afad6583",
+  },
+  {
+    name: "Underscore",
+    link: "https://open.spotify.com/artist/4Q1v2fy0yGaXQ6NueV7KN1",
+    ppUrl: "https://i.scdn.co/image/ab6761610000517426699f59a197d57cf2131d92",
+  },
+  {
+    name: "Wisp X",
+    link: "https://open.spotify.com/artist/6qxhZqIAvYzDVKIyyYtVlX",
+    ppUrl: "https://i.scdn.co/image/ab6761610000517486c9be7e93f8c1eabd65cc85",
+  },
+];
+
 // ----- toast ---------------
+
+const toastEl = document.getElementById("toast");
+
+const toastDuration = 2000;
 
 let hideTimeout = null;
 
-function hideToast(toast) {
+/**
+ * Hides the toast element.
+ * @returns {number}
+ */
+function hideToast() {
   return setTimeout(() => {
-    replaceOrAddClass(toast, "visible", "hidden");
-    toast.classList.remove("bounce", "color-success", "color-error");
-  }, 2000);
+    replaceOrAddClass(toastEl, "visible", "hidden");
+    toastEl.classList.remove("bounce", "color-success", "color-error");
+  }, toastDuration);
 }
 
+/**
+ * Displays a toast notification.
+ * @param {string} text
+ * @param {"default" | "highlight" | "success" | "error"} kind
+ */
 function toast(text, kind = "default") {
-  let toast = document.getElementById("toast");
-  if (kind !== "default") toast.classList.add(`color-${kind}`);
-  if (toast.classList.contains("visible")) {
-    toast.innerHTML = text;
+  if (kind !== "default") toastEl.classList.add(`color-${kind}`);
+  if (toastEl.classList.contains("visible")) {
+    toastEl.innerHTML = text;
     if (hideTimeout) clearTimeout(hideTimeout);
-    hideTimeout = hideToast(toast);
+    hideTimeout = hideToast();
   } else {
-    replaceOrAddClass(toast, "hidden", "visible");
-    toast.innerHTML = text;
-    hideTimeout = hideToast(toast);
+    replaceOrAddClass(toastEl, "hidden", "visible");
+    toastEl.innerHTML = text;
+    hideTimeout = hideToast(toastEl);
   }
 }
 
-// ----- index ---------------
+// ----- logic ---------------
 
 const layoutEl = document.getElementById("layout");
 const mainEl = document.getElementById("main");
@@ -1076,7 +1222,7 @@ let router = createRouter(routes, async (route, params) => {
       document
         .querySelectorAll("#menu > a")
         .forEach((e) =>
-          toggleClass(
+          conditionalClass(
             e,
             new URL(e.href).hash.slice(1) === route.path,
             "active",
@@ -1098,13 +1244,13 @@ let router = createRouter(routes, async (route, params) => {
 
 addWindowEventListeners(["load", "hashchange"], router);
 addWindowEventListeners(["load", "resize"], () => {
-  toggleClass(
+  conditionalClass(
     layoutEl,
     "ontouchstart" in window || !!navigator.maxTouchPoints,
     "touch",
     "non_touch",
   );
-  toggleClass(layoutEl, window.innerWidth < 750, "mobile", "desktop");
+  conditionalClass(layoutEl, window.innerWidth < 750, "mobile", "desktop");
 });
 
 document.addEventListener("click", (e) => {
