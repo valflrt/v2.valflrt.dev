@@ -3,7 +3,8 @@
 // ----- utility ---------------
 
 /**
- * Adds a listener to
+ * Adds a window event listener to several event
+ * types.
  * @param {string[]} events
  * @param {<K extends keyof WindowEventMap>(name: K, e: WindowEventMap[K]) => unknown} listener
  */
@@ -14,10 +15,10 @@ function addWindowEventListeners(events, listener) {
 }
 
 /**
- * Toggles classnames `a` and `b` depending on `condition`
- * (when `condition` is `true`, `a` is added and `b` removed
- * and when it is `false`, `a` is removed and `b` added)
- * added).
+ * Toggles classnames `a` and `b` depending on
+ * `condition` (when `condition` is `true`, `a` is
+ * added and `b` removed and when it is `false`, `a`
+ * is removed and `b` added).
  * @param {Element} element
  * @param {bool} condition
  * @param {string} a
@@ -34,8 +35,8 @@ function conditionalClass(element, condition, a, b) {
 }
 
 /**
- * Replace `token` with `newToken` or add `newToken` to
- * classList.
+ * Replace `token` with `newToken` or add `newToken`
+ * to classList.
  * @param {HTMLElement} element
  * @param {StringOrFalsy} token
  * @param {string} newToken
@@ -47,7 +48,8 @@ function replaceOrAddClass(element, token, newToken) {
 }
 
 /**
- * Creates a promise that resolves after `ms` milliseconds.
+ * Creates a promise that resolves after `ms`
+ * milliseconds.
  * @param {number} ms
  * @returns {Promise<unknown>}
  */
@@ -136,7 +138,8 @@ function navigate(path, replace) {
 }
 
 /**
- * Returns the route id associated with the current path.
+ * Returns the route id associated with the current
+ * path.
  * @param {string} path
  * @param {Route[]} routes
  * @returns {string}
@@ -153,8 +156,9 @@ function getRouteIndex(path, routes) {
 
 /**
  * Gets the route params from the path.
- * Example: if `templatePath` is "/project/:id" and `path` is "/project/helloworld",
- * then this function will return `{ id: "helloworld" }`.
+ * Example: if `templatePath` is "/project/:id" and
+ * `path` is "/project/helloworld", then this function
+ * will return `{ id: "helloworld" }`.
  * @param {string[]} templatePath
  * @param {string[]} path
  * @returns {{ key: string]: string; }}
@@ -168,7 +172,8 @@ function getPathParams(templatePath, path) {
 }
 
 /**
- * Returns the Route object associated with the current route.
+ * Returns the Route object associated with the
+ * current route.
  * @param {Route[]} routes
  * @returns {Route}
  */
@@ -233,8 +238,8 @@ function createElement(tag, props, ...children) {
 }
 
 /**
- * Unit element: acts like a container for other elements.
- * Similar to `<></>` in react.
+ * Unit element: acts like a container for other
+ * elements. Similar to `<></>` in react.
  * @param  {...NodeOrFalsy} children
  * @returns {DocumentFragment}
  */
