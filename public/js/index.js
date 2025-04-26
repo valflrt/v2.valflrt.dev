@@ -1,4 +1,4 @@
-/// <reference path="../index.d.ts" />
+/// <reference path="../../index.d.ts" />
 
 import { createRouter, getCurrentRoute, navigate } from "./js/router.js";
 import routes from "./js/routes.js";
