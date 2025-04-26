@@ -1,14 +1,14 @@
 /// <reference path="../../index.d.ts" />
 
-import { createRouter, getCurrentRoute, navigate } from "./js/router.js";
-import routes from "./js/routes.js";
-import toast from "./js/toast.js";
+import { createRouter, getCurrentRoute, navigate } from "./router.js";
+import routes from "./routes.js";
+import toast from "./toast.js";
 import {
   addWindowEventListeners,
   conditionalClass,
   replaceOrAddClass,
   wait,
-} from "./js/util.js";
+} from "./util.js";
 
 const layoutEl = document.getElementById("layout");
 const mainEl = document.getElementById("main");
