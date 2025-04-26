@@ -582,7 +582,7 @@ svg[role="img"] path {
 
 /* ----- #main.not_found --------------- */
 
-#main.not_found > h1.404 {
+#main.not_found > h1.glitch404 {
   font-size: 64px;
   animation: glitch404 500ms infinite;
 }

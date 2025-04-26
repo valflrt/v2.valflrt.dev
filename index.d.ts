@@ -2,7 +2,6 @@ type StringOrFalsy = string | false | null | undefined;
 type NodeOrFalsy = Node | StringOrFalsy;
 
 // ----- router ---------------
-
 interface Route {
   id: string;
   name?: string;
