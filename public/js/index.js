@@ -63,8 +63,6 @@ let router = createRouter(routes, async (route, params) => {
           ),
         );
 
-      // Add listeners for copy buttons
-
       if (prevRoute.id != route.id) firstLoad = false;
       prevRoute = route;
     }
