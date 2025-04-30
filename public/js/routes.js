@@ -85,7 +85,7 @@ const routes = [
     id: "social",
     name: "Social",
     path: "/social",
-    pos: { x: 1, y: -0.2 },
+    pos: { x: 1, y: -0.3 },
     content: () =>
       unit(
         h1({ class: "title" }, "Social"),
