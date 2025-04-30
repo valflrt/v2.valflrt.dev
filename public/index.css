@@ -456,7 +456,7 @@ svg[role="img"] path {
   border-color: var(--black-400);
 }
 
-.non_touch #main.projects > .list > .card:hover > .title {
+.non_touch #main.projects > .list > .card:hover > .header > .title {
   background-color: var(--black-500);
 }
 

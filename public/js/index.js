@@ -86,16 +86,14 @@ addWindowEventListeners(["load", "resize"], () => {
 });
 
 document.addEventListener("click", (e) => {
-  if (!!e.target) {
-    if (e.target.matches(".copy[data-copy]:not(.activated)")) {
-      navigator.clipboard
-        .writeText(e.target.dataset.copy ?? "")
-        .then(() => {
-          toast("Copied !", "highlight");
-        })
-        .catch(() => {
-          toast("Failed to copy", "error");
-        });
-    }
-  }
+  let target = e.target.closest(".copy[data-copy]");
+  if (target)
+    navigator.clipboard
+      .writeText(e.target.dataset.copy ?? "")
+      .then(() => {
+        toast("Copied !", "highlight");
+      })
+      .catch(() => {
+        toast("Failed to copy", "error");
+      });
 });
