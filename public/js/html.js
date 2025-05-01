@@ -1,11 +1,35 @@
 /// <reference path="../../index.d.ts" />
 
 /**
+ * Appends children to a node, note that children can be either
+ * a `string`, a `Node`, or a `Promise<Node>`.
+ * @param {Node} node
+ * @param  {NodeOrFalsy[]} children
+ */
+function appendChildren(node, children) {
+  children
+    .filter((v) => !!v)
+    .forEach((child) => {
+      if (typeof child === "string") {
+        node.appendChild(document.createTextNode(child));
+      } else if (child instanceof Node) {
+        node.appendChild(child);
+      } else if (child instanceof Promise) {
+        let placeHolder = document.createComment("loading...");
+        node.appendChild(placeHolder);
+        child.then((resolvedChild) => {
+          placeHolder.parentNode.replaceChild(resolvedChild, placeHolder);
+        });
+      }
+    });
+}
+
+/**
  * Creates a DOM element.
  * @template {keyof HTMLElementTagNameMap} K
  * @param {K} tag
  * @param {TagPropsMap[K]} [props]
- * @param  {...NodeOrFalsy} [children]
+ * @param  {...NodeOrFalsy} children
  * @returns {HTMLElementTagNameMap[K]}
  */
 export function createElement(tag, props, ...children) {
@@ -17,16 +41,7 @@ export function createElement(tag, props, ...children) {
       element.setAttribute(k, v);
     });
 
-  if (!!children)
-    children
-      .filter((v) => !!v)
-      .forEach((child) => {
-        if (typeof child === "string") {
-          element.appendChild(document.createTextNode(child));
-        } else {
-          element.appendChild(child);
-        }
-      });
+  appendChildren(element, children);
 
   return element;
 }
@@ -40,15 +55,7 @@ export function createElement(tag, props, ...children) {
 export function unit(...children) {
   let fragment = document.createDocumentFragment();
 
-  children
-    .filter((v) => !!v)
-    .forEach((child) => {
-      if (typeof child === "string") {
-        fragment.appendChild(document.createTextNode(child.toString()));
-      } else {
-        fragment.appendChild(child);
-      }
-    });
+  appendChildren(fragment, children);
 
   return fragment;
 }

@@ -30,9 +30,9 @@ interface Project {
   links?: {
     url: string;
     name: string;
-    icon?: keyof typeof icons;
+    icon?: IconNames;
   }[];
-  used?: (keyof typeof icons)[];
+  used?: IconNames[];
 }
 
 // ----- music ---------------
@@ -49,3 +49,19 @@ interface Song {
   link: string;
   coverUrl: string;
 }
+
+// ----- icons ---------------
+
+type IconNames =
+  | "at_sign"
+  | "cplusplus"
+  | "deviantart"
+  | "discord"
+  | "external_link"
+  | "github"
+  | "html"
+  | "instagram"
+  | "javascript"
+  | "list"
+  | "rust"
+  | "user";

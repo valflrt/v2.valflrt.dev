@@ -142,7 +142,7 @@ const routes = [
               class: "button clickable copy",
             },
             "Email",
-            icon("atSign"),
+            icon("at_sign"),
           ),
         ),
       ),
@@ -221,7 +221,7 @@ const routes = [
               a(
                 { href: l.url, class: "button clickable", target: "_blank" },
                 l.name,
-                icon(l.icon ?? "externalLink"),
+                icon(l.icon ?? "external_link"),
               ),
             ),
             a(
