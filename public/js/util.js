@@ -17,12 +17,12 @@ export function addWindowEventListeners(events, listener) {
  * `condition` (when `condition` is `true`, `a` is
  * added and `b` removed and when it is `false`, `a`
  * is removed and `b` added).
- * @param {Element} element
+ * @param {HTMLElement} element
  * @param {bool} condition
  * @param {string} a
  * @param {string} b
  */
-export function conditionalClass(element, condition, a, b) {
+export function toggleClasses(element, condition, a, b) {
   if (condition) {
     if (b) element.classList.remove(b);
     element.classList.add(a);
@@ -40,7 +40,7 @@ export function conditionalClass(element, condition, a, b) {
  * @param {string} newToken
  */
 export function replaceOrAddClass(element, token, newToken) {
-  if (token && element.classList.contains(token))
+  if (!!token && element.classList.contains(token))
     element.classList.replace(token, newToken);
   else element.classList.add(newToken);
 }
@@ -56,6 +56,20 @@ export function wait(ms) {
 }
 
 /**
+ * Shuffles an array.
+ * @template T
+ * @param {T} array
+ * @returns {T[]}
+ */
+export function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+/**
  * Displays human-readable elapsed time.
  * @param {number} ms
  * @returns {string}
@@ -64,16 +78,16 @@ export function elapsedTime(ms) {
   function addS(n) {
     return n > 1 ? "s" : "";
   }
-  function compute(n, d) {
+  function euclid(n, d) {
     return [Math.floor(n / d), Math.floor(n % d)];
   }
 
   let elapsed = (Date.now() - ms) / 1000;
 
-  let [years, yearsRemaining] = compute(elapsed, 60 * 60 * 24 * 365.24);
-  let [days, daysRemaining] = compute(yearsRemaining, 60 * 60 * 24);
-  let [hours, _hoursRemaining] = compute(daysRemaining, 60 * 60);
-  // let [minutes, _minutesRemaining] = compute(hoursRemaining, 60);
+  let [years, yearsRemaining] = euclid(elapsed, 60 * 60 * 24 * 365.24);
+  let [days, daysRemaining] = euclid(yearsRemaining, 60 * 60 * 24);
+  let [hours, _hoursRemaining] = euclid(daysRemaining, 60 * 60);
+  // let [minutes, _minutesRemaining] = euclid(hoursRemaining, 60);
   // let seconds = minutesRemaining % 60;
 
   return Object.entries({
@@ -92,18 +106,4 @@ export function elapsedTime(ms) {
         .concat(i === arr.length - 2 ? " and" : ""),
     )
     .join(" ");
-}
-
-/**
- * Shuffles an array.
- * @template T
- * @param {T} array
- * @returns {T[]}
- */
-export function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
 }

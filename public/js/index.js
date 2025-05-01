@@ -5,7 +5,7 @@ import routes from "./routes.js";
 import toast from "./toast.js";
 import {
   addWindowEventListeners,
-  conditionalClass,
+  toggleClasses,
   replaceOrAddClass,
   wait,
 } from "./util.js";
@@ -56,7 +56,7 @@ let router = createRouter(routes, async (route, params) => {
       document
         .querySelectorAll("#menu > a")
         .forEach((e) =>
-          conditionalClass(
+          toggleClasses(
             e,
             new URL(e.href).hash.slice(1) === route.path,
             "active",
@@ -76,13 +76,13 @@ let router = createRouter(routes, async (route, params) => {
 
 addWindowEventListeners(["load", "hashchange"], router);
 addWindowEventListeners(["load", "resize"], () => {
-  conditionalClass(
+  toggleClasses(
     layoutEl,
     "ontouchstart" in window || !!navigator.maxTouchPoints,
     "touch",
     "non_touch",
   );
-  conditionalClass(layoutEl, window.innerWidth < 750, "mobile", "desktop");
+  toggleClasses(layoutEl, window.innerWidth < 750, "mobile", "desktop");
 });
 
 document.addEventListener("click", (e) => {

@@ -1,5 +1,5 @@
 type StringOrFalsy = string | false | null | undefined;
-type NodeOrFalsy = Node | StringOrFalsy;
+type NodeOrFalsy = Node | Promise<Node> | StringOrFalsy;
 
 // ----- router ---------------
 interface Route {

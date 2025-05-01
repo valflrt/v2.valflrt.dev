@@ -2,7 +2,7 @@
 
 import { a, br, button, code, div, h1, img, p, span, unit } from "./html.js";
 import icon from "./icons.js";
-import { artistIds, fetchArtist, fetchSong, songIds } from "./music.js";
+import { artists, songs } from "./music.js";
 import projects from "./projects.js";
 import { navigate } from "./router.js";
 import { elapsedTime, shuffle } from "./util.js";
@@ -244,11 +244,10 @@ const routes = [
         p({}, "Those are some songs I really like:"),
         div(
           { class: "songs" },
-          ...shuffle(songIds)
+          ...shuffle(songs)
             .slice(0, 5)
-            .map(async (songId) => {
-              let song = await fetchSong(songId);
-              return a(
+            .map((song) =>
+              a(
                 {
                   href: song.link,
                   target: "_blank",
@@ -261,17 +260,16 @@ const routes = [
                   }),
                 ),
                 span({}, song.name, span({ class: "artist" }, song.artist)),
-              );
-            }),
+              ),
+            ),
         ),
         p({}, "Here are some of my favorite artists:"),
         div(
           { class: "artists" },
-          ...shuffle(artistIds)
+          ...shuffle(artists)
             .slice(0, 6)
-            .map(async (artistId) => {
-              let artist = await fetchArtist(artistId);
-              return a(
+            .map((artist) =>
+              a(
                 {
                   href: artist.link,
                   target: "_blank",
@@ -284,8 +282,8 @@ const routes = [
                   }),
                 ),
                 span({}, artist.name),
-              );
-            }),
+              ),
+            ),
         ),
         p({ class: "faded" }, "randomized on page refresh"),
       ),
