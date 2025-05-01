@@ -1,16 +1,6 @@
 /// <reference path="../../index.d.ts" />
 
 /**
- * Returns the current path.
- * @returns {string} string
- */
-export function getPath() {
-  return window.location.hash.startsWith("#/")
-    ? window.location.hash.slice(1)
-    : "/";
-}
-
-/**
  * Navigate to given path.
  * @param {string} path
  * @param {bool} replace Replace the previous location in history.
@@ -23,6 +13,16 @@ export function navigate(path, replace) {
     window.history.replaceState(null, "", newUrl);
     window.dispatchEvent(new Event("hashchange"));
   }
+}
+
+/**
+ * Returns the current path.
+ * @returns {string} string
+ */
+export function getPath() {
+  return window.location.hash.startsWith("#/")
+    ? window.location.hash.slice(1)
+    : "/";
 }
 
 /**

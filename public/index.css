@@ -97,6 +97,7 @@ svg[role="img"] path {
 
 .link {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .clickable {

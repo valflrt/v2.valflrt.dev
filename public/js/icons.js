@@ -2,12 +2,7 @@
 
 // icons from https://simpleicons.org and https://feathericons.com/
 
-const parser = new DOMParser();
-
-/**
- * @type {Map<string, HTMLElement>}
- */
-const cache = new Map();
+const iconParser = new DOMParser();
 
 /**
  * Returns the corresponding icon element.
@@ -15,18 +10,12 @@ const cache = new Map();
  * @returns {Promise<HTMLElement>}
  */
 export default async function icon(name) {
-  if (cache.has(name)) {
-    return cache.get(name).cloneNode(true);
-  }
-
-  let res = await fetch(`/icons/${name}.svg`);
+  let res = await fetch(`/icons/${name}.svg`, { cache: "force-cache" });
   let svgString = await res.text();
-  let svgElement = parser.parseFromString(
+  let svgElement = iconParser.parseFromString(
     svgString,
     "image/svg+xml",
   ).documentElement;
-
-  cache.set(name, svgElement);
 
   return svgElement;
 }
